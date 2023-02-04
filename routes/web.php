@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\PenposController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,3 +17,6 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/HomePenpos', [PenposController::class, 'index'])->name("HomePenpos");
+Route::post('/insertHasilGame', [PenposController::class, 'insertHasilGame']);
