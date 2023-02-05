@@ -47,4 +47,28 @@ class PenposController extends Controller
         }
         return Redirect::route("HomePenpos");
     }
+
+    //Method mengambil semua post permainan
+    public function getAllPos()
+    {
+        return view('allpos', [
+            "pos" => Penpos::all()
+        ]);
+    }
+
+    public function updateStatusPos()
+    {
+        //id penpos sementara yang akan diupdate yaitu 1
+        $penposId = 1;
+        $selectedPos = Penpos::find($penposId);
+
+        // Make sure you've got the Page model
+        if ($selectedPos) {
+            $selectedPos->status = 'PENUH';
+            $selectedPos->save();
+        }
+        return Redirect::route("HomePenpos");
+        // return view('/HomePenpos');
+
+    }
 }

@@ -20,3 +20,11 @@ Route::get('/', function () {
 
 Route::get('/HomePenpos', [PenposController::class, 'index'])->name("HomePenpos");
 Route::post('/insertHasilGame', [PenposController::class, 'insertHasilGame']);
+
+//Menampilkan semua pos permainan
+Route::get('/HomePage', [PenposController::class, 'getAllPos']);
+
+//Mengedit status pos permainan
+Route::get('/UpdateStatus', [PenposController::class, 'updateStatusPos'])->name('PenposUpdate');
+
+

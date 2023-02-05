@@ -51,6 +51,7 @@
             <input type="text" name="hasilGame" id="hasilGame" placeholder="Team A menang - Team...">
             <button type="submit" id="finishGame">Finish Games!</button>
         </form>
+        <button class="btn"><a href="{{ route('PenposUpdate') }}">Start Game</a></button>
     </div>
     <script>
         // add selected teams to lobby table
