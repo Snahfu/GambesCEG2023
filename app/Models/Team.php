@@ -15,7 +15,7 @@ class Team extends Model
     public function penpos()
     {
         // many to many relationship
-        return $this->belongsToMany(Penpos::class)->using(PenposTeam::class);
+        return $this->belongsToMany(Penpos::class, 'penpos_teams', 'penpos_id', 'teams_id');
     }
 
     protected $fillable = [
