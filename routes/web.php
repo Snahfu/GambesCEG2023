@@ -27,4 +27,6 @@ Route::get('/HomePage', [PenposController::class, 'getAllPos']);
 //Mengedit status pos permainan
 Route::get('/UpdateStatus', [PenposController::class, 'updateStatusPos'])->name('PenposUpdate');
 
-
+//Untuk testing front-end (sudah selesai silahkan diubah jika perlu)
+Route::view('/posbattle','posbattle.index')->name("posbattle");
+Route::view('/historybattle','posbattle.history')->name("historybattle");
