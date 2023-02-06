@@ -31,3 +31,4 @@ Route::get('/UpdateStatus', [PenposController::class, 'updateStatusPos'])->name(
 Route::view('/posbattle','posbattle.index')->name("posbattle");
 Route::view('/historybattle','posbattle.history')->name("historybattle");
 Route::view('/singlepos','SinglePos.single')->name("singlepos");
+Route::view('/posjasa','SinglePos.posjasa')->name("posjasa");

@@ -44,9 +44,9 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
-                  <li class="nav-item">
-                    <a class="nav-link active" href="#">Histori</a>
-                </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#">Histori</a>
+                    </li>
                   <li class="nav-item">
                     <a class="nav-link active" aria-current="page" href="#">Log Out</a>
                   </li>
@@ -66,7 +66,7 @@
 
               {{-- Header --}}
               <div class="card-header text-center" style="background-color:#ffffff;">
-                <h2 class="fw-semibold" style="color:rgba(0, 0, 0, 0.704);">Pos Single</h2>
+                <h2 class="fw-semibold" style="color:rgba(0, 0, 0, 0.704);">Pos Jasa</h2>
               </div>
               {{-- End Header --}}
 
