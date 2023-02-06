@@ -34,6 +34,66 @@
         .card{
             box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
         }
+        .switch {
+            position: relative;
+            display: inline-block;
+            width: 60px;
+            height: 34px;
+        }
+
+        .switch input { 
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+
+        .slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #ccc;
+            -webkit-transition: .4s;
+            transition: .4s;
+        }
+
+        .slider:before {
+            position: absolute;
+            content: "";
+            height: 26px;
+            width: 26px;
+            left: 4px;
+            bottom: 4px;
+            background-color: white;
+            -webkit-transition: .4s;
+            transition: .4s;
+        }
+
+        input:checked + .slider {
+            background-color: #2196F3;
+        }
+
+        input:focus + .slider {
+            box-shadow: 0 0 1px #2196F3;
+        }
+
+        input:checked + .slider:before {
+            -webkit-transform: translateX(26px);
+            -ms-transform: translateX(26px);
+            transform: translateX(26px);
+        }
+
+        /* Rounded sliders */
+        .slider.round {
+            border-radius: 34px;
+        }
+
+        .slider.round:before {
+            border-radius: 50%;
+        }
+
     </style>
     <!--End Style-->
 
@@ -48,7 +108,6 @@
             <a class="nav-link" href="#">Log Out</a>
     </ul>
     <!--End Nav-->
-
     <!--Content-->
     <div class="container py-5">
         <div class="row">
@@ -103,10 +162,10 @@
                         <div class="col-2">
                             <select name="koin[]" class="form-select" aria-label="Default select example"  style="text-align: center;">
                                 <option selected hidden>--Input Koin--</option>
-                                <option value="1">25</option>
-                                <option value="2">50</option>
-                                <option value="3">75</option>
-                                <option value="4">100</option>
+                                <option value="25">25</option>
+                                <option value="50">50</option>
+                                <option value="75">75</option>
+                                <option value="100">100</option>
                             </select>
                         </div>
                         {{-- <div class="col-2">
@@ -149,10 +208,10 @@
                         <div class="col-2">
                             <select name="koin[]" class="form-select" aria-label="Default select example" style="text-align: center;">
                                 <option selected hidden>--Input Koin--</option>
-                                <option value="1">25</option>
-                                <option value="2">50</option>
-                                <option value="3">75</option>
-                                <option value="4">100</option>
+                                <option value="25">25</option>
+                                <option value="50">50</option>
+                                <option value="75">75</option>
+                                <option value="100">100</option>
                             </select>
                         </div>
                         {{-- <div class="col-2">
@@ -195,10 +254,10 @@
                         <div class="col-2">
                             <select name="koin[]" class="form-select" aria-label="Default select example" style="text-align: center;">
                                 <option selected hidden>--Input Koin--</option>
-                                <option value="1">25</option>
-                                <option value="2">50</option>
-                                <option value="3">75</option>
-                                <option value="4">100</option>
+                                <option value="25">25</option>
+                                <option value="50">50</option>
+                                <option value="75">75</option>
+                                <option value="100">100</option>
                             </select>
                         </div>
                         {{-- <div class="col-2">
@@ -215,7 +274,7 @@
                     <!--End Button Submit-->
 
                 </form>
-              
+
             </div>
             <!--End Card Body-->
             
@@ -226,9 +285,15 @@
                 <button type="button" class="btn btn-danger mx-2">Kalah</button>
             </div> --}}
 
-            <div class="card-footer" style="background-color: #E2626B; text-align: center;">
-                Status Pos : <span id="statusPos"></span>
+            
+            <div class="card-footer" style="{{$penposData->status == 'KOSONG' ? 'background-color: #008917; ':'background-color:#e2626b;'}} text-align: center;">
+                Status Pos : {{$penposData->status == 'KOSONG' ? 'Kosong':'Penuh'}} <span id="statusPos"></span>
+                <label class="switch">
+                    <input type="checkbox" id="statusCheckbox" {{$penposData->status == 'KOSONG' ? 'value=KOSONG':'Checked value=PENUH'}}>
+                    <span class="slider round"></span>
+                </label>
             </div>
+
             <!--End Footer-->
         </div>  
         </div>   
@@ -255,6 +320,25 @@
 
         cbChange("#team3","#lawan2","#team1","#team3");
         cbChange("#team3","#lawan1","#team3","#team2");
+
+        let checkbox = document.getElementById("statusCheckbox");
+        checkbox.addEventListener( "change", () => {
+            if ( checkbox.checked ) {
+                // text.innerHTML = " Check box is checked. ";
+                console.log("Checkbox is checked");
+                $.ajax({
+                    type: "POST",
+                    url: "/HomePenpos", // Route 
+                    data: "PENUH"
+                })
+                .done(function( msg ) {
+                    alert( "Data: " + msg );
+                });
+
+            } else {
+                console.log("Checkbox is not checked");
+            }
+        });
     </script>
 </body>
 </html>

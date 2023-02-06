@@ -43,6 +43,8 @@ class PenposController extends Controller
             );
             DB::table("penpos_teams")->insert($data);
         }
+        $this->updateCoin($request);
+
         return Redirect::route("HomePenpos");
     }
 
@@ -68,5 +70,15 @@ class PenposController extends Controller
         return Redirect::route("HomePenpos");
         // return view('/HomePenpos');
 
+    }
+
+    public function updateCoin(Request $request){
+
+        for ($i = 0; $i < count($request["team"]); $i++) {
+            $query = DB::table('teams')->where('id', $request["team"][$i]);
+            $query->increment('coin', $request["koin"][$i]);
+        }
+
+    
     }
 }

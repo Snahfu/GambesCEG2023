@@ -76,6 +76,7 @@
             if($("#tipePos").val()=="Single" ) {}$("#selectBtn").attr("disabled", false);
             if($("#tableLobby tr").length <=3) $("#selectBtn").attr("disabled", false);
         });
+        
     </script>
 </body>
 </html>
