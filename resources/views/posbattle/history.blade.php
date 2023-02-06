@@ -38,7 +38,7 @@
     <!--Nav-->
     <ul class="nav justify-content-end">
         <li class="nav-item">
-            <a class="nav-link active" href="#">Pos Battle</a>
+            <a class="nav-link active" href="{{ route("HomePenpos") }}">Pos Battle</a>
         </li>
         <li class="nav-item" style="font-color:red;">
             <a class="nav-link" href="#">Log Out</a>

@@ -19,7 +19,7 @@ Route::get('/', function () {
 });
 
 Route::get('/HomePenpos', [PenposController::class, 'index'])->name("HomePenpos");
-Route::post('/insertHasilGame', [PenposController::class, 'insertHasilGame']);
+Route::post('/insertHasilGame', [PenposController::class, 'insertHasilGame'])->name("insertHasil");
 
 //Menampilkan semua pos permainan
 Route::get('/HomePage', [PenposController::class, 'getAllPos']);
@@ -28,7 +28,7 @@ Route::get('/HomePage', [PenposController::class, 'getAllPos']);
 Route::get('/UpdateStatus', [PenposController::class, 'updateStatusPos'])->name('PenposUpdate');
 
 //Untuk testing front-end (sudah selesai silahkan diubah jika perlu)
-Route::view('/posbattle','posbattle.index')->name("posbattle");
-Route::view('/historybattle','posbattle.history')->name("historybattle");
-Route::view('/singlepos','SinglePos.single')->name("singlepos");
-Route::view('/posjasa','SinglePos.posjasa')->name("posjasa");
+Route::view('/posbattle', 'posbattle.index')->name("posbattle");
+Route::view('/historybattle', 'posbattle.history')->name("historybattle");
+Route::view('/singlepos', 'SinglePos.single')->name("singlepos");
+Route::view('/posjasa', 'SinglePos.posjasa')->name("posjasa");

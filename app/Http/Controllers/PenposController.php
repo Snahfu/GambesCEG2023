@@ -21,7 +21,7 @@ class PenposController extends Controller
         $penposId = 1; //Sementara idnya 1, belum buat login+auth
         $teams = $this->getTeams($penposId);
         $penposData = Penpos::find($penposId); // get penpos data
-        return view('penpos', compact('teams', 'penposData'));
+        return view('posbattle.index', compact('teams', 'penposData'));
     }
     public function getTeams($penposId)
     {
@@ -35,13 +35,11 @@ class PenposController extends Controller
     {
         // memasukan hasil game ke database
         $penposId = 1; //Sementara idnya 1, belum buat login+auth
-        $teamId = $request["teamId"];
-        $hasilGame = $request["hasilGame"];
-        foreach ($teamId as $id) {
+        for ($i = 0; $i < count($request["team"]); $i++) {
             $data = array(
                 "penpos_id" => $penposId,
-                "teams_id" => $id,
-                "hasil" => $hasilGame
+                "teams_id" => $request["team"][$i],
+                "hasil" => "Team " . $request["team"][$i] . " " . $request["hasil"][$i] . " Melawan Team " . $request["lawan"][$i]
             );
             DB::table("penpos_teams")->insert($data);
         }
