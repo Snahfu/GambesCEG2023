@@ -10,6 +10,7 @@ class PenposTeam extends Pivot
 {
     use HasFactory;
     protected $table = 'penpos_teams';
+    protected $dates = ['jam'];
     public $timestamps = false;
 
     protected $fillable = [

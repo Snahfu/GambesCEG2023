@@ -1,3 +1,6 @@
+{{-- @php
+    dd($penposteams);
+@endphp --}}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -66,24 +69,21 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td>Lorem</td>
-                                <td>ipsum</td>
-                                <td>dolor</td>
-                                <td>sit</td>
-                            </tr>
-                            <tr>
-                                <td>amet</td>
-                                <td>consectetur</td>
-                                <td>adipisicing</td>
-                                <td>elit</td>
-                            </tr>
-                            <tr>
-                                <td>Cumque</td>
-                                <td>officiis</td>
-                                <td>natus</td>
-                                <td>nemo</td>
-                            </tr>
+                            @if($penposteams->count())
+
+                                @foreach ($penposteams as $eachPenpos)
+                                    <tr>
+                                        <td>{{ $namapos }}</td>
+                                        <td>Team {{ $eachPenpos->teams_id }}</td>
+                                        <td>{{ $eachPenpos->hasil }}</td>
+                                        <td>{{ $eachPenpos->jam->format('H:i') }}</td>
+                                    </tr>
+                                @endforeach
+                                
+                            @else
+                                <p class="text-center fs-4">No History Found</p>
+                            @endif
+                            
                         </tbody>
                         </table>
                 </div>

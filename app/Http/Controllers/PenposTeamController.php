@@ -14,7 +14,10 @@ class PenposTeamController extends Controller
      */
     public function index()
     {
-        //
+        return view('posbattle.history', [
+            "namapos" => "Truth or Dare",
+            "penposteams" => PenposTeam::latest('jam')->get()
+        ]);
     }
 
     /**

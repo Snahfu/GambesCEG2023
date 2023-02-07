@@ -1,6 +1,9 @@
 <?php
 
 use App\Http\Controllers\PenposController;
+use App\Http\Controllers\PenposTeamController;
+use App\Models\Penpos;
+use App\Models\PenposTeam;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -29,6 +32,12 @@ Route::get('/UpdateStatus', [PenposController::class, 'updateStatusPos'])->name(
 
 //Untuk testing front-end (sudah selesai silahkan diubah jika perlu)
 Route::view('/posbattle', 'posbattle.index')->name("posbattle");
-Route::view('/historybattle', 'posbattle.history')->name("historybattle");
+
+//Menampilkan history battle 
+Route::get('/historybattle', [PenposTeamController::class, 'index'])->name('historybattle');
+
+// Route::view('/historybattle', 'posbattle.history')->name("historybattle");
+
+
 Route::view('/singlepos', 'SinglePos.single')->name("singlepos");
 Route::view('/posjasa', 'SinglePos.posjasa')->name("posjasa");
