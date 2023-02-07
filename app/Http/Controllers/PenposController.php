@@ -56,7 +56,7 @@ class PenposController extends Controller
         ]);
     }
 
-    public function updateStatusPos()
+    public function updateStatusPos(Request $request)
     {
         //id penpos sementara yang akan diupdate yaitu 1
         $penposId = 1;
@@ -64,10 +64,10 @@ class PenposController extends Controller
 
         // Make sure you've got the Page model
         if ($selectedPos) {
-            $selectedPos->status = 'PENUH';
+            $selectedPos->status = $request['status'];
             $selectedPos->save();
         }
-        return Redirect::route("HomePenpos");
+        return response()->json(['result' => 'Success Update Status']);
         // return view('/HomePenpos');
 
     }

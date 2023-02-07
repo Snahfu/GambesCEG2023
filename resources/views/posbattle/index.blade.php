@@ -286,8 +286,8 @@
             </div> --}}
 
             
-            <div class="card-footer" style="{{$penposData->status == 'KOSONG' ? 'background-color: #008917; ':'background-color:#e2626b;'}} text-align: center;">
-                Status Pos : {{$penposData->status == 'KOSONG' ? 'Kosong':'Penuh'}} <span id="statusPos"></span>
+            <div class="card-footer" id="posFooter" style="{{$penposData->status == 'KOSONG' ? 'background-color: #008917; ':'background-color:#e2626b;'}} text-align: center;">
+                Status Pos :  <span id="statusPos">{{$penposData->status == 'KOSONG' ? 'KOSONG':'PENUH'}}</span>
                 <label class="switch">
                     <input type="checkbox" id="statusCheckbox" {{$penposData->status == 'KOSONG' ? 'value=KOSONG':'Checked value=PENUH'}}>
                     <span class="slider round"></span>
@@ -322,21 +322,41 @@
         cbChange("#team3","#lawan1","#team3","#team2");
 
         let checkbox = document.getElementById("statusCheckbox");
+        let statusPos = document.getElementById("statusPos");
+        let posFooter = document.getElementById("posFooter");
         checkbox.addEventListener( "change", () => {
             if ( checkbox.checked ) {
-                // text.innerHTML = " Check box is checked. ";
+                statusPos.innerHTML = "PENUH";
+                $(checkbox).val('PENUH');
+                posFooter.style.backgroundColor = '#e2626b';
+                // posFooter.css("background-color", "red");
+
                 console.log("Checkbox is checked");
                 $.ajax({
-                    type: "POST",
-                    url: "/HomePenpos", // Route 
-                    data: "PENUH"
+                    type: "GET",
+                    url: "/UpdateStatus", // Route 
+                    data: {'status': 'PENUH'}
                 })
                 .done(function( msg ) {
-                    alert( "Data: " + msg );
+                    alert( "Pesan: " + msg['result'] );
                 });
 
             } else {
+                statusPos.innerHTML = "KOSONG";
+                $(checkbox).val('KOSONG');
+                posFooter.style.backgroundColor = '#008917';
+
+
                 console.log("Checkbox is not checked");
+
+                $.ajax({
+                    type: "GET",
+                    url: "/UpdateStatus", // Route 
+                    data: {'status': 'KOSONG'}
+                })
+                .done(function( msg ) {
+                    alert( "Pesan: " + msg['result'] );
+                });
             }
         });
     </script>
