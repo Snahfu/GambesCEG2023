@@ -4,6 +4,7 @@ use App\Http\Controllers\PenposController;
 use App\Http\Controllers\PenposTeamController;
 use App\Models\Penpos;
 use App\Models\PenposTeam;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -18,7 +19,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('auth.login');
 });
 
 Route::get('/HomePenpos', [PenposController::class, 'index'])->name("HomePenpos");
@@ -28,7 +29,7 @@ Route::post('/insertHasilGame', [PenposController::class, 'insertHasilGame'])->n
 Route::get('/HomePage', [PenposController::class, 'getAllPos']);
 
 //Mengedit status pos permainan
-Route::get('/UpdateStatus', [PenposController::class, 'updateStatusPos'])->name('PenposUpdate');
+Route::post('/UpdateStatus', [PenposController::class, 'updateStatusPos'])->name('PenposUpdate');
 
 //Untuk testing front-end (sudah selesai silahkan diubah jika perlu)
 Route::view('/posbattle', 'posbattle.index')->name("posbattle");
@@ -37,7 +38,9 @@ Route::view('/posbattle', 'posbattle.index')->name("posbattle");
 Route::get('/historybattle', [PenposTeamController::class, 'index'])->name('historybattle');
 
 // Route::view('/historybattle', 'posbattle.history')->name("historybattle");
+Auth::routes();
 
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::view('/singlepos', 'SinglePos.single')->name("singlepos");
 Route::view('/posjasa', 'SinglePos.posjasa')->name("posjasa");
