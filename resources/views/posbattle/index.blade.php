@@ -105,7 +105,7 @@
 
 </head>
 
-<body style="background: url('{{ asset('assets') }}/background/background.png') center / cover no-repeat fixed">
+<body style="background: url('{{ asset('assets/background/background.png') }}') center / cover no-repeat fixed">
     <!--Nav-->
     <div id="app" class="d-flex justify-content-center" style="z-index: 2">
         <nav class="navbar navbar-expand-md navbar-light transparent" style="width: 90%;border-radius: 20px;">
@@ -126,10 +126,14 @@
                                 style="color:aquamarine; font-weight: bold">Histori</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="#"
-                                style="color:red; font-weight: bold">Log
+                            <a class="nav-link active" aria-current="page" href="{{ route('logout') }}"
+                                style="color:red; font-weight: bold;"
+                                onclick="event.preventDefault();
+                                document.getElementById('logout-form').submit();">Log
                                 Out</a>
-                        </li>
+                            <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                @csrf
+                            </form>
                         </li>
                     </ul>
                 </div>

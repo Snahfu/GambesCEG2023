@@ -40,7 +40,7 @@ Route::get('/historybattle', [PenposTeamController::class, 'index'])->name('hist
 // Route::view('/historybattle', 'posbattle.history')->name("historybattle");
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/home', [App\Http\Controllers\LoginController::class, 'index'])->name('home');
 
 Route::view('/singlepos', 'SinglePos.single')->name("singlepos");
 Route::view('/posjasa', 'SinglePos.posjasa')->name("posjasa");

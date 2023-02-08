@@ -79,6 +79,5 @@ class PenposController extends Controller
             $query->increment('coin', $request["koin"][$i]);
         }
 
-    
     }
 }
