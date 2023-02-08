@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 08, 2023 at 10:53 AM
+-- Generation Time: Feb 08, 2023 at 04:42 PM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.2.0
 
@@ -90,7 +90,9 @@ CREATE TABLE `penpos` (
 --
 
 INSERT INTO `penpos` (`id`, `nama`, `deskripsi`, `tipe`, `status`) VALUES
-(1, 'Tic Tac Toe', 'Belum Ada', 'Battle', 'KOSONG');
+(1, 'Tic Tac Toe', 'Belum Ada', 'Battle', 'KOSONG'),
+(2, 'SUDOKU', 'POS MAIN SUDOKU', 'Single', 'KOSONG'),
+(3, 'Pabrik Mesin', 'Belum Ada', 'Jasa', 'KOSONG');
 
 -- --------------------------------------------------------
 
@@ -136,6 +138,13 @@ CREATE TABLE `teams` (
   `coin` int(11) NOT NULL DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
+--
+-- Dumping data for table `teams`
+--
+
+INSERT INTO `teams` (`id`, `nama`, `avatar`, `coin`) VALUES
+(1, 'Pemain 1', 'idk', 0);
+
 -- --------------------------------------------------------
 
 --
@@ -151,15 +160,20 @@ CREATE TABLE `users` (
   `password` varchar(255) NOT NULL,
   `remember_token` varchar(100) DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
+  `updated_at` timestamp NULL DEFAULT NULL,
+  `penpos_id` int(11) DEFAULT NULL,
+  `teams_id` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`id`, `name`, `email`, `role`, `email_verified_at`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
-(1, 'Penpos 1', 'halo@gmail.com', 'penpos', NULL, '$2y$10$ilIY8Egeyl8DkCtnArhVaOrurb0afVV6i2.SATnqGcQlTf/RX4TmC', NULL, NULL, NULL);
+INSERT INTO `users` (`id`, `name`, `email`, `role`, `email_verified_at`, `password`, `remember_token`, `created_at`, `updated_at`, `penpos_id`, `teams_id`) VALUES
+(1, 'Penpos 1', 'halo@gmail.com', 'penpos', NULL, '$2y$10$ilIY8Egeyl8DkCtnArhVaOrurb0afVV6i2.SATnqGcQlTf/RX4TmC', NULL, NULL, NULL, 1, NULL),
+(2, 'Penpos Single', 'single@gmail.com', 'penpos', NULL, '$2y$10$ilIY8Egeyl8DkCtnArhVaOrurb0afVV6i2.SATnqGcQlTf/RX4TmC', NULL, NULL, NULL, 2, NULL),
+(3, 'Penpos Jasa', 'jasa@gmail.com', 'penpos', NULL, '$2y$10$ilIY8Egeyl8DkCtnArhVaOrurb0afVV6i2.SATnqGcQlTf/RX4TmC', NULL, NULL, NULL, 3, NULL),
+(4, 'Pemain 1', 'pemain@gmail.com', 'pemain', NULL, '$2y$10$ilIY8Egeyl8DkCtnArhVaOrurb0afVV6i2.SATnqGcQlTf/RX4TmC', NULL, NULL, NULL, NULL, 1);
 
 --
 -- Indexes for dumped tables
@@ -216,7 +230,9 @@ ALTER TABLE `teams`
 --
 ALTER TABLE `users`
   ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `users_email_unique` (`email`);
+  ADD UNIQUE KEY `users_email_unique` (`email`),
+  ADD KEY `fk_users_penpos1_idx` (`penpos_id`),
+  ADD KEY `fk_users_teams1_idx` (`teams_id`);
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -238,7 +254,7 @@ ALTER TABLE `migrations`
 -- AUTO_INCREMENT for table `penpos`
 --
 ALTER TABLE `penpos`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `personal_access_tokens`
@@ -250,13 +266,13 @@ ALTER TABLE `personal_access_tokens`
 -- AUTO_INCREMENT for table `teams`
 --
 ALTER TABLE `teams`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- Constraints for dumped tables
@@ -268,6 +284,13 @@ ALTER TABLE `users`
 ALTER TABLE `penpos_teams`
   ADD CONSTRAINT `fk_penpos_has_teams_penpos` FOREIGN KEY (`penpos_id`) REFERENCES `penpos` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   ADD CONSTRAINT `fk_penpos_has_teams_teams1` FOREIGN KEY (`teams_id`) REFERENCES `teams` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+
+--
+-- Constraints for table `users`
+--
+ALTER TABLE `users`
+  ADD CONSTRAINT `fk_users_penpos1` FOREIGN KEY (`penpos_id`) REFERENCES `penpos` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `fk_users_teams1` FOREIGN KEY (`teams_id`) REFERENCES `teams` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
