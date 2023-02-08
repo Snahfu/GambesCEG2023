@@ -37,23 +37,50 @@
     <!--End Style-->
 
 </head>
-<body>
-    <!--Nav-->
-    <ul class="nav justify-content-end">
-        <li class="nav-item">
-            <a class="nav-link active" href="{{ route("HomePenpos") }}">Pos Battle</a>
-        </li>
-        <li class="nav-item" style="font-color:red;">
-            <a class="nav-link" href="#">Log Out</a>
-    </ul>
-    <!--End Nav-->
+<body style="background: url('{{ asset('assets/background/background.png') }}') center / cover no-repeat fixed">
+      {{-- Navbar --}}
+      <div id="app" class="d-flex justify-content-center" style="z-index: 2">
+
+        <nav class="navbar navbar-expand-md navbar-light transparent" style="width: 90%;border-radius: 20px;">
+            <div class="container" style="border-radius: 20px;">
+                <a class="navbar-brand" href="{{ url('/') }}">
+                    <img src="{{ asset('assets') }}/logo/Kelapa_navbar.png" alt="Kelapa" style="max-height: 40px">
+                    <img src="{{ asset('assets') }}/logo/Logo CEG.png" alt="Logo CEG" style="max-height: 40px">
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item">
+                            <a class="nav-link active" href="{{ route('historybattle') }}"
+                                style="color:aquamarine; font-weight: bold">Histori</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="{{ route('logout') }}"
+                                style="color:red; font-weight: bold;"
+                                onclick="event.preventDefault();
+                              document.getElementById('logout-form').submit();">Log
+                                Out</a>
+                            <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                @csrf
+                            </form>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </div>
+    {{-- End Navbar --}}
     <div class="container py-5">
         <div class="row">
             <div class="card p-0">
 
                 <!--Header-->
                 <div class="card-header pt-3" style="background-color: white;text-align: center;">
-                    <h1>Histori</h1>
+                    <h1 style="color:rgba(0, 0, 0, 0.704); font-weight: bold">Histori</h1>
                 </div>
                 <!--End Header-->
 
