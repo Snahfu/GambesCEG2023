@@ -161,7 +161,6 @@
                         style="text-align: center;">
                         <option selected hidden>--Input Hasil--</option>
                         <option value="menang">Menang</option>
-                        <option value="seri">Seri</option>
                         <option value="kalah">Kalah</option>
                     </select>
                 </div>
