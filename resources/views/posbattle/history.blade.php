@@ -113,6 +113,9 @@
                             
                         </tbody>
                         </table>
+                        <div class="d-flex justify-content-end">
+                            {{ $penposteams->links('pagination::bootstrap-4') }}
+                        </div>
                 </div>
                 <!--End Card Body-->
             </div>

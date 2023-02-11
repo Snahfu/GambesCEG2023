@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\PenposTeam;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class PenposTeamController extends Controller
 {
@@ -15,8 +16,8 @@ class PenposTeamController extends Controller
     public function index()
     {
         return view('posbattle.history', [
-            "namapos" => "Truth or Dare",
-            "penposteams" => PenposTeam::latest('jam')->get()
+            "namapos" => Auth::user()->name,
+            "penposteams" => PenposTeam::latest('jam')->paginate(10)
         ]);
     }
 
