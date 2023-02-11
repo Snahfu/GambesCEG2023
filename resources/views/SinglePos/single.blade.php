@@ -137,7 +137,8 @@
                         @csrf
                     {{-- Header --}}
                     <div class="card-header text-center" style="background-color:#ffffff;">
-                        <h2 style="color:rgba(0, 0, 0, 0.704); font-weight: bold">Pos Single</h2>
+                        <h2 style="color:rgba(0, 0, 0, 0.704); font-weight: bold">{{ $penposData->nama }}</h2>
+                        <p>{{ $penposData->deskripsi }}</p>
                     </div>
                     {{-- End Header --}}
 
