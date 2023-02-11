@@ -38,14 +38,24 @@ class PenposController extends Controller
     {
         // memasukan hasil game ke database
         $penposId = Auth::id(); //Sementara idnya 1, belum buat login+auth
-        for ($i = 0; $i < count($request["team"]); $i++) {
+        if (Penpos::find($penposId)->tipe == "Battle") {
+            for ($i = 0; $i < count($request["team"]); $i++) {
+                $data = array(
+                    "penpos_id" => $penposId,
+                    "teams_id" => $request["team"][$i],
+                    "hasil" => "Team " . $request["team"][$i] . " " . $request["hasil"][$i] . " Melawan Team " . $request["lawan"][$i]
+                );
+                DB::table("penpos_teams")->insert($data);
+            }
+        } else {
             $data = array(
                 "penpos_id" => $penposId,
-                "teams_id" => $request["team"][$i],
-                "hasil" => "Team " . $request["team"][$i] . " " . $request["hasil"][$i] . " Melawan Team " . $request["lawan"][$i]
+                "teams_id" => $request["team"][0],
+                "hasil" => "Team " . $request["team"][0] . " " . $request["hasil"][0]
             );
             DB::table("penpos_teams")->insert($data);
         }
+
         $this->updateCoin($request);
 
         return Redirect::route("HomePenpos");

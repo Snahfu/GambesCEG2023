@@ -43,7 +43,7 @@
 
         <nav class="navbar navbar-expand-md navbar-light transparent" style="width: 90%;border-radius: 20px;">
             <div class="container" style="border-radius: 20px;">
-                <a class="navbar-brand" href="{{ url('/') }}">
+                <a class="navbar-brand" href="{{ route('HomePenpos') }}">
                     <img src="{{ asset('assets') }}/logo/Kelapa_navbar.png" alt="Kelapa" style="max-height: 40px">
                     <img src="{{ asset('assets') }}/logo/Logo CEG.png" alt="Logo CEG" style="max-height: 40px">
                 </a>

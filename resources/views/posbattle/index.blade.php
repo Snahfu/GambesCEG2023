@@ -92,9 +92,40 @@
             transform: translateX(26px);
         }
 
+        /* Disable Team Third Row  */
         .disabled{
             display: none;
             visibility: hidden;
+        }
+        #disableRow{
+            cursor:pointer;
+            position: relative;
+            display: flex;
+            align-content: center;
+            justify-content: center
+        }
+        #disableRow p{
+            opacity: 1;
+            width: 100%;
+            height: auto;
+            transition: .5s ease;
+        }
+        #disableRow:hover p{
+            opacity: 0;
+        }
+        #disableRow span{
+            transition: .5s ease;
+            opacity: 0;
+            text-align: center;
+            position: absolute;
+            width: 50%;
+            height: auto;
+        }
+        #disableRow:hover span{
+            opacity: 1;
+            background-color: lightcoral;
+            color: white;
+            border-radius: 20px;
         }
 
         /* Rounded sliders */
@@ -115,7 +146,7 @@
     <div id="app" class="d-flex justify-content-center" style="z-index: 2">
         <nav class="navbar navbar-expand-md navbar-light transparent" style="width: 90%;border-radius: 20px;">
             <div class="container" style="border-radius: 20px;">
-                <a class="navbar-brand" href="{{ url('/') }}">
+                <a class="navbar-brand" href="{{ route("HomePenpos") }}">
                     <img src="{{ asset('assets') }}/logo/Kelapa_navbar.png" alt="Kelapa" style="max-height: 40px">
                     <img src="{{ asset('assets') }}/logo/Logo CEG.png" alt="Logo CEG" style="max-height: 40px">
                 </a>
@@ -264,11 +295,13 @@
                         <!--Tim 3-->
                         <div class="row d-flex justify-content-center mb-4 pb-3"
                             style="text-align: center; font-weight: bold;" >
-                            <div class="col-2" style="font-size: 18px;">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x" viewBox="0 0 16 16" id="disableRow">
-                                    <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z"/>
-                                  </svg>
-                                Nama Tim 3:
+                            <div class="col-2" style="font-size: 18px;" id="disableRow">
+                                <span>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x-lg" viewBox="0 0 16 16">
+                                        <path d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8 2.146 2.854Z"/>
+                                      </svg>
+                                </span>
+                                <p> Nama Tim 3:</p>
                             </div>
                             <div class="col-2">
                                 <select name="team[]" id="team3" class="form-select"
@@ -384,12 +417,14 @@
             $("#addTeam").removeClass("disabled");
         });
         // Add baris team 3
-        $("#addTeam").on("click",function(){
-            $(".card-body").children().children().eq(3).html(`<div class="col-2" style="font-size: 18px;">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x" viewBox="0 0 16 16" id="disableRow">
-                                    <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z"/>
-                                  </svg>
-                                Nama Tim 3:
+        $(document).on("click","#addTeam",function(){
+            $(".card-body").children().children().eq(3).html(`<div class="col-2" style="font-size: 18px;" id="disableRow">
+                <span>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x-lg" viewBox="0 0 16 16">
+                                        <path d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8 2.146 2.854Z"/>
+                                      </svg>
+                                </span>
+                                <p> Nama Tim 3:</p>
                             </div>
                             <div class="col-2">
                                 <select name="team[]" id="team3" class="form-select"
