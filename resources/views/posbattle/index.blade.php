@@ -391,7 +391,6 @@
         // auto fill combobox #lawanX dengan kelompok yang telah dipilih 
         function cbChange(id1, id2, id3, id4) {
             $(id1).on("change", function() {
-                var selectedTeam = $(this).val();
                 $(id2).html("");
                 $(id2).append(
                     `<option value="${$(id3+" option:selected").val()}">${$(id3+" option:selected").text()}</option>`
