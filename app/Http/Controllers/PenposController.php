@@ -7,6 +7,7 @@ use App\Models\PenposTeam;
 use App\Models\Team;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
 
 class PenposController extends Controller
@@ -18,10 +19,12 @@ class PenposController extends Controller
      */
     public function index()
     {
-        $penposId = 1; //Sementara idnya 1, belum buat login+auth
+        $penposId = Auth::id();
         $teams = $this->getTeams($penposId);
         $penposData = Penpos::find($penposId); // get penpos data
-        return view('posbattle.index', compact('teams', 'penposData'));
+        if ($penposData->tipe == "Battle")
+            return view('posbattle.index', compact('teams', 'penposData'));
+        else return view('SinglePos.single', compact('teams', 'penposData'));
     }
     public function getTeams($penposId)
     {
@@ -34,7 +37,7 @@ class PenposController extends Controller
     public function insertHasilGame(Request $request)
     {
         // memasukan hasil game ke database
-        $penposId = 1; //Sementara idnya 1, belum buat login+auth
+        $penposId = Auth::id(); //Sementara idnya 1, belum buat login+auth
         for ($i = 0; $i < count($request["team"]); $i++) {
             $data = array(
                 "penpos_id" => $penposId,
@@ -72,12 +75,12 @@ class PenposController extends Controller
 
     }
 
-    public function updateCoin(Request $request){
+    public function updateCoin(Request $request)
+    {
 
         for ($i = 0; $i < count($request["team"]); $i++) {
             $query = DB::table('teams')->where('id', $request["team"][$i]);
             $query->increment('coin', $request["koin"][$i]);
         }
-
     }
 }
