@@ -33,6 +33,7 @@ Route::post('/UpdateStatus', [PenposController::class, 'updateStatusPos'])->name
 
 //Untuk testing front-end (sudah selesai silahkan diubah jika perlu)
 Route::view('/posbattle', 'posbattle.index')->name("posbattle");
+Route::view('/map', 'map.index')->name("map");
 
 //Menampilkan history battle 
 Route::get('/historybattle', [PenposTeamController::class, 'index'])->name('historybattle');
