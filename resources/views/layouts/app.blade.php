@@ -47,21 +47,25 @@
             min-height: 100vh;
             transition: all 0.3s ease;
         }
-
+        .spacing{
+            height: 50px;
+        }
         .sidebar {
-            position: absolute;
+            position: fixed;
             top: 0;
             left: 0;
             height: 100vh;
             width: 250px;
-            padding: 10px 14px;
+            padding: 10px 10px;
             background: #242526;
             transition: all 0.3s ease;
             z-index: 100;
         }
 
         .sidebar.close {
-            width: 88px;
+    
+            width: 70px;
+
         }
 
         .menu {
@@ -90,7 +94,7 @@
         .sidebar .toggle {
             position: absolute;
             top: 5%;
-            right: 30px;
+            right: 25px;
             height: 25px;
             width: 25px;
             display: flex;
@@ -111,7 +115,7 @@
         }
 
         .menu li i {
-            min-width: 60px;
+            min-width: 50px;
             height: 100%;
             display: flex;
             align-items: center;
@@ -179,6 +183,37 @@
         li a:hover .text {
             color: #242526;
         }
+        @media screen and (max-width:900px){
+            header{
+                margin-top:5%;
+                height: 40px;
+            }
+
+            header img {
+                width: 40px;
+                justify-content: left;
+                align-items: center;
+                transition: all 0.3s ease;
+            
+            }
+            .sidebar.close img {
+                width: 30px;
+                display: none;
+                transition: all 0.3s ease;
+            }
+            .sidebar {
+                position: fixed;
+                top: 0;
+                left: 0;
+                height: 100vh;
+                width: 250px;
+                padding: 10px 10px;
+                background: #242526;
+                transition: all 0.3s ease;
+                z-index: 100;
+                overflow-y: scroll;
+            }
+        }
     </style>
 </head>
 
@@ -194,7 +229,7 @@
             <ul class="menu">
 
                 <li class="nav-link">
-                    <a href="#">
+                    <a href="#"  style=" font-size: 18px !important;">
                         <i class="fa-solid fa-house icon"></i>
                         <span class="text">Home</span>
                     </a>
@@ -221,38 +256,39 @@
                         </a>
                     </li> --}}
 
-                <li class="nav-link">
-                    <a href="#">
-                        <i class="fa-solid fa-right-from-bracket icon"></i>
-                        <span class="text">Login</span>
-                    </a>
-                </li>
+                    <li class="nav-link">
+                        <a href="{{ route('penpos.historybattle') }}"
+                            style="color:aquamarine; font-weight: bold">
+                            <i class="fa-solid fa-clock icon"></i>
+                            <span class="text">Histori</span>
+                        </a>
+                    </li>
 
-                <li class="nav-item">
-                    <a class="nav-link active" href="{{ route('penpos.HomePenpos') }}"
-                        style="color:aquamarine; font-weight: bold">Halaman Penpos</a>
-                </li>
+                    <li class="nav-link">
+                        <a href="{{ route('penpos.HomePenpos') }}">
+                            <i class="fa-solid fa-tent icon"></i>
+                            <span class="text">Halaman Penpos</span>
+                        </a>
+                    </li>
 
-                <li class="nav-item">
-                    <a class="nav-link active" href="{{ route('penpos.historybattle') }}"
-                        style="color:aquamarine; font-weight: bold">Histori</a>
-                </li>
-
-                <li class="nav-link">
-                    <a class="nav-link active" aria-current="page" href="{{ route('logout') }}"
+                    <li class="nav-link">
+                        <a aria-current="page" href="{{ route('logout') }}"
                         style="color:red; font-weight: bold;"
                         onclick="event.preventDefault();
-                        document.getElementById('logout-form').submit();">Log
-                        Out</a>
-                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                        @csrf
-                    </form>
-                </li>
+                        document.getElementById('logout-form').submit();">
+                            <i class="fa-solid fa-right-from-bracket icon"></i>
+                            <span class="text">Logout</span>    
+                        </a>
+                        <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                            @csrf
+                        </form>
+                    </li>
+                
             </ul>
         </nav>
 
-        <div id="content" style="margin-left:88px;">
-            <div class="container-fluid py-5">
+        <div id="content" style="margin-left:75px;padding-left:">
+            <div class="container-fluid py-4">
                 @yield('content')
             </div>
         </div>
