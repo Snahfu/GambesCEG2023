@@ -19,7 +19,7 @@ class PenposController extends Controller
      */
     public function index()
     {
-        $penposId = Auth::id(); 
+        $penposId = Auth::id();
         $teams = $this->getTeams($penposId);
         $penposData = Penpos::find($penposId); // get penpos data
         if ($penposData->tipe == "Battle")
@@ -28,6 +28,7 @@ class PenposController extends Controller
             return view ('SinglePos.posjasa', compact('teams', 'penposData'));
         else return view('SinglePos.single', compact('teams', 'penposData'));
     }
+
     public function getTeams($penposId)
     {
         // get all team that haven't played yet
@@ -66,7 +67,7 @@ class PenposController extends Controller
     public function updateStatusPos(Request $request)
     {
         //id penpos sementara yang akan diupdate yaitu 1
-        $penposId = 1;
+        $penposId = Auth::id();
         $selectedPos = Penpos::find($penposId);
 
         // Make sure you've got the Page model

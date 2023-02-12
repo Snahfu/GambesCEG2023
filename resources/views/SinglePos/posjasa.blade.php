@@ -1,17 +1,6 @@
-<!doctype html>
-<html lang="en">
+@extends('layouts.app')
 
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Single Pos</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
-    {{-- font --}}
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700;800&display=swap" rel="stylesheet">
-    {{-- end font --}}
+@section('content')
     <style>
         body {
             background-color: #f8fefae4
@@ -24,6 +13,7 @@
         .atas {
             margin: 200px;
         }
+
         .card {
             box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
         }
@@ -88,72 +78,30 @@
             border-radius: 50%;
         }
     </style>
-</head>
 
-<body style="background: url('{{ asset('assets/background/background.png') }}') center / cover no-repeat fixed">
-    {{-- Navbar --}}
-    <div id="app" class="d-flex justify-content-center" style="z-index: 2">
 
-        <nav class="navbar navbar-expand-md navbar-light transparent" style="width: 90%;border-radius: 20px;">
-            <div class="container" style="border-radius: 20px;">
-                <a class="navbar-brand" href="{{ url('penpos.HomePenpos') }}">
-                    <img src="{{ asset('assets') }}/logo/Kelapa_navbar.png" alt="Kelapa" style="max-height: 40px">
-                    <img src="{{ asset('assets') }}/logo/Logo CEG.png" alt="Logo CEG" style="max-height: 40px">
-                </a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-                    aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarNav">
-                    <ul class="navbar-nav ms-auto">
-                        <li class="nav-item">
-                            <a class="nav-link active" href="{{ route('penpos.historybattle') }}"
-                                style="color:aquamarine; font-weight: bold">Histori</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="{{ route('logout') }}"
-                                style="color:red; font-weight: bold;"
-                                onclick="event.preventDefault();
-                              document.getElementById('logout-form').submit();">Log
-                                Out</a>
-                            <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                                @csrf
-                            </form>
-                        </li>
-                    </ul>
-                </div>
+    <div class="row">
+        <div class="card p-0">
+
+            {{-- Header --}}
+            <div class="card-header text-center" style="background-color:#ffffff;">
+                <h2 style="color:rgba(0, 0, 0, 0.704); font-weight: bold">Pos Jasa</h2>
             </div>
-        </nav>
-    </div>
-    {{-- End Navbar --}}
+            {{-- End Header --}}
 
-
-    {{-- Pos --}}
-    <div class="container" style="margin-top: 50px">
-        <div class="row">
-            <div class="card p-0">
-
-                {{-- Header --}}
-                <div class="card-header text-center" style="background-color:#ffffff;">
-                    <h2 style="color:rgba(0, 0, 0, 0.704); font-weight: bold">Pos Jasa</h2>
-                </div>
-                {{-- End Header --}}
-
-                {{-- Body --}}
-                <div class="row d-flex justify-content-center mb-4 pt-4"
-                style="text-align: center; font-weight: bold;">
+            {{-- Body --}}
+            <div class="row d-flex justify-content-center mb-4 pt-4" style="text-align: center; font-weight: bold;">
                 <div class="col-2" style="font-size: 18px;">
                     Nama Tim :
                 </div>
                 <div class="col-2">
-                    <select name="team[]" id="team1" class="form-select"
-                        aria-label="Default select example" style="text-align: center;">
+                    <select name="team[]" id="team1" class="form-select" aria-label="Default select example"
+                        style="text-align: center;">
                         <option selected hidden>--Pilih Pemain 1--</option>
                         {{-- semua team yang belum main di pos ini --}}
-                        {{-- @foreach ($teams as $team)
+                        @foreach ($teams as $team)
                             <option value="{{ $team->id }}">{{ $team->nama }}</option>
-                        @endforeach --}}
+                        @endforeach
                     </select>
                 </div>
                 <div class="col-2">
@@ -175,101 +123,78 @@
                     </select>
                 </div>
                 {{-- <div class="col-2">
-                <button type="button" class="btn btn-primary mx-2">Cek</button>
-                <button type="button" class="btn btn-primary mx-2">Reset</button>
-            </div> --}}
+        <button type="button" class="btn btn-primary mx-2">Cek</button>
+        <button type="button" class="btn btn-primary mx-2">Reset</button>
+    </div> --}}
             </div>
-                {{-- End Body --}}
+            {{-- End Body --}}
 
-                <!--Button Submit-->
-                <div class="d-flex justify-content-center mb-4">
+            <!--Button Submit-->
+            <div class="d-flex justify-content-center mb-4">
                 <button type="submit" class="btn btn-outline-primary">Submit</button>
-                </div>
-                <!--End Button Submit-->
+            </div>
+            <!--End Button Submit-->
 
-                {{-- Footer --}}
-                <div class="card-footer pt-3 pb-3 text-center bg-opacity-75" id="posFooter"
+            {{-- Footer --}}
+            <div class="card-footer pt-3 pb-3 text-center bg-opacity-75" id="posFooter"
                 style="{{ $penposData->status == 'KOSONG' ? 'background-color: #008917; ' : 'background-color:#e2626b;' }} text-align: center; font-weight:bold; color:white;">
-                Status Pos : <span
-                    id="statusPos">{{ $penposData->status == 'KOSONG' ? 'KOSONG' : 'PENUH' }}</span>
+                Status Pos : <span id="statusPos">{{ $penposData->status == 'KOSONG' ? 'KOSONG' : 'PENUH' }}</span>
                 <label class="switch" style="height = 10px">
                     <input type="checkbox" id="statusCheckbox"
                         {{ $penposData->status == 'KOSONG' ? 'value=KOSONG' : 'Checked value=PENUH' }}>
                     <span class="slider round"></span>
                 </label>
             </div>
-                {{-- End Footer --}}
-            </div>
+            {{-- End Footer --}}
         </div>
     </div>
     {{-- End Pos --}}
-{{-- Scripts --}}
-<script type="text/javascript">
-    // auto fill combobox #lawanX dengan kelompok yang telah dipilih 
-    function cbChange(id1, id2, id3, id4) {
-        $(id1).on("change", function() {
-            var selectedTeam = $(this).val();
-            $(id2).html("");
-            $(id2).append(
-                `<option value="${$(id3+" option:selected").val()}">${$(id3+" option:selected").text()}</option>`
-            );
-            $(id2).append(
-                `<option value="${$(id4+" option:selected").val()}">${$(id4+" option:selected").text()}</option>`
-            );
+    {{-- Scripts --}}
+    <script type="text/javascript">
+        let checkbox = document.getElementById("statusCheckbox");
+        let statusPos = document.getElementById("statusPos");
+        let posFooter = document.getElementById("posFooter");
+
+        checkbox.addEventListener("change", () => {
+            if (checkbox.checked) {
+                statusPos.innerHTML = "PENUH";
+                $("#statusCheckbox").val('PENUH');
+                posFooter.style.backgroundColor = '#e2626b';
+                // posFooter.css("background-color", "red");
+
+                console.log("Checkbox is checked");
+                $.ajax({
+                        type: "POST",
+                        url: "{{ route('penpos.PenposUpdate') }}", // Route 
+                        data: {
+                            '_token': "{{ csrf_token() }}",
+                            'status': 'PENUH'
+                        }
+                    })
+                    .done(function(msg) {
+                        alert("Pesan: " + msg['result']);
+                    });
+
+            } else {
+                statusPos.innerHTML = "KOSONG";
+                $("#statusCheckbox").val('KOSONG');
+                posFooter.style.backgroundColor = '#008917';
+
+
+                console.log("Checkbox is not checked");
+
+                $.ajax({
+                        type: "POST",
+                        url: "{{ route('penpos.PenposUpdate') }}", // Route 
+                        data: {
+                            '_token': "{{ csrf_token() }}",
+                            'status': 'KOSONG'
+                        }
+                    })
+                    .done(function(msg) {
+                        alert("Pesan: " + msg['result']);
+                    });
+            }
         });
-    }
-    cbChange("#team1", "#lawan2", "#team1", "#team3");
-    cbChange("#team1", "#lawan3", "#team1", "#team2");
-
-    cbChange("#team2", "#lawan1", "#team2", "#team3");
-    cbChange("#team2", "#lawan3", "#team1", "#team2");
-
-    cbChange("#team3", "#lawan2", "#team1", "#team3");
-    cbChange("#team3", "#lawan1", "#team3", "#team2");
-
-    let checkbox = document.getElementById("statusCheckbox");
-    let statusPos = document.getElementById("statusPos");
-    let posFooter = document.getElementById("posFooter");
-    checkbox.addEventListener("change", () => {
-        if (checkbox.checked) {
-            statusPos.innerHTML = "PENUH";
-            $(checkbox).val('PENUH');
-            posFooter.style.backgroundColor = '#e2626b';
-            // posFooter.css("background-color", "red");
-
-            console.log("Checkbox is checked");
-            $.ajax({
-                    type: "GET",
-                    url: "/penpos/UpdateStatus", // Route 
-                    data: {
-                        'status': 'PENUH'
-                    }
-                })
-                .done(function(msg) {
-                    alert("Pesan: " + msg['result']);
-                });
-
-        } else {
-            statusPos.innerHTML = "KOSONG";
-            $(checkbox).val('KOSONG');
-            posFooter.style.backgroundColor = '#008917';
-
-
-            console.log("Checkbox is not checked");
-
-            $.ajax({
-                    type: "GET",
-                    url: "/penpos/UpdateStatus", // Route 
-                    data: {
-                        'status': 'KOSONG'
-                    }
-                })
-                .done(function(msg) {
-                    alert("Pesan: " + msg['result']);
-                });
-        }
-    });
-</script>
-</body>
-
-</html>
+    </script>
+@endsection
