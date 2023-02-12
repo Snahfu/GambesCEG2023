@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\PenposTeam;
+use App\Models\Team;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -17,7 +18,9 @@ class PenposTeamController extends Controller
     {
         return view('posbattle.history', [
             "namapos" => Auth::user()->name,
-            "penposteams" => PenposTeam::latest('jam')->paginate(10)
+            "penposteams" => PenposTeam::latest('jam')->where('penpos_id',
+                Auth::user()->id)->paginate(10),
+            "namateams" => Team::all()
         ]);
     }
 

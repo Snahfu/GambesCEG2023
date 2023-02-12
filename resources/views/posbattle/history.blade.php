@@ -1,6 +1,3 @@
-{{-- @php
-    dd($penposteams);
-@endphp --}}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -101,7 +98,8 @@
                                 @foreach ($penposteams as $eachPenpos)
                                     <tr>
                                         <td>{{ $namapos }}</td>
-                                        <td>Team {{ $eachPenpos->teams_id }}</td>
+                                        {{-- <td>Team {{ $eachPenpos->teams_id }}</td> --}}
+                                        <td>{{ $namateams->find($eachPenpos->teams_id)->nama }}</td>
                                         <td>{{ $eachPenpos->hasil }}</td>
                                         <td>{{ $eachPenpos->jam->format('H:i') }}</td>
                                     </tr>
