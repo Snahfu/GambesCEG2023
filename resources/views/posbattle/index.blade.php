@@ -227,126 +227,15 @@
                     </div>
                     <!--End Tim 2-->
 
-                    <!--Tim 3-->
-                    <div class="row d-flex justify-content-center mb-4 pb-3"
-                        style="text-align: center; font-weight: bold;" >
-                        <div class="col-2" style="font-size: 18px;" id="disableRow">
-                            <span>
-                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x-lg" viewBox="0 0 16 16">
-                                    <path d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8 2.146 2.854Z"/>
-                                  </svg>
-                            </span>
-                            <p> Nama Tim 3:</p>
-                        </div>
-                        <div class="col-2">
-                            <select name="team[]" id="team3" class="form-select"
-                                aria-label="Default select example" style="text-align: center;">
-                                <option selected hidden>--Pilih Pemain 3--</option>
-                                {{-- semua team yang belum main di pos ini --}}
-                                @foreach ($teams as $team)
-                                    <option value="{{ $team->id }}">{{ $team->nama }}</option>
-                                @endforeach
-                            </select>
-                        </div>
-                        <div class="col-2">
-                            <select name="hasil[]" class="form-select" aria-label="Default select example"
-                                style="text-align: center;">
-                                <option selected hidden>--Input Hasil--</option>
-                                <option value="menang">Menang</option>
-                                <option value="seri">Seri</option>
-                                <option value="kalah">Kalah</option>
-                            </select>
-                        </div>
-                        <div class="col-1" style="font-size: 18px;">
-                            Dari
-                        </div>
-                        <div class="col-2">
-                            <select name="lawan[]" id="lawan3" class="form-select"
-                                aria-label="Default select example" style="text-align: center;">
-                                <option selected hidden>--Pilih Pemain 1--</option>
-                            </select>
-                        </div>
-                        <div class="col-2">
-                            <select name="koin[]" class="form-select" aria-label="Default select example"
-                                style="text-align: center;">
-                                <option selected hidden>--Input Koin--</option>
-                                <option value="25">25</option>
-                                <option value="50">50</option>
-                                <option value="75">75</option>
-                                <option value="100">100</option>
-                            </select>
-                        </div>
-                    </div>
-
-                    {{-- Button Add Team 3 --}}
-                    <div class="d-flex justify-content-center mb-4 pb-3">
-                        <button type="button" class="btn btn-outline-secondary disabled" id="addTeam">Add Team 3</button>
-                    </div>
-                    
-                    <!--End Tim 3-->
-
-                    <!--Button Submit-->
-                    <div class="d-flex justify-content-center mb-4">
-                        <button type="submit" class="btn btn-outline-primary">Submit</button>
-                    </div>
-                    <!--End Button Submit-->
-
-                </form>
-
-            </div>
-
-            <div class="card-footer pt-3 pb-3 text-center bg-opacity-75" id="posFooter"
-                style="{{ $penposData->status == 'KOSONG' ? 'background-color: #008917; ' : 'background-color:#e2626b;' }} text-align: center; font-weight:bold; color:white;">
-                Status Pos : <span
-                    id="statusPos">{{ $penposData->status == 'KOSONG' ? 'KOSONG' : 'PENUH' }}</span>
-                <label class="switch" style="height = 10px">
-                    <input type="checkbox" id="statusCheckbox"
-                        {{ $penposData->status == 'KOSONG' ? 'value=KOSONG' : 'Checked value=PENUH' }}>
-                    <span class="slider round"></span>
-                </label>
-            </div>
-
-            <!--End Footer-->
-        </div>
-    </div>
-    {{-- End Pos --}}
-
-    {{-- Scripts --}}
-    <script type="text/javascript">
-        // auto fill combobox #lawanX dengan kelompok yang telah dipilih 
-        function cbChange(id1, id2, id3, id4) {
-            $(id1).on("change", function() {
-                $(id2).html("");
-                $(id2).append(
-                    `<option value="${$(id3+" option:selected").val()}">${$(id3+" option:selected").text()}</option>`
-                );
-                $(id2).append(
-                    `<option value="${$(id4+" option:selected").val()}">${$(id4+" option:selected").text()}</option>`
-                );
-            });
-        }
-        cbChange("#team1", "#lawan2", "#team1", "#team3");
-        cbChange("#team1", "#lawan3", "#team1", "#team2");
-
-        cbChange("#team2", "#lawan1", "#team2", "#team3");
-        cbChange("#team2", "#lawan3", "#team1", "#team2");
-
-        cbChange("#team3", "#lawan2", "#team1", "#team3");
-        cbChange("#team3", "#lawan1", "#team3", "#team2");
-
-
-        // remove baris tim 3
-        $(document).on("click","#disableRow", function () {
-            $(".card-body").children().children().eq(3).html("");
-            $("#addTeam").removeClass("disabled");
-        });
-        // Add baris team 3
-        $(document).on("click","#addTeam",function(){
-            $(".card-body").children().children().eq(3).html(`<div class="col-2" style="font-size: 18px;" id="disableRow">
-                <span>
+                    @if ($penposData->jumlahTim=="3")
+                        <!--Tim 3-->
+                        <div class="row d-flex justify-content-center mb-4 pb-3"
+                            style="text-align: center; font-weight: bold;" >
+                            <div class="col-2" style="font-size: 18px;" id="disableRow">
+                                <span>
                                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x-lg" viewBox="0 0 16 16">
                                         <path d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8 2.146 2.854Z"/>
-                                      </svg>
+                                    </svg>
                                 </span>
                                 <p> Nama Tim 3:</p>
                             </div>
@@ -387,9 +276,136 @@
                                     <option value="75">75</option>
                                     <option value="100">100</option>
                                 </select>
-                            </div>`);
-            $("#addTeam").addClass("disabled");
-        })
+                            </div>
+                        </div>
+
+                        {{-- Button Add Team 3 --}}
+                        <div class="d-flex justify-content-center mb-4 pb-3">
+                            <button type="button" class="btn btn-outline-secondary disabled" id="addTeam">Add Team 3</button>
+                        </div>
+                        
+                        <!--End Tim 3-->
+                    @endif
+
+                    <!--Button Submit-->
+                    <div class="d-flex justify-content-center mb-4">
+                        <button type="submit" class="btn btn-outline-primary">Submit</button>
+                    </div>
+                    <!--End Button Submit-->
+
+                </form>
+
+            </div>
+
+            <div class="card-footer pt-3 pb-3 text-center bg-opacity-75" id="posFooter"
+                style="{{ $penposData->status == 'KOSONG' ? 'background-color: #008917; ' : 'background-color:#e2626b;' }} text-align: center; font-weight:bold; color:white;">
+                Status Pos : <span
+                    id="statusPos">{{ $penposData->status == 'KOSONG' ? 'KOSONG' : 'PENUH' }}</span>
+                <label class="switch" style="height = 10px">
+                    <input type="checkbox" id="statusCheckbox"
+                        {{ $penposData->status == 'KOSONG' ? 'value=KOSONG' : 'Checked value=PENUH' }}>
+                    <span class="slider round"></span>
+                </label>
+            </div>
+
+            <!--End Footer-->
+        </div>
+    </div>
+    {{-- End Pos --}}
+
+    {{-- Scripts --}}
+    <script type="text/javascript">
+        // auto fill combobox #lawanX dengan kelompok yang telah dipilih 
+        @if ($penposData->jumlahTim=="3")
+            function cbChange(id1, id2, id3, id4) {
+                $(id1).on("change", function() {
+                    $(id2).html("");
+                    $(id2).append(
+                        `<option value="${$(id3+" option:selected").val()}">${$(id3+" option:selected").text()}</option>`
+                    );
+                    $(id2).append(
+                        `<option value="${$(id4+" option:selected").val()}">${$(id4+" option:selected").text()}</option>`
+                    );
+                });
+            }
+
+            cbChange("#team1", "#lawan2", "#team1", "#team3");
+            cbChange("#team1", "#lawan3", "#team1", "#team2");
+
+            cbChange("#team2", "#lawan1", "#team2", "#team3");
+            cbChange("#team2", "#lawan3", "#team1", "#team2");
+
+            cbChange("#team3", "#lawan2", "#team1", "#team3");
+            cbChange("#team3", "#lawan1", "#team3", "#team2");
+
+
+            // remove baris tim 3
+            $(document).on("click","#disableRow", function () {
+                $(".card-body").children().children().eq(3).html("");
+                $("#addTeam").removeClass("disabled");
+            });
+            // Add baris team 3
+            $(document).on("click","#addTeam",function(){
+                $(".card-body").children().children().eq(3).html(`<div class="col-2" style="font-size: 18px;" id="disableRow">
+                    <span>
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x-lg" viewBox="0 0 16 16">
+                                            <path d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8 2.146 2.854Z"/>
+                                        </svg>
+                                    </span>
+                                    <p> Nama Tim 3:</p>
+                                </div>
+                                <div class="col-2">
+                                    <select name="team[]" id="team3" class="form-select"
+                                        aria-label="Default select example" style="text-align: center;">
+                                        <option selected hidden>--Pilih Pemain 3--</option>
+                                        {{-- semua team yang belum main di pos ini --}}
+                                        @foreach ($teams as $team)
+                                            <option value="{{ $team->id }}">{{ $team->nama }}</option>
+                                        @endforeach
+                                    </select>
+                                </div>
+                                <div class="col-2">
+                                    <select name="hasil[]" class="form-select" aria-label="Default select example"
+                                        style="text-align: center;">
+                                        <option selected hidden>--Input Hasil--</option>
+                                        <option value="menang">Menang</option>
+                                        <option value="seri">Seri</option>
+                                        <option value="kalah">Kalah</option>
+                                    </select>
+                                </div>
+                                <div class="col-1" style="font-size: 18px;">
+                                    Dari
+                                </div>
+                                <div class="col-2">
+                                    <select name="lawan[]" id="lawan3" class="form-select"
+                                        aria-label="Default select example" style="text-align: center;">
+                                        <option selected hidden>--Pilih Pemain 1--</option>
+                                    </select>
+                                </div>
+                                <div class="col-2">
+                                    <select name="koin[]" class="form-select" aria-label="Default select example"
+                                        style="text-align: center;">
+                                        <option selected hidden>--Input Koin--</option>
+                                        <option value="25">25</option>
+                                        <option value="50">50</option>
+                                        <option value="75">75</option>
+                                        <option value="100">100</option>
+                                    </select>
+                                </div>`);
+                $("#addTeam").addClass("disabled");
+            })
+        @else
+            function cbChange(id1, id2, id3) {
+                $(id1).on("change", function() {
+                    $(id2).html("");
+                    $(id2).append(
+                        `<option value="${$(id3+" option:selected").val()}">${$(id3+" option:selected").text()}</option>`
+                    );
+                });
+            }
+            cbChange("#team1", "#lawan2", "#team1");
+            cbChange("#team2", "#lawan1", "#team2");
+        @endif
 
         let checkbox = document.getElementById("statusCheckbox");
         let statusPos = document.getElementById("statusPos");

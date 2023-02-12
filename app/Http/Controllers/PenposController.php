@@ -25,7 +25,7 @@ class PenposController extends Controller
         if ($penposData->tipe == "Battle")
             return view('posbattle.index', compact('teams', 'penposData'));
         else if ($penposData->tipe == "Jasa")
-            return view ('SinglePos.posjasa', compact('teams', 'penposData'));
+            return view('SinglePos.posjasa', compact('teams', 'penposData'));
         else return view('SinglePos.single', compact('teams', 'penposData'));
     }
 
@@ -61,7 +61,7 @@ class PenposController extends Controller
 
         $this->updateCoin($request);
 
-        return Redirect::route("HomePenpos");
+        return Redirect::route("penpos.HomePenpos");
     }
 
     public function updateStatusPos(Request $request)
