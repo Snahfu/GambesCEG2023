@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class HomeController extends Controller
 {
@@ -23,6 +24,14 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        if (Auth::user() != null) {
+            if (Auth::user()->role == 'pemain') {
+                return redirect()->route('pemain.HomePage');
+            } else if (Auth::user()->role == 'penpos' || Auth::user()->role == 'si') {
+                return redirect()->route('penpos.HomePenpos');
+            }
+        } else {
+            return view('auth.login');
+        }
     }
 }

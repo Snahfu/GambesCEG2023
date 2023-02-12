@@ -27,13 +27,16 @@ class RedirectIfAuthenticated
 
                 switch ($role) {
                     case 'penpos':
-                        return redirect('/HomePenpos');
+                        return redirect('/penpos/HomePenpos');
                         break;
                     case 'pemain':
-                        return redirect('/HomePage');
+                        return redirect('/pemain/HomePage');
                         break;
-                    default: //Admin
-                        return redirect('/HomePage');
+                    case 'si': //Admin/si
+                        return redirect('/penpos/HomePenpos');
+                        break;
+                    default:
+                        return redirect(RouteServiceProvider::HOME);
                         break;
                 }
             }

@@ -19,11 +19,13 @@ class PenposController extends Controller
      */
     public function index()
     {
-        $penposId = Auth::id();
+        $penposId = Auth::id(); 
         $teams = $this->getTeams($penposId);
         $penposData = Penpos::find($penposId); // get penpos data
         if ($penposData->tipe == "Battle")
             return view('posbattle.index', compact('teams', 'penposData'));
+        else if ($penposData->tipe == "Jasa")
+            return view ('SinglePos.posjasa', compact('teams', 'penposData'));
         else return view('SinglePos.single', compact('teams', 'penposData'));
     }
     public function getTeams($penposId)
@@ -59,14 +61,6 @@ class PenposController extends Controller
         $this->updateCoin($request);
 
         return Redirect::route("HomePenpos");
-    }
-
-    //Method mengambil semua post permainan
-    public function getAllPos()
-    {
-        return view('allpos', [
-            "pos" => Penpos::all()
-        ]);
     }
 
     public function updateStatusPos(Request $request)

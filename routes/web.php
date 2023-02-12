@@ -1,7 +1,9 @@
 <?php
 
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PenposController;
 use App\Http\Controllers\PenposTeamController;
+use App\Http\Controllers\TeamController;
 use App\Models\Penpos;
 use App\Models\PenposTeam;
 use Illuminate\Support\Facades\Auth;
@@ -17,31 +19,36 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
-Route::get('/', function () {
-    return view('auth.login');
-});
-
-Route::get('/HomePenpos', [PenposController::class, 'index'])->name("HomePenpos");
-Route::post('/insertHasilGame', [PenposController::class, 'insertHasilGame'])->name("insertHasil");
-
-//Menampilkan semua pos permainan
-Route::get('/HomePage', [PenposController::class, 'getAllPos']);
-
-//Mengedit status pos permainan
-Route::post('/UpdateStatus', [PenposController::class, 'updateStatusPos'])->name('PenposUpdate');
-
-//Untuk testing front-end (sudah selesai silahkan diubah jika perlu)
-Route::view('/posbattle', 'posbattle.index')->name("posbattle");
-Route::view('/map', 'map.index')->name("map");
-
-//Menampilkan history battle 
-Route::get('/historybattle', [PenposTeamController::class, 'index'])->name('historybattle');
-
-// Route::view('/historybattle', 'posbattle.history')->name("historybattle");
+// LOGIN AWAL AWAL
+Route::get('/', [HomeController::class, 'index'])->name('home');
+// MENGGUNAKAN ROUTING MILIK AUTH LARAVEL
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\LoginController::class, 'index'])->name('home');
+Route::group(
+    //panggilnya pemain/HomePage etc
+    ['prefix' => 'pemain', 'as' => 'pemain.', 'middleware' => 'role:pemain'],
+    function () {
+        // Default page dari pemain HomePage
+        Route::get('/HomePage', [TeamController::class, 'getAllPos'])->name('HomePage');
+        // Halaman Buy
+        Route::get('/buy', [TeamController::class, 'gotoBuy'])->name('buymenu');
+        // Halaman Sell
+        Route::get('/sell', [TeamController::class, 'gotoSell'])->name('sellmenu');
+    }
+);
 
-Route::view('/singlepos', 'SinglePos.single')->name("singlepos");
-Route::view('/posjasa', 'SinglePos.posjasa')->name("posjasa");
+Route::group(
+    //panggilnya penpos/HomePenpos etc
+    ['prefix' => 'penpos','as' => 'penpos.', 'middleware' => 'role:penpos'],
+    function () {
+        // Halaman default penpos
+        Route::get('/HomePenpos', [PenposController::class, 'index'])->name("HomePenpos");
+        // Function insert hasil game
+        Route::post('/insertHasilGame', [PenposController::class, 'insertHasilGame'])->name("insertHasil");
+        // Function untuk ubah status pos permainan
+        Route::post('/UpdateStatus', [PenposController::class, 'updateStatusPos'])->name('PenposUpdate');
+        
+        // Halaman history masing masing pos 
+        Route::get('/historybattle', [PenposTeamController::class, 'index'])->name('historybattle');
+    }
+);

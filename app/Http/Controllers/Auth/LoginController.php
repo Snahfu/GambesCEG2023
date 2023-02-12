@@ -32,15 +32,16 @@ class LoginController extends Controller
     public function redirectTo()
     {
         $role = Auth::user()->role;
+        // dd($role);
         switch ($role) {
             case 'penpos':
-                return '/HomePenpos';
+                return '/penpos/HomePenpos';
                 break;
             case 'pemain':
-                return '/HomePage';
+                return '/pemain/HomePage';
                 break;
             default://Admin
-                return '/HomePage';
+                return '/penpos/HomePage';
                 break;
         }
     }

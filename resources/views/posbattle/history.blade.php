@@ -43,7 +43,7 @@
 
         <nav class="navbar navbar-expand-md navbar-light transparent" style="width: 90%;border-radius: 20px;">
             <div class="container" style="border-radius: 20px;">
-                <a class="navbar-brand" href="{{ route('HomePenpos') }}">
+                <a class="navbar-brand" href="{{ route('penpos.HomePenpos') }}">
                     <img src="{{ asset('assets') }}/logo/Kelapa_navbar.png" alt="Kelapa" style="max-height: 40px">
                     <img src="{{ asset('assets') }}/logo/Logo CEG.png" alt="Logo CEG" style="max-height: 40px">
                 </a>
@@ -55,8 +55,8 @@
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav ms-auto">
                         <li class="nav-item">
-                            <a class="nav-link active" href="{{ route('historybattle') }}"
-                                style="color:aquamarine; font-weight: bold">Histori</a>
+                            <a class="nav-link active" href="{{ route('penpos.HomePenpos') }}"
+                                style="color:aquamarine; font-weight: bold">Halaman Penpos</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link active" aria-current="page" href="{{ route('logout') }}"

@@ -96,7 +96,7 @@
 
         <nav class="navbar navbar-expand-md navbar-light transparent" style="width: 90%;border-radius: 20px;">
             <div class="container" style="border-radius: 20px;">
-                <a class="navbar-brand" href="{{ url('/') }}">
+                <a class="navbar-brand" href="{{ url('penpos.HomePenpos') }}">
                     <img src="{{ asset('assets') }}/logo/Kelapa_navbar.png" alt="Kelapa" style="max-height: 40px">
                     <img src="{{ asset('assets') }}/logo/Logo CEG.png" alt="Logo CEG" style="max-height: 40px">
                 </a>
@@ -108,7 +108,7 @@
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav ms-auto">
                         <li class="nav-item">
-                            <a class="nav-link active" href="{{ route('historybattle') }}"
+                            <a class="nav-link active" href="{{ route('penpos.historybattle') }}"
                                 style="color:aquamarine; font-weight: bold">Histori</a>
                         </li>
                         <li class="nav-item">
@@ -240,7 +240,7 @@
             console.log("Checkbox is checked");
             $.ajax({
                     type: "GET",
-                    url: "/UpdateStatus", // Route 
+                    url: "/penpos/UpdateStatus", // Route 
                     data: {
                         'status': 'PENUH'
                     }
@@ -259,7 +259,7 @@
 
             $.ajax({
                     type: "GET",
-                    url: "/UpdateStatus", // Route 
+                    url: "/penpos/UpdateStatus", // Route 
                     data: {
                         'status': 'KOSONG'
                     }

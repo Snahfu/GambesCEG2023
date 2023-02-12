@@ -96,7 +96,7 @@
 
         <nav class="navbar navbar-expand-md navbar-light transparent" style="width: 90%;border-radius: 20px;">
             <div class="container" style="border-radius: 20px;">
-                <a class="navbar-brand" href="{{ route('HomePenpos') }}">
+                <a class="navbar-brand" href="{{ route('penpos.HomePenpos') }}">
                     <img src="{{ asset('assets') }}/logo/Kelapa_navbar.png" alt="Kelapa" style="max-height: 40px">
                     <img src="{{ asset('assets') }}/logo/Logo CEG.png" alt="Logo CEG" style="max-height: 40px">
                 </a>
@@ -108,7 +108,7 @@
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav ms-auto">
                         <li class="nav-item">
-                            <a class="nav-link active" href="{{ route('historybattle') }}"
+                            <a class="nav-link active" href="{{ route('penpos.historybattle') }}"
                                 style="color:aquamarine; font-weight: bold">Histori</a>
                         </li>
                         <li class="nav-item">
@@ -133,7 +133,7 @@
     <div class="container" style="margin-top: 50px">
         <div class="row">
                 <div class="card p-0">
-                    <form action="{{ route('insertHasil') }}" method="POST">
+                    <form action="{{ route('penpos.insertHasil') }}" method="POST">
                         @csrf
                     {{-- Header --}}
                     <div class="card-header text-center" style="background-color:#ffffff;">
