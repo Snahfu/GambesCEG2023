@@ -289,6 +289,15 @@
 
                     <!--Button Submit-->
                     <div class="d-flex justify-content-center mb-4">
+                        <select name="status[]" class="form-select" aria-label="Default select example"
+                        style="text-align: center; width:210px;" onchange="updateStatus()" id="pengubahstatus">
+                            <option selected hidden>-- Update Status --</option>
+                            <option value="KOSONG">KOSONG</option>
+                            <option value="MENUNGGU">MENUNGGU</option>
+                            <option value="PENUH">PENUH</option>
+                        </select>
+                    </div>
+                    <div class="d-flex justify-content-center mb-4">
                         <button type="submit" class="btn btn-outline-primary">Submit</button>
                     </div>
                     <!--End Button Submit-->
@@ -301,11 +310,6 @@
                 style="{{ $penposData->status == 'KOSONG' ? 'background-color: #008917; ' : 'background-color:#e2626b;' }} text-align: center; font-weight:bold; color:white;">
                 Status Pos : <span
                     id="statusPos">{{ $penposData->status == 'KOSONG' ? 'KOSONG' : 'PENUH' }}</span>
-                <label class="switch" style="height = 10px">
-                    <input type="checkbox" id="statusCheckbox"
-                        {{ $penposData->status == 'KOSONG' ? 'value=KOSONG' : 'Checked value=PENUH' }}>
-                    <span class="slider round"></span>
-                </label>
             </div>
 
             <!--End Footer-->
@@ -407,49 +411,82 @@
             cbChange("#team2", "#lawan1", "#team2");
         @endif
 
-        let checkbox = document.getElementById("statusCheckbox");
-        let statusPos = document.getElementById("statusPos");
-        let posFooter = document.getElementById("posFooter");
-        checkbox.addEventListener("change", () => {
-            if (checkbox.checked) {
-                statusPos.innerHTML = "PENUH";
-                $("#statusCheckbox").val('PENUH');
+        // UPDATE STATUS
+        // let checkbox = document.getElementById("statusCheckbox"); //checkbox
+        let statusPos = document.getElementById("statusPos"); //text tulisannya
+        let posFooter = document.getElementById("posFooter"); //backgroundnya danger, warning f0ad4e, success
+        // let combobox = document.getElementById("pengubahstatus");
+        function updateStatus() {
+            // Ambil status yang diubah
+            let statusSekarang = $('#pengubahstatus').val()
+            
+            // Ubah tampilan Front End
+            statusPos.innerHTML = statusSekarang;
+            if(statusSekarang == "PENUH")
+            {
                 posFooter.style.backgroundColor = '#e2626b';
-                // posFooter.css("background-color", "red");
-
-                console.log("Checkbox is checked");
-                $.ajax({
-                        type: "POST",
-                        url: "{{ route('penpos.PenposUpdate') }}", // Route 
-                        data: {
-                            '_token': "{{ csrf_token() }}",
-                            'status': 'PENUH'
-                        }
-                    })
-                    .done(function(msg) {
-                        alert("Pesan: " + msg['result']);
-                    });
-
-            } else {
-                statusPos.innerHTML = "KOSONG";
-                $("#statusCheckbox").val('KOSONG');
-                posFooter.style.backgroundColor = '#008917';
-
-
-                console.log("Checkbox is not checked");
-
-                $.ajax({
-                        type: "POST",
-                        url: "{{ route('penpos.PenposUpdate') }}", // Route 
-                        data: {
-                            '_token': "{{ csrf_token() }}",
-                            'status': 'KOSONG'
-                        }
-                    })
-                    .done(function(msg) {
-                        alert("Pesan: " + msg['result']);
-                    });
+            }else if (statusSekarang == "MENUNGGU")
+            {
+                posFooter.style.backgroundColor = '#f0ad4e';
             }
-        });
+            else {
+                posFooter.style.backgroundColor = '#008917';
+            }
+
+            // Ubah data di database
+            $.ajax({
+                type: "POST",
+                url: "{{ route('penpos.PenposUpdate') }}", // Route 
+                data: {
+                    '_token': "{{ csrf_token() }}",
+                    'status': statusSekarang
+                }
+            })
+            .done(function(msg) {
+                // alert("Pesan: " + msg['result']);
+            });
+        }
+        
+        // checkbox.addEventListener("change", () => {
+        //     if (checkbox.checked) {
+        //         statusPos.innerHTML = "PENUH";
+        //         $("#statusCheckbox").val('PENUH');
+        //         posFooter.style.backgroundColor = '#e2626b';
+        //         // posFooter.css("background-color", "red");
+
+        //         console.log("Checkbox is checked");
+        //         $.ajax({
+        //                 type: "POST",
+        //                 url: "{{ route('penpos.PenposUpdate') }}", // Route 
+        //                 data: {
+        //                     '_token': "{{ csrf_token() }}",
+        //                     'status': 'PENUH'
+        //                 }
+        //             })
+        //             .done(function(msg) {
+        //                 alert("Pesan: " + msg['result']);
+        //             });
+
+        //     } else {
+        //         statusPos.innerHTML = "KOSONG";
+        //         $("#statusCheckbox").val('KOSONG');
+        //         posFooter.style.backgroundColor = '#008917';
+
+
+        //         console.log("Checkbox is not checked");
+
+        //         $.ajax({
+        //                 type: "POST",
+        //                 url: "{{ route('penpos.PenposUpdate') }}", // Route 
+        //                 data: {
+        //                     '_token': "{{ csrf_token() }}",
+        //                     'status': 'KOSONG'
+        //                 }
+        //             })
+        //             .done(function(msg) {
+        //                 alert("Pesan: " + msg['result']);
+        //             });
+        //     }
+        // });
     </script>
 @endsection
