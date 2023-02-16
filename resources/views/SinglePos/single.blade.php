@@ -111,8 +111,8 @@
                         <select name="hasil[]" class="form-select" aria-label="Default select example"
                             style="text-align: center;">
                             <option selected hidden>--Input Hasil--</option>
-                            <option value="menang">Menang</option>
-                            <option value="kalah">Kalah</option>
+                            <option value="Menang">Menang</option>
+                            <option value="Kalah">Kalah</option>
                         </select>
                     </div>
                     <div class="col-2">

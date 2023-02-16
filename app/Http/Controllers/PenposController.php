@@ -58,7 +58,7 @@ class PenposController extends Controller
             );
             DB::table("penpos_teams")->insert($data);
             // Tambahkan kartu
-            $pemain = Team::find($request["team"]);
+            $pemain = Team::find($request["team"][0]);
             // ID penpos = ID Kartu
             $pemain->inventory_kartu()->attach($penposId, [
                 'sold' => "Belum",

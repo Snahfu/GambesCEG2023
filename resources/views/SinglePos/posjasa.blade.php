@@ -82,59 +82,60 @@
 
     <div class="row">
         <div class="card p-0">
+            <form action="{{ route('penpos.insertHasil') }}" method="POST">
+                @csrf
+                {{-- Header --}}
+                <div class="card-header text-center" style="background-color:#ffffff;">
+                    <h2 style="color:rgba(0, 0, 0, 0.704); font-weight: bold">Pos Jasa</h2>
+                </div>
+                {{-- End Header --}}
 
-            {{-- Header --}}
-            <div class="card-header text-center" style="background-color:#ffffff;">
-                <h2 style="color:rgba(0, 0, 0, 0.704); font-weight: bold">Pos Jasa</h2>
-            </div>
-            {{-- End Header --}}
-
-            {{-- Body --}}
-            <div class="row d-flex justify-content-center mb-4 pt-4" style="text-align: center; font-weight: bold;">
-                <div class="col-2" style="font-size: 18px;">
-                    Nama Tim :
-                </div>
-                <div class="col-2">
-                    <select name="team[]" id="team1" class="form-select" aria-label="Default select example"
-                        style="text-align: center;">
-                        <option selected hidden>--Pilih Pemain 1--</option>
-                        {{-- semua team yang belum main di pos ini --}}
-                        @foreach ($teams as $team)
-                            <option value="{{ $team->id }}">{{ $team->nama }}</option>
-                        @endforeach
-                    </select>
-                </div>
-                <div class="col-2">
-                    <select name="hasil[]" class="form-select" aria-label="Default select example"
-                        style="text-align: center;">
-                        <option selected hidden>--Input Hasil--</option>
-                        <option value="menang">Selesai</option>
-                        <option value="kalah">Tidak Selesai</option>
-                    </select>
-                </div>
-                <div class="col-2">
-                    <select name="koin[]" class="form-select" aria-label="Default select example"
-                        style="text-align: center;">
-                        <option selected hidden>--Input Koin--</option>
-                        <option value="25">25</option>
-                        <option value="50">50</option>
-                        <option value="75">75</option>
-                        <option value="100">100</option>
-                    </select>
-                </div>
-                {{-- <div class="col-2">
+                {{-- Body --}}
+                <div class="row d-flex justify-content-center mb-4 pt-4" style="text-align: center; font-weight: bold;">
+                    <div class="col-2" style="font-size: 18px;">
+                        Nama Tim :
+                    </div>
+                    <div class="col-2">
+                        <select name="team[]" id="team1" class="form-select" aria-label="Default select example"
+                            style="text-align: center;">
+                            <option selected hidden>--Pilih Pemain 1--</option>
+                            {{-- semua team yang belum main di pos ini --}}
+                            @foreach ($teams as $team)
+                                <option value="{{ $team->id }}">{{ $team->nama }}</option>
+                            @endforeach
+                        </select>
+                    </div>
+                    <div class="col-2">
+                        <select name="hasil[]" class="form-select" aria-label="Default select example"
+                            style="text-align: center;">
+                            <option selected hidden>--Input Hasil--</option>
+                            <option value="Selesai">Selesai</option>
+                            <option value="Tidak Selesai">Tidak Selesai</option>
+                        </select>
+                    </div>
+                    <div class="col-2">
+                        <select name="koin[]" class="form-select" aria-label="Default select example"
+                            style="text-align: center;">
+                            <option selected hidden>--Input Koin--</option>
+                            <option value="25">25</option>
+                            <option value="50">50</option>
+                            <option value="75">75</option>
+                            <option value="100">100</option>
+                        </select>
+                    </div>
+                    {{-- <div class="col-2">
         <button type="button" class="btn btn-primary mx-2">Cek</button>
         <button type="button" class="btn btn-primary mx-2">Reset</button>
     </div> --}}
-            </div>
-            {{-- End Body --}}
+                </div>
+                {{-- End Body --}}
 
-            <!--Button Submit-->
-            <div class="d-flex justify-content-center mb-4">
-                <button type="submit" class="btn btn-outline-primary">Submit</button>
-            </div>
-            <!--End Button Submit-->
-
+                <!--Button Submit-->
+                <div class="d-flex justify-content-center mb-4">
+                    <button type="submit" class="btn btn-outline-primary">Submit</button>
+                </div>
+                <!--End Button Submit-->
+            </form>
             {{-- Footer --}}
             <div class="card-footer pt-3 pb-3 text-center bg-opacity-75" id="posFooter"
                 style="{{ $penposData->status == 'KOSONG' ? 'background-color: #008917; ' : 'background-color:#e2626b;' }} text-align: center; font-weight:bold; color:white;">
