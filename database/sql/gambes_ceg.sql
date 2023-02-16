@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 14, 2023 at 05:11 AM
+-- Generation Time: Feb 16, 2023 at 05:52 AM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.2.0
 
@@ -297,21 +297,21 @@ CREATE TABLE `kartus` (
 --
 
 INSERT INTO `kartus` (`id`, `nama`, `harga`) VALUES
-(1, 'Kartu 1', 100),
-(2, 'Kartu 2', 100),
-(3, 'Kartu 3', 100),
-(4, 'Kartu 4', 100),
-(5, 'Kartu 5', 100),
-(6, 'Kartu 6', 100),
-(7, 'Kartu 7', 100),
-(8, 'Kartu 8', 100),
-(9, 'Kartu 9', 100),
-(10, 'Kartu 10', 100),
-(11, 'Kartu 11', 100),
-(12, 'Kartu 12', 100),
-(13, 'Kartu 13', 100),
-(14, 'Kartu 14', 100),
-(15, 'Kartu 15', 100);
+(1, 'Kartu Coklat', 100),
+(2, 'Kartu Kecap', 100),
+(3, 'Kartu Biji Kopi Luwak', 100),
+(4, 'Kartu Jelly Kopi', 100),
+(5, 'Kartu Gelato', 100),
+(6, 'Kartu Terasi', 100),
+(7, 'Kartu Nata De Coco', 100),
+(8, 'Kartu Nori ', 100),
+(9, 'Kartu Abon', 100),
+(10, 'Kartu Tepung Gandum', 100),
+(11, 'Kartu Bubuk Madu', 100),
+(12, 'Kartu Marshmallow', 100),
+(13, 'Kartu Teh Celup', 100),
+(14, 'Kartu Soda', 100),
+(15, 'Kartu Saus Tomat', 100);
 
 -- --------------------------------------------------------
 
@@ -382,21 +382,21 @@ INSERT INTO `penpos` (`id`, `nama`, `deskripsi`, `tipe`, `status`, `jumlahTim`) 
 (13, 'Jasa 13', 'Belum Ada', 'Jasa', 'KOSONG', NULL),
 (14, 'Jasa 14', 'Belum Ada', 'Jasa', 'KOSONG', NULL),
 (15, 'Jasa 15', 'Belum Ada', 'Jasa', 'KOSONG', NULL),
-(16, 'Battle 1', 'Belum Ada', 'Battle', 'PENUH', '3'),
-(17, 'Battle 2', 'Belum Ada', 'Battle', 'KOSONG', '3'),
-(18, 'Battle 3', 'Belum Ada', 'Battle', 'KOSONG', '3'),
-(19, 'Battle 4', 'Belum Ada', 'Battle', 'KOSONG', '3'),
-(20, 'Battle 5', 'Belum Ada', 'Battle', 'KOSONG', '2'),
-(21, 'Single 1', 'Belum Ada', 'Single', 'KOSONG', NULL),
-(22, 'Single 2', 'Belum Ada', 'Single', 'KOSONG', NULL),
-(23, 'Single 3', 'Belum Ada', 'Single', 'KOSONG', NULL),
-(24, 'Single 4', 'Belum Ada', 'Single', 'KOSONG', NULL),
-(25, 'Single 5', 'Belum Ada', 'Single', 'KOSONG', NULL),
-(26, 'Single 6', 'Belum Ada', 'Single', 'KOSONG', NULL),
-(27, 'Single 7', 'Belum Ada', 'Single', 'KOSONG', NULL),
-(28, 'Single 8', 'Belum Ada', 'Single', 'KOSONG', NULL),
-(29, 'Single 9', 'Belum Ada', 'Single', 'KOSONG', NULL),
-(30, 'Single 10', 'Belum Ada', 'Single', 'KOSONG', NULL);
+(16, 'Answer correctly and eliminate', 'Belum Ada', 'Battle', 'KOSONG', '2'),
+(17, 'Invisible', 'Belum Ada', 'Battle', 'KOSONG', '3'),
+(18, 'Bidak berjalan', 'Belum Ada', 'Battle', 'KOSONG', '3'),
+(19, 'Bullseye', 'Belum Ada', 'Battle', 'KOSONG', '2'),
+(20, 'Flag of eternity', 'Belum Ada', 'Battle', 'KOSONG', '3'),
+(21, 'Buka tutup', 'Belum Ada', 'Single', 'KOSONG', NULL),
+(22, 'Food guessing', 'Belum Ada', 'Single', 'KOSONG', NULL),
+(23, 'Plant vs human', 'Belum Ada', 'Single', 'KOSONG', NULL),
+(24, 'Menulis dengan benang', 'Belum Ada', 'Single', 'KOSONG', NULL),
+(25, 'Beautiful lie', 'Belum Ada', 'Single', 'KOSONG', NULL),
+(26, 'Goal to Win', 'Belum Ada', 'Single', 'KOSONG', NULL),
+(27, 'Bom waktu', 'Belum Ada', 'Single', 'KOSONG', NULL),
+(28, 'The royal\'s one', 'Belum Ada', 'Single', 'KOSONG', NULL),
+(29, 'Berpikir sebelum melangkah', 'Belum Ada', 'Single', 'KOSONG', NULL),
+(30, 'Throw and answer', 'Belum Ada', 'Single', 'KOSONG', NULL);
 
 -- --------------------------------------------------------
 
@@ -673,7 +673,7 @@ ALTER TABLE `teams`
 -- AUTO_INCREMENT for table `teams_kartus`
 --
 ALTER TABLE `teams_kartus`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `users`
