@@ -50,6 +50,20 @@ class PenposController extends Controller
                 );
                 DB::table("penpos_teams")->insert($data);
             }
+        } else if (Penpos::find($penposId)->tipe == "Jasa") {
+            $data = array(
+                "penpos_id" => $penposId,
+                "teams_id" => $request["team"][0],
+                "hasil" => "Team " . $request["team"][0] . " " . $request["hasil"][0]
+            );
+            DB::table("penpos_teams")->insert($data);
+            // Tambahkan kartu
+            $pemain = Team::find($request["team"]);
+            // ID penpos = ID Kartu
+            $pemain->inventory_kartu()->attach($penposId, [
+                'sold' => "Belum",
+            ]);
+
         } else {
             $data = array(
                 "penpos_id" => $penposId,
@@ -57,6 +71,7 @@ class PenposController extends Controller
                 "hasil" => "Team " . $request["team"][0] . " " . $request["hasil"][0]
             );
             DB::table("penpos_teams")->insert($data);
+            
         }
 
         $this->updateCoin($request);
@@ -82,7 +97,6 @@ class PenposController extends Controller
 
     public function updateCoin(Request $request)
     {
-
         for ($i = 0; $i < count($request["team"]); $i++) {
             $query = DB::table('teams')->where('id', $request["team"][$i]);
             $query->increment('coin', $request["koin"][$i]);

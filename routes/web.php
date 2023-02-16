@@ -34,6 +34,10 @@ Route::group(
         Route::get('/buy', [TeamController::class, 'gotoBuy'])->name('buymenu');
         // Halaman Sell
         Route::get('/sell', [TeamController::class, 'gotoSell'])->name('sellmenu');
+        // Beli Kartu
+        Route::post('/buycard', [TeamController::class, 'buyKartu'])->name('buycard');
+        // Jual Kartu
+        Route::post('/sellcard', [TeamController::class, 'sellKartu'])->name('sellcard');
     }
 );
 
