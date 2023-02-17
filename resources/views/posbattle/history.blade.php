@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
+<div class="container px-sm-4 py-2">
     <div class="row">
         <div class="card p-0">
 
@@ -45,4 +46,5 @@
             <!--End Card Body-->
         </div>
     </div>
+</div>
 @endsection

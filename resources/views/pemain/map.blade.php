@@ -117,6 +117,13 @@
                     </div>
                 </div>
             </div>
+
+            <a href="{{ route('pemain.buymenu') }}" class="btn btn-success">
+                <span class="sidebar-text">Buy</span>
+            </a>
+            <a href="{{ route('pemain.sellmenu') }}" class="btn btn-danger">
+                <span class="sidebar-text">Sell</span>
+            </a>
        
 {{--         
             <ul class="list-group list-group-flush">

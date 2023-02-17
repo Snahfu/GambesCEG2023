@@ -88,6 +88,23 @@
             width: 30px;
         }
 
+        #content{
+            position: absolute;
+            top: 0;
+            top: 0;
+            left: 250px;
+            height: 100vh;
+            width: calc(100% - 250px);
+            background-color: var(--body-color);
+            transition: all ease-in-out 0.2s;
+        }
+
+        .sidebar.close ~ #content{
+            left: 65px;
+            height: 100vh;
+            width: calc(100% - 65px);
+        }
+
         .sidebar .toggle {
             position: absolute;
             top: 5%;
@@ -211,6 +228,61 @@
                 overflow-y: scroll;
             }
         }
+
+        @media screen and (max-width:576px){
+
+            .sidebar {
+                position: fixed;
+                top: 0;
+                left: 0;
+                height: 100vh;
+                width: 100%;
+                padding: 10px 10px;
+                background: #242526;
+                transition: all 0.2s ease;
+                z-index: 100;
+                overflow-y: scroll;
+            }
+            .sidebar.close{
+                font-size: 16px;
+                width: 60px;
+            }
+            .sidebar.close ~ #content{
+                left: 60px;
+                height: 100vh;
+                width: calc(100% - 60px);
+            }
+
+            .sidebar .toggle{
+                font-size:16px;
+                right: 15px;
+            }
+
+            .nav-link{
+                font-size: 16px;
+            }
+
+            .menu li i {
+                min-width: 50px;
+                height: 100%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-size: 16px;
+                transition: all 0.3s ease;
+                color: #ccc;
+            }
+            #content{
+                position: absolute;
+                top: 0;
+                top: 0;
+                left: 250px;
+                height: 100vh;
+                width: calc(100% - 250%);
+                background-color: var(--body-color);
+                transition: none;
+            }
+        }
     </style>
 </head>
 
@@ -284,7 +356,7 @@
             </ul>
         </nav>
 
-        <div id="content" style="margin-left:75px;padding-left:">
+        <div id="content" style="">
             <div class="container-fluid py-4">
                 @yield('content')
             </div>
