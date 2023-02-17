@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('penpos.app')
 
 @section('content')
 <div class="container px-sm-4 py-2">

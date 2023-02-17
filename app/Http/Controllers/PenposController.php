@@ -23,10 +23,10 @@ class PenposController extends Controller
         $teams = $this->getTeams($penposId);
         $penposData = Penpos::find($penposId); // get penpos data
         if ($penposData->tipe == "Battle")
-            return view('posbattle.index', compact('teams', 'penposData'));
+            return view('penpos.index', compact('teams', 'penposData'));
         else if ($penposData->tipe == "Jasa")
-            return view('SinglePos.posjasa', compact('teams', 'penposData'));
-        else return view('SinglePos.single', compact('teams', 'penposData'));
+            return view('penpos.posjasa', compact('teams', 'penposData'));
+        else return view('penpos.single', compact('teams', 'penposData'));
     }
 
     public function getTeams($penposId)

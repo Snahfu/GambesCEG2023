@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('penpos.app')
 
 @section('content')
     <style>

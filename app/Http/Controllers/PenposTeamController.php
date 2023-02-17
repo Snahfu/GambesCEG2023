@@ -16,7 +16,7 @@ class PenposTeamController extends Controller
      */
     public function index()
     {
-        return view('posbattle.history', [
+        return view('penpos.history', [
             "namapos" => Auth::user()->name,
             "penposteams" => PenposTeam::latest('jam')->where('penpos_id',
                 Auth::user()->id)->paginate(10),
