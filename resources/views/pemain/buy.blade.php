@@ -29,17 +29,30 @@
             margin : 15px 10px 10px 10px !important;
             
             box-shadow: 0 10px 10px rgba(0, 0, 0, 0.4);
+            transition: all 0.1s ease-in-out;
         }
 
         .cardItems:hover{
             transform: translateY(-2%);
-            transition: all 0.2 ease-in-out;
+            transition: all 0.15s ease-in-out;
         }
 
         @media screen and (max-width:992px){
             .card-container{
                 display: grid;
                 grid-template-columns: auto auto auto auto;
+            }
+            .card-title{
+                font-size: 16px;
+            }
+
+            .card-subtitle{
+                font-size: 14px;
+            }
+
+            .btn-primary{
+                padding: 3px 12px 3px 12px !important;
+                font-size: 14px;
             }
         }
         @media screen and (max-width:768px){
@@ -84,7 +97,7 @@
                 <div class="inline-spacing">
                     <div class="card-container">
                         @for ($i = 1; $i <= 15; $i++)
-                        <div class="card m-2 col-2 p-0 cardItems">
+                        <div class="card col-2 p-0 cardItems">
                             <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/74/White_domesticated_duck%2C_stretching.jpg/800px-White_domesticated_duck%2C_stretching.jpg"
                                 class="card-img-top" alt="...">
                             <div class="card-body text-center">
