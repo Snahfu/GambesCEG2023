@@ -29,11 +29,13 @@ Route::group(
     ['prefix' => 'pemain', 'as' => 'pemain.', 'middleware' => 'role:pemain'],
     function () {
         // Default page dari pemain HomePage
-        Route::get('/HomePage', [TeamController::class, 'getAllPos'])->name('HomePage');
+        Route::get('/HomePage', [TeamController::class, 'index'])->name('HomePage');
         // Halaman Buy
         Route::get('/buy', [TeamController::class, 'gotoBuy'])->name('buymenu');
         // Halaman Sell
         Route::get('/sell', [TeamController::class, 'gotoSell'])->name('sellmenu');
+        // function buat dap
+        Route::post('/penposDetail', [TeamController::class, 'getPenposDetail'])->name('penposDetail');
         // Beli Kartu
         Route::post('/buycard', [TeamController::class, 'buyKartu'])->name('buycard');
         // Jual Kartu

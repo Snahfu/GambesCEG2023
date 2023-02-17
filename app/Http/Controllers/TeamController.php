@@ -14,6 +14,45 @@ class TeamController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    //Method mengambil semua post permainan dan mengarah ke halaman default pemain
+    public function index()
+    {
+        // Ambil id team yg login
+        $pemainId = Auth::user()->teams_id;
+        // Ambil team
+        $pemain = Team::find($pemainId);
+        
+        return view('pemain.map', [
+            "datapemain" => $pemain
+        ]);
+    }
+
+    public function getPenposDetail(Request $request)
+    {
+        $status = "success";
+        $msg = "Berhasil memperoleh data penpos!";
+
+        $penposId = $request['pos_id'];
+        $penposData = Penpos::find($penposId);
+
+        if(!$penposData)
+        {
+            $status = "error";
+            $msg = "Hubungi panitia terdapat kesalahan website pemain!";
+
+            return response()->json(array(
+                'status' => $status,
+                'msg' => $msg,
+            ), 200);
+        }
+
+        return response()->json(array(
+            'status' => $status,
+            'msg' => $msg,
+            'penposData' => $penposData
+        ), 200);
+    }
+    
     // mengarahkan ke halaman beli
     public function gotoBuy()
     {
@@ -46,13 +85,6 @@ class TeamController extends Controller
         ]);
     }
 
-    //Method mengambil semua post permainan dan mengarah ke halaman default pemain
-    public function getAllPos()
-    {
-        return view('pemain.map', [
-            "pos" => Penpos::all()
-        ]);
-    }
 
     // Beli kartu
     public function buyKartu(Request $request)
