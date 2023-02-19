@@ -1,0 +1,9 @@
+---
+deployment:
+  tasks:
+    - export DEPLOYPATH=/home/u1579892/public_html/penyisihan.cegubaya.com
+    - /bin/cp public/assets $DEPLOYPATH
+    - /bin/cp public/.htaccess $DEPLOYPATH
+    - /bin/cp public/index.php $DEPLOYPATH
+    - /bin/cp public/favicon.ico $DEPLOYPATH
+    - /bin/cp public/robots.txt $DEPLOYPATH
