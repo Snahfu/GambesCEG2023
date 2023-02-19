@@ -310,7 +310,7 @@
                 <li class="nav-link">
                     <a href="{{ route('pemain.HomePage') }}">
                         <i class="fa-solid fa-tent icon"></i>
-                        <span class="text">Halaman Penpos</span>
+                        <span class="text">Home</span>
                     </a>
                 </li>
 
