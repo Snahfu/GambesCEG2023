@@ -322,7 +322,16 @@
         // auto fill combobox #lawanX dengan kelompok yang telah dipilih 
         @if ($penposData->jumlahTim=="3")
             function cbChange(id1, id2, id3, id4) {
-                $(id1).on("change", function() {
+                $(document).on("change",id1, function() {
+                    if(id1=="#team3"){
+                        $("#lawan3").html("");
+                        $("#lawan3").append(
+                        `<option value="${$("#team1"+" option:selected").val()}">${$("#team1"+" option:selected").text()}</option>`
+                        );
+                        $("#lawan3").append(
+                            `<option value="${$("#team2"+" option:selected").val()}">${$("#team2"+" option:selected").text()}</option>`
+                        );
+                    }
                     $(id2).html("");
                     $(id2).append(
                         `<option value="${$(id3+" option:selected").val()}">${$(id3+" option:selected").text()}</option>`
@@ -342,11 +351,18 @@
             cbChange("#team3", "#lawan2", "#team1", "#team3");
             cbChange("#team3", "#lawan1", "#team3", "#team2");
 
-
             // remove baris tim 3
             $(document).on("click","#disableRow", function () {
                 $(".card-body").children().children().eq(3).html("");
                 $("#addTeam").removeClass("disabled");
+                $("#lawan1").html("")
+                $("#lawan2").html("")
+                $("#lawan1").append(
+                    `<option value="${$("#team2"+" option:selected").val()}">${$("#team2"+" option:selected").text()}</option>`
+                );
+                $("#lawan2").append(
+                        `<option value="${$("#team1"+" option:selected").val()}">${$("#team1"+" option:selected").text()}</option>`
+                );
             });
             // Add baris team 3
             $(document).on("click","#addTeam",function(){
