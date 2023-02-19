@@ -15,77 +15,80 @@
         }
 
         /* Responsive Grid Start */
-        .cardBuy{
+        .cardBuy {
             display: flex;
         }
 
-        .card-container{
+        .card-container {
             display: grid;
             grid-template-columns: auto auto auto auto auto;
         }
 
-        .cardItems{
+        .cardItems {
             width: auto;
-            margin : 15px 10px 10px 10px !important;
-            
+            margin: 15px 10px 10px 10px !important;
+
             box-shadow: 0 10px 10px rgba(0, 0, 0, 0.4);
             transition: all 0.1s ease-in-out;
         }
 
-        .cardItems:hover{
+        .cardItems:hover {
             transform: translateY(-2%);
             transition: all 0.15s ease-in-out;
         }
 
-        @media screen and (max-width:992px){
-            .card-container{
+        @media screen and (max-width:992px) {
+            .card-container {
                 display: grid;
                 grid-template-columns: auto auto auto auto;
             }
-            .card-title{
+
+            .card-title {
                 font-size: 16px;
             }
 
-            .card-subtitle{
+            .card-subtitle {
                 font-size: 14px;
             }
 
-            .btn-primary{
+            .btn-primary {
                 padding: 3px 12px 3px 12px !important;
                 font-size: 14px;
             }
         }
-        @media screen and (max-width:768px){
-            .card-container{
+
+        @media screen and (max-width:768px) {
+            .card-container {
                 display: grid;
                 grid-template-columns: auto auto auto;
             }
         }
-        @media screen and (max-width:576px){
-            .card-container{
+
+        @media screen and (max-width:576px) {
+            .card-container {
                 display: grid;
                 grid-template-columns: auto auto;
             }
 
-            .cardItems .card-body{
+            .cardItems .card-body {
                 padding: 10px;
             }
-            .card-title{
+
+            .card-title {
                 font-size: 14px;
             }
 
-            .card-subtitle{
+            .card-subtitle {
                 font-size: 12px;
             }
 
-            .btn-primary{
+            .btn-primary {
                 padding: 3px 12px 3px 12px !important;
                 font-size: 12px;
             }
-        } 
+        }
+
         /* End of Responsive Grid */
-
-
     </style>
     <div class="container px-sm-4 py-2">
         <div class="card" id="cardBuy">
@@ -97,21 +100,19 @@
                 <div class="inline-spacing">
                     <div class="card-container">
                         @for ($i = 1; $i <= 15; $i++)
-                        <div class="card col-2 p-0 cardItems">
-                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/74/White_domesticated_duck%2C_stretching.jpg/800px-White_domesticated_duck%2C_stretching.jpg"
-                                class="card-img-top" alt="...">
-                            <div class="card-body text-center">
-                                <h4 class="card-title">Kartu {{$i}} </h4>
-                                <h5 class="card-subtitle mb-2 text-muted"><i class="fa-solid fa-coins" id="icon-coin"></i><span>
-                                        100</span></h5>
-                                <button class="btn btn-primary" onclick="buy({{$i}})">Buy</button>
+                            <div class="card col-2 p-0 cardItems">
+                                <img src="{{ asset('assets/images/Kartu_'.$i.'.jpg') }}"
+                                    class="card-img-top" alt="...">
+                                <div class="card-body text-center">
+                                    <h4 class="card-title"> {{ $semuaKartu[$i-1]->nama }}</h4>
+                                    <h5 class="card-subtitle mb-2 text-muted"><i class="fa-solid fa-coins"
+                                            id="icon-coin"></i><span>
+                                            100</span></h5>
+                                    <button class="btn btn-primary" onclick="buy({{ $i }})">Buy</button>
+                                </div>
                             </div>
-                        </div>
                         @endfor
-                        
                     </div>
-                    
-                    
                 </div>
                 {{-- END Baris Pertama --}}
             </div>

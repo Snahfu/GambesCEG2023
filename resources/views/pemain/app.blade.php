@@ -315,13 +315,15 @@
                 </li>
 
                 <li class="nav-link">
-                    <a href="{{ route('pemain.buymenu') }}" class="btn btn-success">
+                    <a href="{{ route('pemain.buymenu') }}">
+                        <i class="fa-solid fa-shopping-cart icon"></i>
                         <span class="sidebar-text">Buy</span>
                     </a>
                 </li>
 
                 <li class="nav-link">
-                    <a href="{{ route('pemain.sellmenu') }}" class="btn btn-danger">
+                    <a href="{{ route('pemain.sellmenu') }}">
+                        <i class="fa-solid fa-shopping-bag icon"></i>
                         <span class="sidebar-text">Sell</span>
                     </a>
                 </li>

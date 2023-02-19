@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Kartu;
 use App\Models\Penpos;
 use App\Models\Team;
 use Illuminate\Http\Request;
@@ -62,10 +63,12 @@ class TeamController extends Controller
         $pemain = Team::find($pemainId);
         // Ambil semua toko kartu milik team yg login
         $tokoKartus = $pemain->toko_kartu->all();
+        $semuaKartu = Kartu::all();
 
         // Ke halaman view
         return view('pemain.buy', [
-            "tokoKartus" => $tokoKartus
+            "tokoKartus" => $tokoKartus,
+            "semuaKartu" => $semuaKartu,
         ]);
     }
 
