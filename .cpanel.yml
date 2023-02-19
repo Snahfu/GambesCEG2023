@@ -2,12 +2,16 @@
 deployment:
   tasks:
     - export DEPLOYPATH=/home/u1579892/GambesCEG2023
-    - /bin/cp -R app $DEPLOYPATH
-    - /bin/cp -R bootstrap  $DEPLOYPATH
-    - /bin/cp -R config  $DEPLOYPATH
-    - /bin/cp -R database  $DEPLOYPATH
-    - /bin/cp -R public  $DEPLOYPATH
-    - /bin/cp -R resources  $DEPLOYPATH
-    - /bin/cp -R routes  $DEPLOYPATH
-    - /bin/cp -R storage $DEPLOYPATH
-    - /bin/cp -R tests $DEPLOYPATH
+    - /bin/cp -r * $DEPLOYPATH #copy all from root
+    # - /bin/cp -R app $DEPLOYPATH
+    # - /bin/cp -R bootstrap  $DEPLOYPATH
+    # - /bin/cp -R config  $DEPLOYPATH
+    # - /bin/cp -R database  $DEPLOYPATH
+    # - /bin/cp -R public  $DEPLOYPATH
+    # - /bin/cp -R resources  $DEPLOYPATH
+    # - /bin/cp -R routes  $DEPLOYPATH
+    # - /bin/cp -R storage $DEPLOYPATH
+    # - /bin/cp -R tests $DEPLOYPATH
+    # - /bin/cp ./public/js/*.js $DEPLOYPATH/public_html/js
+    # - /bin/cp ./public/css/*.css $DEPLOYPATH/public_html/css
+    
