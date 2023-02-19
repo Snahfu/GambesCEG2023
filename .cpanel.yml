@@ -1,11 +1,13 @@
-# ---
-# deployment:
-#   tasks:
-#     - export DEPLOYPATH=/home/u1579892/public_html/penyisihan.cegubaya.com
-#     - /bin/cp public/assets $DEPLOYPATH
-#     - /bin/cp public/.htaccess $DEPLOYPATH
-#     - /bin/cp public/index.php $DEPLOYPATH
-#     - /bin/cp public/favicon.ico $DEPLOYPATH
-#     - /bin/cp public/robots.txt $DEPLOYPATH
-
-HAHA
+---
+deployment:
+  tasks:
+    - export DEPLOYPATH=/home/u1579892/GambesCEG2023
+    - /bin/cp -R app $DEPLOYPATH
+    - /bin/cp -R bootstrap  $DEPLOYPATH
+    - /bin/cp -R config  $DEPLOYPATH
+    - /bin/cp -R database  $DEPLOYPATH
+    - /bin/cp -R public  $DEPLOYPATH
+    - /bin/cp -R resources  $DEPLOYPATH
+    - /bin/cp -R routes  $DEPLOYPATH
+    - /bin/cp -R storage $DEPLOYPATH
+    - /bin/cp -R tests $DEPLOYPATH
