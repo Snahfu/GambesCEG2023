@@ -317,14 +317,14 @@
                 <li class="nav-link">
                     <a href="{{ route('pemain.buymenu') }}">
                         <i class="fa-solid fa-shopping-cart icon"></i>
-                        <span class="sidebar-text">Buy</span>
+                        <span class="text">Buy</span>
                     </a>
                 </li>
 
                 <li class="nav-link">
                     <a href="{{ route('pemain.sellmenu') }}">
                         <i class="fa-solid fa-shopping-bag icon"></i>
-                        <span class="sidebar-text">Sell</span>
+                        <span class="text">Sell</span>
                     </a>
                 </li>
 
