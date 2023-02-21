@@ -98,7 +98,6 @@
 </head>
 
 <body style="background: url('{{ asset('assets') }}/background/background.png') center / cover no-repeat fixed">
-    <h1>HAHAHA</h1>
     <div class="container px-4 py-5" style="">
         <div class="content-wrapper" style="top:25%;position: relative;">
             <div class="content-header row">
