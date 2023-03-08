@@ -46,7 +46,8 @@ class PenposController extends Controller
                 $data = array(
                     "penpos_id" => $penposId,
                     "teams_id" => $request["team"][$i],
-                    "hasil" => "Team " . $request["team"][$i] . " " . $request["hasil"][$i] . " Melawan Team " . $request["lawan"][$i]
+                    "hasil" => "Team " . $request["team"][$i] . " " . $request["hasil"][$i] . " Melawan Team " . $request["lawan"][$i],
+                    "koin" => $request["koin"][$i]
                 );
                 DB::table("penpos_teams")->insert($data);
             }
@@ -54,7 +55,8 @@ class PenposController extends Controller
             $data = array(
                 "penpos_id" => $penposId,
                 "teams_id" => $request["team"][0],
-                "hasil" => "Team " . $request["team"][0] . " " . $request["hasil"][0]
+                "hasil" => "Team " . $request["team"][0] . " " . $request["hasil"][0],
+                "koin" => $request["koin"][0]
             );
             DB::table("penpos_teams")->insert($data);
             // Tambahkan kartu
@@ -63,15 +65,14 @@ class PenposController extends Controller
             $pemain->inventory_kartu()->attach($penposId, [
                 'sold' => "Belum",
             ]);
-
         } else {
             $data = array(
                 "penpos_id" => $penposId,
                 "teams_id" => $request["team"][0],
-                "hasil" => "Team " . $request["team"][0] . " " . $request["hasil"][0]
+                "hasil" => "Team " . $request["team"][0] . " " . $request["hasil"][0],
+                "koin" => $request["koin"][0]
             );
             DB::table("penpos_teams")->insert($data);
-            
         }
 
         $this->updateCoin($request);
