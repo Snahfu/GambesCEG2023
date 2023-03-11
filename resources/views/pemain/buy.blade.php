@@ -28,13 +28,8 @@
             width: auto;
             margin: 15px 10px 10px 10px !important;
 
-            box-shadow: 0 10px 10px rgba(0, 0, 0, 0.4);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.25);
             transition: all 0.1s ease-in-out;
-        }
-
-        .cardItems:hover {
-            transform: translateY(-2%);
-            transition: all 0.15s ease-in-out;
         }
 
         @media screen and (max-width:992px) {
