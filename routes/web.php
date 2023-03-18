@@ -40,6 +40,8 @@ Route::group(
         Route::post('/buycard', [TeamController::class, 'buyKartu'])->name('buycard');
         // Jual Kartu
         Route::post('/sellcard', [TeamController::class, 'sellKartu'])->name('sellcard');
+        // History Pemain
+        Route::get('/historypemain', [TeamController::class, 'history'])->name('historypemain');
     }
 );
 

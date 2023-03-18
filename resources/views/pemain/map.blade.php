@@ -151,56 +151,154 @@
                 <!--Map-->
                 <div class="card-body p-5">
                     <div class="table-responsive">
-                        <table class="table table-bordered">
+                        <table class="table table-borderless" style="font-family: sans-serif; font-size: 12px">
                             <tr>
-                                <td onclick="pos(1)">Jasa 1</td>
-                                <td onclick="pos(6)">Jasa 6</td>
-                                <td onclick="pos(11)">Jasa 11</td>
-                                <td></td>
-                                <td onclick="pos(16)">Battle 1</td>
-                                <td></td>
-                                <td onclick="pos(21)">Single 1</td>
-                                <td onclick="pos(26)">Single 6</td>
+                                <td colspan="7" class="bg-info" style="font-size: 20px;">MARKET</td>
                             </tr>
                             <tr>
-                                <td onclick="pos(2)">Jasa 2</td>
-                                <td onclick="pos(7)">Jasa 7</td>
-                                <td onclick="pos(12)">Jasa 12</td>
-                                <td></td>
-                                <td onclick="pos(17)">Battle 2</td>
-                                <td></td>
-                                <td onclick="pos(22)">Single 2</td>
-                                <td onclick="pos(27)">Single 7</td>
+                                <td style="{{ $allpenpos[0]['status'] == 'KOSONG' ? 'background-color: #008917; ' : 'background-color:#e2626b;' }}" onclick="pos(1)" id="pos-1">Jasa 1</td>
+                                <td style="background:cyan;"></td>
+                                <td style="background:cyan;"></td>
+                                <td style="background:cyan;"></td>
+                                <td style="{{ $allpenpos[8]['status'] == 'KOSONG' ? 'background-color: #008917; ' : 'background-color:#e2626b;' }}" onclick="pos(9)" id="pos-9">Jasa 9</td>
+                                <td style="background:cyan;"></td>
+                                <td style="{{ $allpenpos[29]['status'] == 'KOSONG' ? 'background-color: #008917; ' : 'background-color:#e2626b;' }}" onclick="pos(30)" id="pos-30">Single 10</td>
                             </tr>
                             <tr>
-                                <td onclick="pos(3)">Jasa 3</td>
-                                <td onclick="pos(8)">Jasa 8</td>
-                                <td onclick="pos(13)">Jasa 13</td>
-                                <td></td>
-                                <td onclick="pos(18)">Battle 3</td>
-                                <td></td>
-                                <td onclick="pos(23)">Single 3</td>
-                                <td onclick="pos(28)">Single 8</td>
+                                <td style="{{ $allpenpos[1]['status'] == 'KOSONG' ? 'background-color: #008917; ' : 'background-color:#e2626b;' }}" onclick="pos(2)" id="pos-2">Jasa 2</td>
+                                <td style="background:cyan;"></td>
+                                <td style="background:cyan;"></td>
+                                <td style="background:cyan;"></td>
+                                <td style="{{ $allpenpos[9]['status'] == 'KOSONG' ? 'background-color: #008917; ' : 'background-color:#e2626b;' }}" onclick="pos(10)" id="pos-10">Jasa 10</td>
+                                <td style="background:cyan;"></td>
+                                <td style="{{ $allpenpos[28]['status'] == 'KOSONG' ? 'background-color: #008917; ' : 'background-color:#e2626b;' }}" onclick="pos(29)" id="pos-29">Single 9</td>
                             </tr>
                             <tr>
-                                <td onclick="pos(4)">Jasa 4</td>
-                                <td onclick="pos(9)">Jasa 9</td>
-                                <td onclick="pos(14)">Jasa 14</td>
-                                <td></td>
-                                <td onclick="pos(19)">Battle 4</td>
-                                <td></td>
-                                <td onclick="pos(24)">Single 4</td>
-                                <td onclick="pos(29)">Single 9</td>
+                                <td style="{{ $allpenpos[2]['status'] == 'KOSONG' ? 'background-color: #008917; ' : 'background-color:#e2626b;' }}" onclick="pos(3)" id="pos-3">Jasa 3</td>
+                                <td style="background:cyan;"></td>
+                                <td style="background:cyan;"></td>
+                                <td style="background:cyan;"></td>
+                                <td style="{{ $allpenpos[10]['status'] == 'KOSONG' ? 'background-color: #008917; ' : 'background-color:#e2626b;' }}" onclick="pos(11)" id="pos-11">Jasa 11</td>
+                                <td style="background:cyan;"></td>
+                                <td style="{{ $allpenpos[27]['status'] == 'KOSONG' ? 'background-color: #008917; ' : 'background-color:#e2626b;' }}" onclick="pos(28)" id="pos-28">Single 8</td>
                             </tr>
                             <tr>
-                                <td onclick="pos(5)">Jasa 5</td>
-                                <td onclick="pos(10)">Jasa 10</td>
-                                <td onclick="pos(15)">Jasa 15</td>
+                                <td style="{{ $allpenpos[3]['status'] == 'KOSONG' ? 'background-color: #008917; ' : 'background-color:#e2626b;' }}" onclick="pos(4)" id="pos-4">Jasa 4</td>
+                                <td style="background:cyan;"></td>
+                                <td style="background:cyan;"></td>
+                                <td style="background:cyan;"></td>
+                                <td style="{{ $allpenpos[11]['status'] == 'KOSONG' ? 'background-color: #008917; ' : 'background-color:#e2626b;' }}" onclick="pos(12)" id="pos-12">Jasa 12</td>
+                                <td style="background:cyan;"></td>
+                                <td style="{{ $allpenpos[26]['status'] == 'KOSONG' ? 'background-color: #008917; ' : 'background-color:#e2626b;' }}" onclick="pos(27)" id="pos-27">Single 7</td>
+                            </tr>
+                            <tr>
+                                <td style="{{ $allpenpos[4]['status'] == 'KOSONG' ? 'background-color: #008917; ' : 'background-color:#e2626b;' }}" onclick="pos(5)" id="pos-5">Jasa 5</td>
+                                <td style="background:cyan;"></td>
+                                <td style="background:cyan;"></td>
+                                <td style="background:cyan;"></td>
+                                <td style="{{ $allpenpos[12]['status'] == 'KOSONG' ? 'background-color: #008917; ' : 'background-color:#e2626b;' }}" onclick="pos(13)" id="pos-13">Jasa 13</td>
+                                <td style="background:cyan;"></td>
+                                <td style="{{ $allpenpos[25]['status'] == 'KOSONG' ? 'background-color: #008917; ' : 'background-color:#e2626b;' }}" onclick="pos(26)" id="pos-26">Single 6</td>
+                            </tr>
+                            <tr>
+                                <td style="{{ $allpenpos[5]['status'] == 'KOSONG' ? 'background-color: #008917; ' : 'background-color:#e2626b;' }}" onclick="pos(6)" id="pos-6">Jasa 6</td>
+                                <td style="background:cyan;"></td>
+                                <td style="background:cyan;"></td>
+                                <td style="background:cyan;"></td>
+                                <td style="{{ $allpenpos[13]['status'] == 'KOSONG' ? 'background-color: #008917; ' : 'background-color:#e2626b;' }}" onclick="pos(14)" id="pos-14">Jasa 14</td>
+                                <td style="background:cyan;"></td>
+                                <td style="background:cyan;"></td>
+                            </tr>
+                            <tr>
+                                <td style="{{ $allpenpos[6]['status'] == 'KOSONG' ? 'background-color: #008917; ' : 'background-color:#e2626b;' }}" onclick="pos(7)" id="pos-7">Jasa 7</td>
+                                <td style="background:cyan;"></td>
+                                <td style="background:cyan;"></td>
+                                <td style="background:cyan;"></td>
+                                <td style="{{ $allpenpos[14]['status'] == 'KOSONG' ? 'background-color: #008917; ' : 'background-color:#e2626b;' }}" onclick="pos(15)" id="pos-15">Jasa 15</td>
+                                <td style="background:cyan;"></td>
+                                <td style="background:cyan;"></td>
+                            </tr>
+                            <tr>
+                                <td style="{{ $allpenpos[7]['status'] == 'KOSONG' ? 'background-color: #008917; ' : 'background-color:#e2626b;' }}" onclick="pos(8)" id="pos-8">Jasa 8</td>
+                                <td style="background:cyan;"></td>
+                                <td style="background:cyan;"></td>
+                                <td style="background:cyan;"></td>
+                                <td style="background:cyan;"></td>
+                                <td style="background:cyan;"></td>
+                                <td style="background:cyan;"></td>
+                            </tr>
+                            <tr>
+                                <td colspan="7"></td>
+                            </tr>
+                            <tr>
+                                {{-- Row1 --}}
                                 <td></td>
-                                <td onclick="pos(20)">Battle 5</td>
                                 <td></td>
-                                <td onclick="pos(25)">Single 5</td>
-                                <td onclick="pos(30)">Single 10</td>
+                                <td style="background:cyan;"></td>
+                                <td style="{{ $allpenpos[24]['status'] == 'KOSONG' ? 'background-color: #008917; ' : 'background-color:#e2626b;' }}" onclick="pos(25)" id="pos-25">Single 5</td>
+                                <td style="background:cyan;"></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                {{-- Row2 --}}
+                                <td></td>
+                                <td style="background:cyan;"></td>
+                                <td style="{{ $allpenpos[23]['status'] == 'KOSONG' ? 'background-color: #008917; ' : 'background-color:#e2626b;' }}" onclick="pos(24)" id="pos-24">Single 4</td>
+                                <td style="background:cyan;"></td>
+                                <td style="background:cyan;"></td>
+                                <td style="background:cyan;"></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                {{-- Row3 --}}
+                                <td style="background:cyan;"></td>
+                                <td style="{{ $allpenpos[22]['status'] == 'KOSONG' ? 'background-color: #008917; ' : 'background-color:#e2626b;' }}" onclick="pos(23)" id="pos-23">Single 3</td>
+                                <td style="background:cyan;"></td>
+                                <td style="background:cyan;"></td>
+                                <td style="background:cyan;"></td>
+                                <td style="{{ $allpenpos[15]['status'] == 'KOSONG' ? 'background-color: #008917; ' : ($allpenpos[15]['status'] == 'MENUNGGU' ? 'background-color:#f0ad4e;' : 'background-color:#e2626b;') }}" onclick="pos(16)" id="pos-16">Battle 1</td>
+                                <td style="background:cyan;"></td>
+                            </tr>
+                            <tr>
+                                {{-- Row4 --}}
+                                <td style="{{ $allpenpos[21]['status'] == 'KOSONG' ? 'background-color: #008917; ' : 'background-color:#e2626b;' }}" onclick="pos(22)" id="pos-22">Single 2</td>
+                                <td style="background:cyan;"></td>
+                                <td style="background:cyan;"></td>
+                                <td style="background:cyan;"></td>
+                                <td style="background:cyan;"></td>
+                                <td style="background:cyan;"></td>
+                                <td style="{{ $allpenpos[16]['status'] == 'KOSONG' ? 'background-color: #008917; ' : ($allpenpos[16]['status'] == 'MENUNGGU' ? 'background-color:#f0ad4e;' : 'background-color:#e2626b;') }}" onclick="pos(17)" id="pos-17">Battle 2</td>
+                            </tr>
+                            <tr>
+                                {{-- Row5 --}}
+                                <td style="background:cyan;"></td>
+                                <td style="{{ $allpenpos[20]['status'] == 'KOSONG' ? 'background-color: #008917; ' : 'background-color:#e2626b;' }}" onclick="pos(21)" id="pos-21">Single 1</td>
+                                <td style="background:cyan;"></td>
+                                <td style="background:cyan;"></td>
+                                <td style="background:cyan;"></td>
+                                <td style="{{ $allpenpos[17]['status'] == 'KOSONG' ? 'background-color: #008917; ' : ($allpenpos[17]['status'] == 'MENUNGGU' ? 'background-color:#f0ad4e;' : 'background-color:#e2626b;') }}" onclick="pos(18)" id="pos-18">Battle 3</td>
+                                <td style="background:cyan;"></td>
+                            </tr>
+                            <tr>
+                                {{-- Row6 --}}
+                                <td></td>
+                                <td style="background:cyan;"></td>
+                                <td style="background:cyan;"></td>
+                                <td style="background:cyan;"></td>
+                                <td style="{{ $allpenpos[18]['status'] == 'KOSONG' ? 'background-color: #008917; ' : ($allpenpos[18]['status'] == 'MENUNGGU' ? 'background-color:#f0ad4e;' : 'background-color:#e2626b;') }}" onclick="pos(19)" id="pos-19">Battle 4</td>
+                                <td style="background:cyan;"></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                {{-- Row7 --}}
+                                <td></td>
+                                <td></td>
+                                <td style="background:cyan;"></td>
+                                <td style="{{ $allpenpos[19]['status'] == 'KOSONG' ? 'background-color: #008917; ' : ($allpenpos[19]['status'] == 'MENUNGGU' ? 'background-color:#f0ad4e;' : 'background-color:#e2626b;') }}" onclick="pos(20)" id="pos-20">Battle 5</td>
+                                <td style="background:cyan;"></td>
+                                <td></td>
+                                <td></td>
                             </tr>
                         </table>
                     </div>
@@ -259,5 +357,19 @@
                 }
             });
         }
+
+        window.Echo.channel('penposChannel').listen('.penposStatus', (e) => {
+            var idPos = 'pos-' + e.penposStatus.penpos.id;
+            let posFooter = document.getElementById(idPos);
+            
+            if (e.penposStatus.penpos.status == 'KOSONG') {
+                posFooter.style.backgroundColor = '#008917';
+            } else if (e.penposStatus.penpos.status == 'PENUH') {
+                posFooter.style.backgroundColor = '#e2626b';
+            } else {
+                posFooter.style.backgroundColor = '#f0ad4e';
+            }
+            
+        });
     </script>
 @endsection

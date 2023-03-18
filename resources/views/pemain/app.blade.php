@@ -17,6 +17,7 @@
 
     {{-- Scripts --}}
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js" type="text/javascript"></script>
+    <script src="../js/app.js"></script>
     {{-- End Scripts --}}
 
     <!-- Styles -->
@@ -32,7 +33,10 @@
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
-    
+
+    {{-- Pusher --}}
+    <script src="https://js.pusher.com/7.2/pusher.min.js"></script>
+    {{-- Pusher end --}}
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
 
@@ -325,6 +329,13 @@
                     <a href="{{ route('pemain.sellmenu') }}">
                         <i class="fa-solid fa-shopping-bag icon"></i>
                         <span class="text">Sell</span>
+                    </a>
+                </li>
+                
+                <li class="nav-link">
+                    <a href="{{ route('pemain.historypemain') }}" style="color:aquamarine; font-weight: bold">
+                        <i class="fa-solid fa-clock icon"></i>
+                        <span class="text">Histori</span>
                     </a>
                 </li>
 

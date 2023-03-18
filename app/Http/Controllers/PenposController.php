@@ -7,8 +7,10 @@ use App\Models\PenposTeam;
 use App\Models\Team;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
+use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
+use App\Events\penposStatus;
 
 class PenposController extends Controller
 {
@@ -91,9 +93,12 @@ class PenposController extends Controller
             $selectedPos->status = $request['status'];
             $selectedPos->save();
         }
-        return response()->json(['result' => 'Success Update Status']);
-        // return view('/HomePenpos');
 
+        $penposStatus = ['penpos' => $selectedPos];
+        event(new penposStatus($penposStatus));
+
+        return response()->json(['result' => 'Success Update Status', "success" => true]);
+        // return view('/HomePenpos');
     }
 
     public function updateCoin(Request $request)

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Kartu;
 use App\Models\Penpos;
+use App\Models\PenposTeam;
 use App\Models\Team;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -22,9 +23,13 @@ class TeamController extends Controller
         $pemainId = Auth::user()->teams_id;
         // Ambil team
         $pemain = Team::find($pemainId);
-        
+        // Ambil semua penpos
+        $allpenpos = Penpos::all();
+        // dd($allpenpos);
+        // dd($allpenpos[0]["id"]);
         return view('pemain.map', [
-            "datapemain" => $pemain
+            "datapemain" => $pemain,
+            "allpenpos" => $allpenpos
         ]);
     }
 
@@ -232,5 +237,22 @@ class TeamController extends Controller
             'status' => $status,
             'msg' => $msg,
         ), 200);
+    }
+
+    public function history()
+    {
+        // Ambil id team yg login
+        $pemainId = Auth::user()->teams_id;
+        // Ambil team
+        $pemain = Team::find($pemainId);
+        
+        return view('pemain.history', [
+            "namatim" => $pemain->nama,
+            "penposteams" => PenposTeam::latest('jam')->where(
+                'teams_id',
+                $pemainId
+            )->paginate(10),
+            "namaPenpos" => Penpos::all()
+        ]);
     }
 }

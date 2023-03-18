@@ -117,10 +117,10 @@
                         <select name="koin[]" class="form-select" aria-label="Default select example"
                             style="text-align: center;">
                             <option selected hidden>--Input Koin--</option>
-                            <option value="25">25</option>
-                            <option value="50">50</option>
-                            <option value="75">75</option>
-                            <option value="100">100</option>
+                            <option value="10">10</option>
+                            <option value="20">20</option>
+                            <option value="30">30</option>
+                            <option value="40">40</option>
                         </select>
                     </div>
                     {{-- <div class="col-2">

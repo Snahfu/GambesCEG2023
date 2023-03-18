@@ -124,7 +124,7 @@
 
             {{-- Header --}}
             <div class="card-header text-center" style="background-color:#ffffff;">
-                <h2 style="color:rgba(0, 0, 0, 0.704); font-weight: bold">{{ $penposData->nama }}</h2>
+                <h2 style="color:rgba(0, 0, 0, 0.704); font-weight: bold" id="namaPosMain">{{ $penposData->nama }}</h2>
                 <p>{{ $penposData->deskripsi }}</p>
             </div>
             {{-- End Header --}}
@@ -170,11 +170,19 @@
                         <div class="col-2">
                             <select name="koin[]" class="form-select" aria-label="Default select example"
                                 style="text-align: center;">
-                                <option selected hidden>--Input Koin--</option>
-                                <option value="25">25</option>
-                                <option value="50">50</option>
-                                <option value="75">75</option>
-                                <option value="100">100</option>
+                                @if ($penposData->nama == 'Flag of eternity')
+                                    <option selected hidden>--Input Koin--</option>
+                                    <option value="25">25</option>
+                                    <option value="50">50</option>
+                                    <option value="175">175</option>
+                                    <option value="300">300</option>
+                                @else
+                                    <option selected hidden>--Input Koin--</option>
+                                    <option value="100">100</option>
+                                    <option value="150">150</option>
+                                    <option value="200">200</option>
+                                    <option value="300">300</option>
+                                @endif
                             </select>
                         </div>
                     </div>
@@ -216,11 +224,19 @@
                         <div class="col-2">
                             <select name="koin[]" class="form-select" aria-label="Default select example"
                                 style="text-align: center;">
-                                <option selected hidden>--Input Koin--</option>
-                                <option value="25">25</option>
-                                <option value="50">50</option>
-                                <option value="75">75</option>
-                                <option value="100">100</option>
+                                @if ($penposData->nama == 'Flag of eternity')
+                                    <option selected hidden>--Input Koin--</option>
+                                    <option value="25">25</option>
+                                    <option value="50">50</option>
+                                    <option value="175">175</option>
+                                    <option value="300">300</option>
+                                @else
+                                    <option selected hidden>--Input Koin--</option>
+                                    <option value="100">100</option>
+                                    <option value="150">150</option>
+                                    <option value="200">200</option>
+                                    <option value="300">300</option>
+                                @endif
                             </select>
                         </div>
                     </div>
@@ -344,7 +360,9 @@
             });
             // Add baris team 3
             $(document).on("click", "#addTeam", function() {
-                $(".card-body").children().children().eq(3).html(`<div class="col-2" style="font-size: 18px;" id="disableRow">
+                var namaPos = $('#namaPosMain').html();
+                if (namaPos == "Flag of eternity") {
+                    $(".card-body").children().children().eq(3).html(`<div class="col-2" style="font-size: 18px;" id="disableRow">
                     <span>
                                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x-lg" viewBox="0 0 16 16">
                                             <path d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8 2.146 2.854Z"/>
@@ -386,11 +404,61 @@
                                         <option selected hidden>--Input Koin--</option>
                                         <option value="25">25</option>
                                         <option value="50">50</option>
-                                        <option value="75">75</option>
-                                        <option value="100">100</option>
+                                        <option value="175">175</option>
+                                        <option value="300">300</option>
                                     </select>
                                 </div>`);
-                $("#addTeam").addClass("disabled");
+                    $("#addTeam").addClass("disabled");
+                } else {
+                    $(".card-body").children().children().eq(3).html(`<div class="col-2" style="font-size: 18px;" id="disableRow">
+                    <span>
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x-lg" viewBox="0 0 16 16">
+                                            <path d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8 2.146 2.854Z"/>
+                                        </svg>
+                                    </span>
+                                    <p> Nama Tim 3:</p>
+                                </div>
+                                <div class="col-2">
+                                    <select name="team[]" id="team3" class="form-select"
+                                        aria-label="Default select example" style="text-align: center;">
+                                        <option selected hidden>--Pilih Pemain 3--</option>
+                                        {{-- semua team yang belum main di pos ini --}}
+                                        @foreach ($teams as $team)
+                                            <option value="{{ $team->id }}">{{ $team->nama }}</option>
+                                        @endforeach
+                                    </select>
+                                </div>
+                                <div class="col-2">
+                                    <select name="hasil[]" class="form-select" aria-label="Default select example"
+                                        style="text-align: center;">
+                                        <option selected hidden>--Input Hasil--</option>
+                                        <option value="menang">Menang</option>
+                                        <option value="seri">Seri</option>
+                                        <option value="kalah">Kalah</option>
+                                    </select>
+                                </div>
+                                <div class="col-1" style="font-size: 18px;">
+                                    Dari
+                                </div>
+                                <div class="col-2">
+                                    <select name="lawan[]" id="lawan3" class="form-select"
+                                        aria-label="Default select example" style="text-align: center;">
+                                        <option selected hidden>--Pilih Pemain 1--</option>
+                                    </select>
+                                </div>
+                                <div class="col-2">
+                                    <select name="koin[]" class="form-select" aria-label="Default select example"
+                                        style="text-align: center;">
+                                        <option selected hidden>--Input Koin--</option>
+                                        <option value="100">100</option>
+                                        <option value="150">150</option>
+                                        <option value="200">200</option>
+                                        <option value="300">300</option>
+                                    </select>
+                                </div>`);
+                    $("#addTeam").addClass("disabled");
+                }
+
             })
         @else
             function cbChange(id1, id2, id3) {
