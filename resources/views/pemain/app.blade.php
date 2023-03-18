@@ -18,7 +18,7 @@
     {{-- Scripts --}}
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js" type="text/javascript"></script>
     {{-- <script src="js/app.js"></script> --}}
-    <script src="{{ asset('assets/js/app.js') }}" type="text/javascript" defer></script>
+    <script src="{{ asset('assets/js/pusher.js') }}" type="text/javascript" defer></script>
     {{-- End Scripts --}}
 
     <!-- Styles -->
