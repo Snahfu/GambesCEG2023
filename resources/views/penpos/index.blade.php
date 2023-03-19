@@ -150,7 +150,7 @@
                             </select>
                         </div>
                         <div class="col-2">
-                            <select name="hasil[]" class="form-select" aria-label="Default select example"
+                            <select name="hasil[]" id="hasil1" class="form-select" aria-label="Default select example"
                                 style="text-align: center;">
                                 <option selected hidden>--Input Hasil--</option>
                                 <option value="menang">Menang</option>
@@ -164,11 +164,11 @@
                         <div class="col-2">
                             <select name="lawan[]" id="lawan1" class="form-select" aria-label="Default select example"
                                 style="text-align: center;">
-                                <option selected hidden>--Pilih Pemain 1--</option>
+                                <option selected hidden>--Pilih Pemain--</option>
                             </select>
                         </div>
                         <div class="col-2">
-                            <select name="koin[]" class="form-select" aria-label="Default select example"
+                            <select name="koin[]" id="koin1" class="form-select" aria-label="Default select example"
                                 style="text-align: center;">
                                 @if ($penposData->nama == 'Flag of eternity')
                                     <option selected hidden>--Input Koin--</option>
@@ -204,12 +204,12 @@
                             </select>
                         </div>
                         <div class="col-2">
-                            <select name="hasil[]" class="form-select" aria-label="Default select example"
+                            <select name="hasil[]" id="hasil2" class="form-select" aria-label="Default select example"
                                 style="text-align: center;">
                                 <option selected hidden>--Input Hasil--</option>
-                                <option value="menang">Menang</option>
-                                <option value="seri">Seri</option>
-                                <option value="kalah">Kalah</option>
+                                <option value="Menang">Menang</option>
+                                <option value="Seri">Seri</option>
+                                <option value="Kalah">Kalah</option>
                             </select>
                         </div>
                         <div class="col-1" style="font-size: 18px;">
@@ -218,11 +218,11 @@
                         <div class="col-2">
                             <select name="lawan[]" id="lawan2" class="form-select" aria-label="Default select example"
                                 style="text-align: center;">
-                                <option selected hidden>--Pilih Pemain 1--</option>
+                                <option selected hidden>--Pilih Pemain--</option>
                             </select>
                         </div>
                         <div class="col-2">
-                            <select name="koin[]" class="form-select" aria-label="Default select example"
+                            <select name="koin[]" id="koin2" class="form-select" aria-label="Default select example"
                                 style="text-align: center;">
                                 @if ($penposData->nama == 'Flag of eternity')
                                     <option selected hidden>--Input Koin--</option>
@@ -290,7 +290,7 @@
                     <h5 class="modal-title" id="exampleModalLabel">Warning!</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-                <div class="modal-body">
+                <div class="modal-body" id="submitModalBody">
                     Silahkan pilih/hapus tim 3 terlebih dahulu!
                 </div>
                 <div class="modal-footer">
@@ -305,11 +305,66 @@
         // pengecekan submit form
         $("#btnSubmit").on("click", (e) => {
             e.preventDefault()
-            if ($("#team3").val() == "--Pilih Pemain 3--") {
+            // Pengecekan Tim 3 Kosong
+            var pesan = "Berhasil menambahkan data!";
+            var statusValidasi = "success";
+            for (let index = 1; index <= 3; index++) {
+                var idTeam = "#team" + index;
+                var idHasil = "#hasil" + index;
+                var idKoin = "#koin" + index;
+                var idLawan = "#lawan" + index;
+                // Pengecekan Pemain
+                if ($(idTeam).val() == "--Pilih Pemain " + index + "--") {
+                    // Perbaruhi pesan dan statusValidasi
+                    pesan = "Silahkan pilih nama tim " + index + " terlebih dahulu!"
+                    statusValidasi = "error";
+                    // Set pesan di modal
+                    $("#submitModalBody").html(pesan)
+                    // Break
+                    break
+                }
+                // Pengecekan Lawan
+                if ($(idLawan).val() == "--Pilih Pemain--") {
+                    // Perbaruhi pesan dan statusValidasi
+                    pesan = "Silahkan pilih nama tim lawan terlebih dahulu!"
+                    statusValidasi = "error";
+                    // Set pesan di modal
+                    $("#submitModalBody").html(pesan)
+                    // Break
+                    break
+                }
+                // Pengecekan Hasil
+                if ($(idHasil).val() == "--Input Hasil--") {
+                    // Perbaruhi pesan dan statusValidasi
+                    pesan = "Silahkan pilih hasil pada tim "+index+" terlebih dahulu!"
+                    statusValidasi = "error";
+                    // Set pesan di modal
+                    $("#submitModalBody").html(pesan)
+                    // Break
+                    break
+                }
+                // Pengecekan Koin
+                if ($(idKoin).val() == "--Input Koin--") {
+                    // Perbaruhi pesan dan statusValidasi
+                    pesan = "Silahkan pilih koin yang diperoleh tim "+index+" terlebih dahulu!"
+                    statusValidasi = "error";
+                    // Set pesan di modal
+                    $("#submitModalBody").html(pesan)
+                    // Break
+                    break
+                }
+            }
+            if (statusValidasi == "error") {
+                // Tampilkan modal
                 $("#submitModal").modal('toggle')
             } else {
                 $("form").submit()
             }
+
+            // if ($("#team3").val() == "--Pilih Pemain 3--") {
+            //     $("#submitModal").modal('toggle')
+            // } else {
+            // }
         });
 
 
@@ -381,7 +436,7 @@
                                     </select>
                                 </div>
                                 <div class="col-2">
-                                    <select name="hasil[]" class="form-select" aria-label="Default select example"
+                                    <select name="hasil[]" id="hasil3" class="form-select" aria-label="Default select example"
                                         style="text-align: center;">
                                         <option selected hidden>--Input Hasil--</option>
                                         <option value="menang">Menang</option>
@@ -395,11 +450,11 @@
                                 <div class="col-2">
                                     <select name="lawan[]" id="lawan3" class="form-select"
                                         aria-label="Default select example" style="text-align: center;">
-                                        <option selected hidden>--Pilih Pemain 1--</option>
+                                        <option selected hidden>--Pilih Pemain--</option>
                                     </select>
                                 </div>
                                 <div class="col-2">
-                                    <select name="koin[]" class="form-select" aria-label="Default select example"
+                                    <select name="koin[]" id="koin3" class="form-select" aria-label="Default select example"
                                         style="text-align: center;">
                                         <option selected hidden>--Input Koin--</option>
                                         <option value="25">25</option>
@@ -429,7 +484,7 @@
                                     </select>
                                 </div>
                                 <div class="col-2">
-                                    <select name="hasil[]" class="form-select" aria-label="Default select example"
+                                    <select name="hasil[]" id="hasil3" class="form-select" aria-label="Default select example"
                                         style="text-align: center;">
                                         <option selected hidden>--Input Hasil--</option>
                                         <option value="menang">Menang</option>
@@ -443,11 +498,11 @@
                                 <div class="col-2">
                                     <select name="lawan[]" id="lawan3" class="form-select"
                                         aria-label="Default select example" style="text-align: center;">
-                                        <option selected hidden>--Pilih Pemain 1--</option>
+                                        <option selected hidden>--Pilih Pemain--</option>
                                     </select>
                                 </div>
                                 <div class="col-2">
-                                    <select name="koin[]" class="form-select" aria-label="Default select example"
+                                    <select name="koin[]" id="koin3" class="form-select" aria-label="Default select example"
                                         style="text-align: center;">
                                         <option selected hidden>--Input Koin--</option>
                                         <option value="100">100</option>
