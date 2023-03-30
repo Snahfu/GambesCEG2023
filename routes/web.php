@@ -58,5 +58,8 @@ Route::group(
         
         // Halaman history masing masing pos 
         Route::get('/historybattle', [PenposTeamController::class, 'index'])->name('historybattle');
+        
+        //Buat ngetes halaman clue.blade.php (udh selesai boleh diganti)
+        Route::view('/clue', 'penpos.clue')->name("clue");
     }
 );
