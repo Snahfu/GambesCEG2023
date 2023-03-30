@@ -156,90 +156,110 @@
                                 <td colspan="7" class="bg-info" style="font-size: 20px;">MARKET</td>
                             </tr>
                             <tr>
-                                <td style="{{ $allpenpos[0]['status'] == 'KOSONG' ? 'background-color: #008917; ' : 'background-color:#e2626b;' }}"
-                                    onclick="pos(1)" id="pos-1">Jasa 1</td>
+                                <td onclick="pos(1)" >
+                                    <img src="{{ asset("assets/images/".$allpenpos[0]["tipe"]."/".$allpenpos[0]["tipe"].$allpenpos[0]["status"].".png") }}" alt="gambar not found" width="60px" height="60px" id="pos-1">
+                                </td>
                                 <td style="background:cyan;"></td>
                                 <td style="background:cyan;"></td>
                                 <td style="background:cyan;"></td>
-                                <td style="{{ $allpenpos[8]['status'] == 'KOSONG' ? 'background-color: #008917; ' : 'background-color:#e2626b;' }}"
-                                    onclick="pos(9)" id="pos-9">Jasa 9</td>
+                                <td onclick="pos(9)" >
+                                    <img src="{{ asset("assets/images/".$allpenpos[8]["tipe"]."/".$allpenpos[8]["tipe"].$allpenpos[8]["status"].".png") }}" alt="gambar not found" width="60px" height="60px" id="pos-9">
+                                </td>
                                 <td style="background:cyan;"></td>
-                                <td style="{{ $allpenpos[29]['status'] == 'KOSONG' ? 'background-color: #008917; ' : 'background-color:#e2626b;' }}"
-                                    onclick="pos(30)" id="pos-30">Single 10</td>
+                                <td onclick="pos(30)" >
+                                    <img src="{{ asset("assets/images/".$allpenpos[29]["tipe"]."/".$allpenpos[29]["tipe"].$allpenpos[29]["id"].$allpenpos[29]["status"].".png") }}" alt="gambar not found" width="60px" height="60px" id="pos-30">
+                                </td>
                             </tr>
                             <tr>
-                                <td style="{{ $allpenpos[1]['status'] == 'KOSONG' ? 'background-color: #008917; ' : 'background-color:#e2626b;' }}"
-                                    onclick="pos(2)" id="pos-2">Jasa 2</td>
+                                <td onclick="pos(2)" >
+                                    <img src="{{ asset("assets/images/".$allpenpos[1]["tipe"]."/".$allpenpos[1]["tipe"].$allpenpos[1]["status"].".png") }}" alt="gambar not found" width="60px" height="60px" id="pos-2">
+                                </td>
                                 <td style="background:cyan;"></td>
                                 <td style="background:cyan;"></td>
                                 <td style="background:cyan;"></td>
-                                <td style="{{ $allpenpos[9]['status'] == 'KOSONG' ? 'background-color: #008917; ' : 'background-color:#e2626b;' }}"
-                                    onclick="pos(10)" id="pos-10">Jasa 10</td>
+                                <td onclick="pos(10)" >
+                                    <img src="{{ asset("assets/images/".$allpenpos[9]["tipe"]."/".$allpenpos[9]["tipe"].$allpenpos[9]["status"].".png") }}" alt="gambar not found" width="60px" height="60px" id="pos-10">
+                                </td>
                                 <td style="background:cyan;"></td>
-                                <td style="{{ $allpenpos[28]['status'] == 'KOSONG' ? 'background-color: #008917; ' : 'background-color:#e2626b;' }}"
-                                    onclick="pos(29)" id="pos-29">Single 9</td>
+                                <td onclick="pos(29)" >
+                                    <img src="{{ asset("assets/images/".$allpenpos[28]["tipe"]."/".$allpenpos[28]["tipe"].$allpenpos[28]["id"].$allpenpos[28]["status"].".png") }}" alt="gambar not found" width="60px" height="60px" id="pos-29">
+                                </td>
                             </tr>
                             <tr>
-                                <td style="{{ $allpenpos[2]['status'] == 'KOSONG' ? 'background-color: #008917; ' : 'background-color:#e2626b;' }}"
-                                    onclick="pos(3)" id="pos-3">Jasa 3</td>
+                                <td onclick="pos(3)" >
+                                    <img src="{{ asset("assets/images/".$allpenpos[2]["tipe"]."/".$allpenpos[2]["tipe"].$allpenpos[2]["status"].".png") }}" alt="gambar not found" width="60px" height="60px" id="pos-3">
+                                </td>
                                 <td style="background:cyan;"></td>
                                 <td style="background:cyan;"></td>
                                 <td style="background:cyan;"></td>
-                                <td style="{{ $allpenpos[10]['status'] == 'KOSONG' ? 'background-color: #008917; ' : 'background-color:#e2626b;' }}"
-                                    onclick="pos(11)" id="pos-11">Jasa 11</td>
+                                <td onclick="pos(11)" >
+                                    <img src="{{ asset("assets/images/".$allpenpos[10]["tipe"]."/".$allpenpos[10]["tipe"].$allpenpos[10]["status"].".png") }}" alt="gambar not found" width="60px" height="60px" id="pos-11">
+                                </td>
                                 <td style="background:cyan;"></td>
-                                <td style="{{ $allpenpos[27]['status'] == 'KOSONG' ? 'background-color: #008917; ' : 'background-color:#e2626b;' }}"
-                                    onclick="pos(28)" id="pos-28">Single 8</td>
+                                <td onclick="pos(28)" >
+                                    <img src="{{ asset("assets/images/".$allpenpos[27]["tipe"]."/".$allpenpos[27]["tipe"].$allpenpos[27]["id"].$allpenpos[27]["status"].".png") }}" alt="gambar not found" width="60px" height="60px" id="pos-28">
+                                </td>
                             </tr>
                             <tr>
-                                <td style="{{ $allpenpos[3]['status'] == 'KOSONG' ? 'background-color: #008917; ' : 'background-color:#e2626b;' }}"
-                                    onclick="pos(4)" id="pos-4">Jasa 4</td>
+                                <td onclick="pos(4)" >
+                                    <img src="{{ asset("assets/images/".$allpenpos[3]["tipe"]."/".$allpenpos[3]["tipe"].$allpenpos[3]["status"].".png") }}" alt="gambar not found" width="60px" height="60px" id="pos-4">
+                                </td>
                                 <td style="background:cyan;"></td>
                                 <td style="background:cyan;"></td>
                                 <td style="background:cyan;"></td>
-                                <td style="{{ $allpenpos[11]['status'] == 'KOSONG' ? 'background-color: #008917; ' : 'background-color:#e2626b;' }}"
-                                    onclick="pos(12)" id="pos-12">Jasa 12</td>
+                                <td onclick="pos(12)" >
+                                    <img src="{{ asset("assets/images/".$allpenpos[11]["tipe"]."/".$allpenpos[11]["tipe"].$allpenpos[11]["status"].".png") }}" alt="gambar not found" width="60px" height="60px" id="pos-12">
+                                </td>
                                 <td style="background:cyan;"></td>
-                                <td style="{{ $allpenpos[26]['status'] == 'KOSONG' ? 'background-color: #008917; ' : 'background-color:#e2626b;' }}"
-                                    onclick="pos(27)" id="pos-27">Single 7</td>
+                                <td onclick="pos(27)" >
+                                    <img src="{{ asset("assets/images/".$allpenpos[26]["tipe"]."/".$allpenpos[26]["tipe"].$allpenpos[26]["id"].$allpenpos[26]["status"].".png") }}" alt="gambar not found" width="60px" height="60px" id="pos-27">
+                                </td>
                             </tr>
                             <tr>
-                                <td style="{{ $allpenpos[4]['status'] == 'KOSONG' ? 'background-color: #008917; ' : 'background-color:#e2626b;' }}"
-                                    onclick="pos(5)" id="pos-5">Jasa 5</td>
+                                <td onclick="pos(5)" >
+                                    <img src="{{ asset("assets/images/".$allpenpos[4]["tipe"]."/".$allpenpos[4]["tipe"].$allpenpos[4]["status"].".png") }}" alt="gambar not found" width="60px" height="60px" id="pos-5">
+                                </td>
                                 <td style="background:cyan;"></td>
                                 <td style="background:cyan;"></td>
                                 <td style="background:cyan;"></td>
-                                <td style="{{ $allpenpos[12]['status'] == 'KOSONG' ? 'background-color: #008917; ' : 'background-color:#e2626b;' }}"
-                                    onclick="pos(13)" id="pos-13">Jasa 13</td>
+                                <td onclick="pos(13)" >
+                                    <img src="{{ asset("assets/images/".$allpenpos[12]["tipe"]."/".$allpenpos[12]["tipe"].$allpenpos[12]["status"].".png") }}" alt="gambar not found" width="60px" height="60px" id="pos-13">
+                                </td>
                                 <td style="background:cyan;"></td>
-                                <td style="{{ $allpenpos[25]['status'] == 'KOSONG' ? 'background-color: #008917; ' : 'background-color:#e2626b;' }}"
-                                    onclick="pos(26)" id="pos-26">Single 6</td>
+                                <td onclick="pos(26)" >
+                                    <img src="{{ asset("assets/images/".$allpenpos[25]["tipe"]."/".$allpenpos[25]["tipe"].$allpenpos[25]["id"].$allpenpos[25]["status"].".png") }}" alt="gambar not found" width="60px" height="60px" id="pos-26">
+                                </td>
                             </tr>
                             <tr>
-                                <td style="{{ $allpenpos[5]['status'] == 'KOSONG' ? 'background-color: #008917; ' : 'background-color:#e2626b;' }}"
-                                    onclick="pos(6)" id="pos-6">Jasa 6</td>
+                                <td onclick="pos(6)" >
+                                    <img src="{{ asset("assets/images/".$allpenpos[5]["tipe"]."/".$allpenpos[5]["tipe"].$allpenpos[5]["status"].".png") }}" alt="gambar not found" width="60px" height="60px" id="pos-6">
+                                </td>
                                 <td style="background:cyan;"></td>
                                 <td style="background:cyan;"></td>
                                 <td style="background:cyan;"></td>
-                                <td style="{{ $allpenpos[13]['status'] == 'KOSONG' ? 'background-color: #008917; ' : 'background-color:#e2626b;' }}"
-                                    onclick="pos(14)" id="pos-14">Jasa 14</td>
-                                <td style="background:cyan;"></td>
-                                <td style="background:cyan;"></td>
-                            </tr>
-                            <tr>
-                                <td style="{{ $allpenpos[6]['status'] == 'KOSONG' ? 'background-color: #008917; ' : 'background-color:#e2626b;' }}"
-                                    onclick="pos(7)" id="pos-7">Jasa 7</td>
-                                <td style="background:cyan;"></td>
-                                <td style="background:cyan;"></td>
-                                <td style="background:cyan;"></td>
-                                <td style="{{ $allpenpos[14]['status'] == 'KOSONG' ? 'background-color: #008917; ' : 'background-color:#e2626b;' }}"
-                                    onclick="pos(15)" id="pos-15">Jasa 15</td>
+                                <td onclick="pos(14)" >
+                                    <img src="{{ asset("assets/images/".$allpenpos[13]["tipe"]."/".$allpenpos[13]["tipe"].$allpenpos[13]["status"].".png") }}" alt="gambar not found" width="60px" height="60px" id="pos-14">
+                                </td>
                                 <td style="background:cyan;"></td>
                                 <td style="background:cyan;"></td>
                             </tr>
                             <tr>
-                                <td style="{{ $allpenpos[7]['status'] == 'KOSONG' ? 'background-color: #008917; ' : 'background-color:#e2626b;' }}"
-                                    onclick="pos(8)" id="pos-8">Jasa 8</td>
+                                <td onclick="pos(7)" >
+                                    <img src="{{ asset("assets/images/".$allpenpos[6]["tipe"]."/".$allpenpos[6]["tipe"].$allpenpos[6]["status"].".png") }}" alt="gambar not found" width="60px" height="60px" id="pos-7">
+                                </td>
+                                <td style="background:cyan;"></td>
+                                <td style="background:cyan;"></td>
+                                <td style="background:cyan;"></td>
+                                <td onclick="pos(15)" >
+                                    <img src="{{ asset("assets/images/".$allpenpos[14]["tipe"]."/".$allpenpos[14]["tipe"].$allpenpos[14]["status"].".png") }}" alt="gambar not found" width="60px" height="60px" id="pos-15">
+                                </td>
+                                <td style="background:cyan;"></td>
+                                <td style="background:cyan;"></td>
+                            </tr>
+                            <tr>
+                                <td onclick="pos(8)" >
+                                    <img src="{{ asset("assets/images/".$allpenpos[7]["tipe"]."/".$allpenpos[7]["tipe"].$allpenpos[7]["status"].".png") }}" alt="gambar not found" width="60px" height="60px" id="pos-8">
+                                </td>
                                 <td style="background:cyan;"></td>
                                 <td style="background:cyan;"></td>
                                 <td style="background:cyan;"></td>
@@ -255,8 +275,9 @@
                                 <td></td>
                                 <td></td>
                                 <td style="background:cyan;"></td>
-                                <td style="{{ $allpenpos[24]['status'] == 'KOSONG' ? 'background-color: #008917; ' : 'background-color:#e2626b;' }}"
-                                    onclick="pos(25)" id="pos-25">Single 5</td>
+                                <td onclick="pos(25)" >
+                                    <img src="{{ asset("assets/images/".$allpenpos[24]["tipe"]."/".$allpenpos[24]["tipe"].$allpenpos[24]["id"].$allpenpos[24]["status"].".png") }}" alt="gambar not found" width="60px" height="60px" id="pos-25">
+                                </td>
                                 <td style="background:cyan;"></td>
                                 <td></td>
                                 <td></td>
@@ -265,8 +286,9 @@
                                 {{-- Row2 --}}
                                 <td></td>
                                 <td style="background:cyan;"></td>
-                                <td style="{{ $allpenpos[23]['status'] == 'KOSONG' ? 'background-color: #008917; ' : 'background-color:#e2626b;' }}"
-                                    onclick="pos(24)" id="pos-24">Single 4</td>
+                                <td onclick="pos(24)" >
+                                    <img src="{{ asset("assets/images/".$allpenpos[23]["tipe"]."/".$allpenpos[23]["tipe"].$allpenpos[23]["id"].$allpenpos[23]["status"].".png") }}" alt="gambar not found" width="60px" height="60px" id="pos-24">
+                                </td>
                                 <td style="background:cyan;"></td>
                                 <td style="background:cyan;"></td>
                                 <td style="background:cyan;"></td>
@@ -275,37 +297,43 @@
                             <tr>
                                 {{-- Row3 --}}
                                 <td style="background:cyan;"></td>
-                                <td style="{{ $allpenpos[22]['status'] == 'KOSONG' ? 'background-color: #008917; ' : 'background-color:#e2626b;' }}"
-                                    onclick="pos(23)" id="pos-23">Single 3</td>
+                                <td onclick="pos(23)" >
+                                    <img src="{{ asset("assets/images/".$allpenpos[22]["tipe"]."/".$allpenpos[22]["tipe"].$allpenpos[22]["id"].$allpenpos[22]["status"].".png") }}" alt="gambar not found" width="60px" height="60px" id="pos-23">
+                                </td>
                                 <td style="background:cyan;"></td>
                                 <td style="background:cyan;"></td>
                                 <td style="background:cyan;"></td>
-                                <td style="{{ $allpenpos[15]['status'] == 'KOSONG' ? 'background-color: #008917; ' : ($allpenpos[15]['status'] == 'MENUNGGU' ? 'background-color:#f0ad4e;' : 'background-color:#e2626b;') }}"
-                                    onclick="pos(16)" id="pos-16">Battle 1</td>
+                                <td onclick="pos(16)" >
+                                    <img src="{{ asset("assets/images/".$allpenpos[15]["tipe"]."/".$allpenpos[15]["tipe"].$allpenpos[15]["id"].$allpenpos[15]["status"].".png") }}" alt="gambar not found" width="60px" height="60px" id="pos-16">
+                                </td>
                                 <td style="background:cyan;"></td>
                             </tr>
                             <tr>
                                 {{-- Row4 --}}
-                                <td style="{{ $allpenpos[21]['status'] == 'KOSONG' ? 'background-color: #008917; ' : 'background-color:#e2626b;' }}"
-                                    onclick="pos(22)" id="pos-22">Single 2</td>
+                                <td onclick="pos(22)" >
+                                    <img src="{{ asset("assets/images/".$allpenpos[21]["tipe"]."/".$allpenpos[21]["tipe"].$allpenpos[21]["id"].$allpenpos[21]["status"].".png") }}" alt="gambar not found" width="60px" height="60px" id="pos-22">
+                                </td>
                                 <td style="background:cyan;"></td>
                                 <td style="background:cyan;"></td>
                                 <td style="background:cyan;"></td>
                                 <td style="background:cyan;"></td>
                                 <td style="background:cyan;"></td>
-                                <td style="{{ $allpenpos[16]['status'] == 'KOSONG' ? 'background-color: #008917; ' : ($allpenpos[16]['status'] == 'MENUNGGU' ? 'background-color:#f0ad4e;' : 'background-color:#e2626b;') }}"
-                                    onclick="pos(17)" id="pos-17">Battle 2</td>
+                                <td onclick="pos(17)" >
+                                    <img src="{{ asset("assets/images/".$allpenpos[16]["tipe"]."/".$allpenpos[16]["tipe"].$allpenpos[16]["id"].$allpenpos[16]["status"].".png") }}" alt="gambar not found" width="60px" height="60px" id="pos-17">
+                                </td>
                             </tr>
                             <tr>
                                 {{-- Row5 --}}
                                 <td style="background:cyan;"></td>
-                                <td style="{{ $allpenpos[20]['status'] == 'KOSONG' ? 'background-color: #008917; ' : 'background-color:#e2626b;' }}"
-                                    onclick="pos(21)" id="pos-21">Single 1</td>
+                                <td onclick="pos(21)" >
+                                    <img src="{{ asset("assets/images/".$allpenpos[20]["tipe"]."/".$allpenpos[20]["tipe"].$allpenpos[20]["id"].$allpenpos[20]["status"].".png") }}" alt="gambar not found" width="60px" height="60px" id="pos-21">
+                                </td>
                                 <td style="background:cyan;"></td>
                                 <td style="background:cyan;"></td>
                                 <td style="background:cyan;"></td>
-                                <td style="{{ $allpenpos[17]['status'] == 'KOSONG' ? 'background-color: #008917; ' : ($allpenpos[17]['status'] == 'MENUNGGU' ? 'background-color:#f0ad4e;' : 'background-color:#e2626b;') }}"
-                                    onclick="pos(18)" id="pos-18">Battle 3</td>
+                                <td onclick="pos(18)" >
+                                    <img src="{{ asset("assets/images/".$allpenpos[17]["tipe"]."/".$allpenpos[17]["tipe"].$allpenpos[17]["id"].$allpenpos[17]["status"].".png") }}" alt="gambar not found" width="60px" height="60px" id="pos-18">
+                                </td>
                                 <td style="background:cyan;"></td>
                             </tr>
                             <tr>
@@ -314,8 +342,9 @@
                                 <td style="background:cyan;"></td>
                                 <td style="background:cyan;"></td>
                                 <td style="background:cyan;"></td>
-                                <td style="{{ $allpenpos[18]['status'] == 'KOSONG' ? 'background-color: #008917; ' : ($allpenpos[18]['status'] == 'MENUNGGU' ? 'background-color:#f0ad4e;' : 'background-color:#e2626b;') }}"
-                                    onclick="pos(19)" id="pos-19">Battle 4</td>
+                                <td onclick="pos(19)" >
+                                    <img src="{{ asset("assets/images/".$allpenpos[18]["tipe"]."/".$allpenpos[18]["tipe"].$allpenpos[18]["id"].$allpenpos[18]["status"].".png") }}" alt="gambar not found" width="60px" height="60px" id="pos-19">
+                                </td>
                                 <td style="background:cyan;"></td>
                                 <td></td>
                             </tr>
@@ -324,8 +353,9 @@
                                 <td></td>
                                 <td></td>
                                 <td style="background:cyan;"></td>
-                                <td style="{{ $allpenpos[19]['status'] == 'KOSONG' ? 'background-color: #008917; ' : ($allpenpos[19]['status'] == 'MENUNGGU' ? 'background-color:#f0ad4e;' : 'background-color:#e2626b;') }}"
-                                    onclick="pos(20)" id="pos-20">Battle 5</td>
+                                <td onclick="pos(20)" >
+                                    <img src="{{ asset("assets/images/".$allpenpos[19]["tipe"]."/".$allpenpos[19]["tipe"].$allpenpos[19]["id"].$allpenpos[19]["status"].".png") }}" alt="gambar not found" width="60px" height="60px" id="pos-20">
+                                </td>
                                 <td style="background:cyan;"></td>
                                 <td></td>
                                 <td></td>
@@ -388,21 +418,6 @@
             });
         }
 
-        // window.Echo.channel('penposChannel').listen('.penposStatus', (e) => {
-        //     var idPos = 'pos-' + e.penposStatus.penpos.id;
-        //     let posFooter = document.getElementById(idPos);
-
-        //     if (e.penposStatus.penpos.status == 'KOSONG') {
-        //         posFooter.style.backgroundColor = '#008917';
-        //     } else if (e.penposStatus.penpos.status == 'PENUH') {
-        //         posFooter.style.backgroundColor = '#e2626b';
-        //     } else {
-        //         posFooter.style.backgroundColor = '#f0ad4e';
-        //     }
-
-        // });
-
-        // Enable pusher logging - don't include this in production
         Pusher.logToConsole = true;
 
         var pusher = new Pusher('84dc78a7edce33295399', {
@@ -412,14 +427,17 @@
         var channel = pusher.subscribe('penposChannel');
         channel.bind('penposStatus', (e) => {
             var idPos = 'pos-' + e.penposStatus.penpos.id;
-            let posFooter = document.getElementById(idPos);
-
-            if (e.penposStatus.penpos.status == 'KOSONG') {
-                posFooter.style.backgroundColor = '#008917';
-            } else if (e.penposStatus.penpos.status == 'PENUH') {
-                posFooter.style.backgroundColor = '#e2626b';
-            } else {
-                posFooter.style.backgroundColor = '#f0ad4e';
+            let posImage = document.getElementById(idPos);
+            var assetBaseUrl = "{{ asset('') }}";
+            var stringAsset = "";
+            if (e.penposStatus.penpos.tipe = "Jasa")
+            {
+                stringAsset = "assets/images/" + e.penposStatus.penpos.tipe + "/" + e.penposStatus.penpos.tipe + e.penposStatus.penpos.status + ".png"
+                posImage.src = assetBaseUrl + stringAsset;
+            }
+            else {
+                stringAsset = "assets/images/" + e.penposStatus.penpos.tipe + "/" + e.penposStatus.penpos.tipe + e.penposStatus.penpos.id + e.penposStatus.penpos.status + ".png"
+                posImage.src = assetBaseUrl + stringAsset;
             }
         });
     </script>
