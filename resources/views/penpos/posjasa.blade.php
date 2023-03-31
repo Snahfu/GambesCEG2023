@@ -123,10 +123,6 @@
                             <option value="40">40</option>
                         </select>
                     </div>
-                    {{-- <div class="col-2">
-        <button type="button" class="btn btn-primary mx-2">Cek</button>
-        <button type="button" class="btn btn-primary mx-2">Reset</button>
-    </div> --}}
                 </div>
                 {{-- End Body --}}
 

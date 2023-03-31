@@ -47,7 +47,7 @@ Route::group(
 
 Route::group(
     //panggilnya penpos/HomePenpos etc
-    ['prefix' => 'penpos','as' => 'penpos.', 'middleware' => 'role:penpos'],
+    ['prefix' => 'penpos', 'as' => 'penpos.', 'middleware' => 'role:penpos'],
     function () {
         // Halaman default penpos
         Route::get('/HomePenpos', [PenposController::class, 'index'])->name("HomePenpos");
@@ -55,10 +55,10 @@ Route::group(
         Route::post('/insertHasilGame', [PenposController::class, 'insertHasilGame'])->name("insertHasil");
         // Function untuk ubah status pos permainan
         Route::post('/UpdateStatus', [PenposController::class, 'updateStatusPos'])->name('PenposUpdate');
-        
+
         // Halaman history masing masing pos 
         Route::get('/historybattle', [PenposTeamController::class, 'index'])->name('historybattle');
-        
+
         //Buat ngetes halaman clue.blade.php (udh selesai boleh diganti)
         Route::view('/clue', 'penpos.clue')->name("clue");
     }
