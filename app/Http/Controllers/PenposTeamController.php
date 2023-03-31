@@ -18,7 +18,7 @@ class PenposTeamController extends Controller
     public function index()
     {
         //id penpos sementara yang akan diupdate yaitu 1
-        $penposId = Auth::id();
+        $penposId = Auth::user()->penpos_id;
         $selectedPos = Penpos::find($penposId);
         
         return view('penpos.history', [

@@ -21,13 +21,15 @@ class PenposController extends Controller
      */
     public function index()
     {
-        $penposId = Auth::id();
+        $penposId = Auth::user()->penpos_id;
         $teams = $this->getTeams($penposId);
         $penposData = Penpos::find($penposId); // get penpos data
         if ($penposData->tipe == "Battle")
             return view('penpos.index', compact('teams', 'penposData'));
         else if ($penposData->tipe == "Jasa")
             return view('penpos.posjasa', compact('teams', 'penposData'));
+        else if ($penposData->tipe == "Penukar")
+            return view('penpos.clue', compact('teams', 'penposData'));
         else return view('penpos.single', compact('teams', 'penposData'));
     }
 
@@ -42,7 +44,7 @@ class PenposController extends Controller
     public function insertHasilGame(Request $request)
     {
         // memasukan hasil game ke database
-        $penposId = Auth::id(); //Sementara idnya 1, belum buat login+auth
+        $penposId = Auth::user()->penpos_id; //Sementara idnya 1, belum buat login+auth
         if (Penpos::find($penposId)->tipe == "Battle") {
             for ($i = 0; $i < count($request["team"]); $i++) {
                 $data = array(
@@ -85,7 +87,7 @@ class PenposController extends Controller
     public function updateStatusPos(Request $request)
     {
         //id penpos sementara yang akan diupdate yaitu 1
-        $penposId = Auth::id();
+        $penposId = Auth::user()->penpos_id;
         $selectedPos = Penpos::find($penposId);
 
         // Make sure you've got the Page model
