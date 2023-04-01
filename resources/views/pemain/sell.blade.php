@@ -100,7 +100,7 @@
                     <div class="card-container">
                         @foreach ($inventoryKartus as $kartu)
                             <div class="card col-2 p-0 cardItems">
-                                <img src="{{ asset('assets/images/Kartu_'.$kartu->id.'.jpg') }}"
+                                <img src="{{ asset('assets/images/'.$kartu->url_gambar) }}"
                                     class="card-img-top" alt="...">
                                 <div class="card-body text-center">
                                     <h4 class="card-title">{{ $kartu->nama }}</h4>

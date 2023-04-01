@@ -94,19 +94,19 @@
                 {{-- START Baris Pertama --}}
                 <div class="inline-spacing">
                     <div class="card-container">
-                        @for ($i = 1; $i <= 15; $i++)
+                        @foreach ($semuaKartu as $kartu)
                             <div class="card col-2 p-0 cardItems">
-                                <img src="{{ asset('assets/images/Kartu_'.$i.'.jpg') }}"
+                                <img src="{{ asset('assets/images/'.$kartu->url_gambar) }}"
                                     class="card-img-top" alt="...">
                                 <div class="card-body text-center">
-                                    <h4 class="card-title"> {{ $semuaKartu[$i-1]->nama }}</h4>
+                                    <h4 class="card-title"> {{ $kartu->nama }}</h4>
                                     <h5 class="card-subtitle mb-2 text-muted"><i class="fa-solid fa-coins"
                                             id="icon-coin"></i><span>
                                             100</span></h5>
-                                    <button class="btn btn-primary" onclick="buy({{ $i }})">Buy</button>
+                                    <button class="btn btn-primary" onclick="buy({{ $kartu->id }})">Buy</button>
                                 </div>
                             </div>
-                        @endfor
+                        @endforeach
                     </div>
                 </div>
                 {{-- END Baris Pertama --}}
