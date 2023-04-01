@@ -132,6 +132,7 @@ class PenposController extends Controller
         }
         // Ambil semua toko kartu milik team yg login
         $inventoryKartus = $pemain->inventory_kartu->where('pivot.sold', "Belum")->all();
+        dd($inventoryKartus);
         // Ke halaman view
         return response()->json(array(
             'status' => $status,

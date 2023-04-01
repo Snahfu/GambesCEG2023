@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 31, 2023 at 05:38 PM
+-- Generation Time: Apr 01, 2023 at 03:01 AM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.2.0
 
@@ -325,29 +325,30 @@ CREATE TABLE `inventory_clue` (
 CREATE TABLE `kartus` (
   `id` int(11) NOT NULL,
   `nama` varchar(45) NOT NULL,
-  `harga` int(11) NOT NULL
+  `harga` int(11) NOT NULL,
+  `url_gambar` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
 -- Dumping data for table `kartus`
 --
 
-INSERT INTO `kartus` (`id`, `nama`, `harga`) VALUES
-(1, 'Kartu Abon', 100),
-(2, 'Kartu Coklat', 100),
-(3, 'Kartu Gelato', 100),
-(4, 'Kartu Jelly Kopi', 100),
-(5, 'Kartu Kecap', 100),
-(6, 'Kartu Keju', 100),
-(7, 'Kartu Kopi Kemasan', 100),
-(8, 'Kartu Marshmallow', 100),
-(9, 'Kartu Minuman Karbonasi', 100),
-(10, 'Kartu Nata de Coco', 100),
-(11, 'Kartu Nori', 100),
-(12, 'Kartu Saus Tomat', 100),
-(13, 'Kartu Teh Kemasan', 100),
-(14, 'Kartu Terasi', 100),
-(15, 'Kartu Wafer Coklat', 100);
+INSERT INTO `kartus` (`id`, `nama`, `harga`, `url_gambar`) VALUES
+(1, 'Kartu Abon', 100, 'Kartu_1.jpg'),
+(2, 'Kartu Coklat', 100, 'Kartu_2.png'),
+(3, 'Kartu Gelato', 100, 'Kartu_3.png'),
+(4, 'Kartu Jelly Kopi', 100, 'Kartu_4.jpg'),
+(5, 'Kartu Kecap', 100, 'Kartu_5.jpg'),
+(6, 'Kartu Keju', 100, 'Kartu_6.jpg'),
+(7, 'Kartu Kopi Kemasan', 100, 'Kartu_7.png'),
+(8, 'Kartu Marshmallow', 100, 'Kartu_8.jpg'),
+(9, 'Kartu Minuman Karbonasi', 100, 'Kartu_9.jpg'),
+(10, 'Kartu Nata de Coco', 100, 'Kartu_10.png'),
+(11, 'Kartu Nori', 100, 'Kartu_11.jpg'),
+(12, 'Kartu Saus Tomat', 100, 'Kartu_12.jpg'),
+(13, 'Kartu Teh Kemasan', 100, 'Kartu_13.png'),
+(14, 'Kartu Terasi', 100, 'Kartu_14.jpg'),
+(15, 'Kartu Wafer Coklat', 100, 'Kartu_15.jpg');
 
 -- --------------------------------------------------------
 
@@ -621,7 +622,7 @@ INSERT INTO `users` (`id`, `name`, `email`, `role`, `email_verified_at`, `passwo
 (42, 'user42', 'user42@gmail.com', 'pemain', NULL, '$2y$10$ba05ZseMe6C85uWZiGRzSuk.ttsq5Wmq3r36ukgmqKY9/sPenCaC2', NULL, NULL, '2023-03-17 19:13:48', NULL, 12),
 (43, 'user43', 'user43@gmail.com', 'pemain', NULL, '$2y$10$ne2iY8wNAL0fef.L.vqyMOhzf2nQa/BtvxaOPzoqNvA3QSkbWOvWe', NULL, NULL, NULL, NULL, 13),
 (44, 'user44', 'user44@gmail.com', 'pemain', NULL, '$2y$10$WGhVu1knmNmlzHj26w33oufNQcNbtucaAx18j4ZGJXZcVHWrZYjkG', NULL, NULL, NULL, NULL, 14),
-(45, 'user45', 'user45@gmail.com', 'pemain', NULL, '$2y$10$/LVChnpOTPsbfj96L0zdk.EKzfdqfYb6sF3YBd/siS9M1L7QKh.au', NULL, NULL, '2023-03-31 07:40:02', NULL, 15),
+(45, 'user45', 'user45@gmail.com', 'pemain', NULL, '$2y$10$FE1UoBbJ5vmIW.P3/RmssuDRf4VhekU2OclCFd0q.PHmwjlNDSNpW', NULL, NULL, '2023-03-31 17:51:47', NULL, 15),
 (46, 'user46', 'user46@gmail.com', 'pemain', NULL, '$2y$10$fSvbZijmMSi1xtkY.itIk.H0//j8fljwYbcvNdE.S.o0uaxchEI.6', NULL, NULL, NULL, NULL, 16),
 (47, 'user47', 'user47@gmail.com', 'pemain', NULL, '$2y$10$.RDBdKumuocVFrO4S6VkI.E2pbv7caOcVxX0MEkYFlgV1AZbGhjni', NULL, NULL, NULL, NULL, 17),
 (48, 'user48', 'user48@gmail.com', 'pemain', NULL, '$2y$10$0a.OrzcLmjimGpPbk3uRz.QzaQm1uymQ4zFl21uNbEqD66EGzK2O2', NULL, NULL, NULL, NULL, 18),
@@ -657,7 +658,7 @@ INSERT INTO `users` (`id`, `name`, `email`, `role`, `email_verified_at`, `passwo
 (78, 'user78', 'user78@gmail.com', 'pemain', NULL, '$2y$10$GBzlkr8SGAfonNHrUgInEurZ.1568QWiqBcL9iBqLD6H10gxpzYna', NULL, NULL, NULL, NULL, 48),
 (79, 'user79', 'user79@gmail.com', 'pemain', NULL, '$2y$10$NF1YJ9DAK5YZdjquxKbXNet62JUYQKLkm.AkHqrIQk2tc7MmnvBdi', NULL, NULL, NULL, NULL, 49),
 (80, 'user80', 'user80@gmail.com', 'pemain', NULL, '$2y$10$3tTgOf1JOWXD.dbNRpGZn.4RLNTBStgzt.A60TlwyuTmpbJC3lIDG', NULL, NULL, NULL, NULL, 50),
-(81, 'clue1', 'clue1@gmail.com', 'penpos', NULL, '$2y$10$dHRqTmTWU/0lvr9Sqt7fceNh9eiA6IMknneHTNrw1mbRx/j2zqlbG', NULL, NULL, '2023-03-31 08:02:27', 31, NULL),
+(81, 'clue1', 'clue1@gmail.com', 'penpos', NULL, '$2y$10$Z4VxVQF8sVXzJpq6i9tYrO903WWkNmrM93lUVoAe5zxnCiGItwpem', NULL, NULL, '2023-03-31 17:56:47', 31, NULL),
 (82, 'clue1', 'clue2@gmail.com', 'penpos', NULL, '$2y$10$jhKlNPM20CpjyLsEye0zaudFZ6NOIEWkoIDlDZHFN/UZmerpqwCQG', NULL, NULL, NULL, 32, NULL),
 (83, 'clue1', 'clue3@gmail.com', 'penpos', NULL, '$2y$10$J43m73ZWcp6iFmcErO.Gbu5BWOl3VM5vyoHYej58zsn7GvFefa6Wy', NULL, NULL, NULL, 33, NULL);
 

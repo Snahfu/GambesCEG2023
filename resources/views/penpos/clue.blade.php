@@ -176,17 +176,18 @@
     {{-- Scripts --}}
     <script type="text/javascript">
         $(document).on("change", 'select[id="teamselector"]', function() {
-            var idTeam = $('teamselector').val()
+            var idTeam = document.getElementById("teamselector");
             $.ajax({
                     type: "POST",
                     url: "{{ route('penpos.getTeamKartu') }}", // Route 
                     data: {
                         '_token': "{{ csrf_token() }}",
-                        'id' : idTeam,
+                        'id' : idTeam.value,
                     }
                 })
                 .done(function(data) {
-                    if(data['status'] == "success")
+                    var dataBackEnd = JSON.parse(data);
+                    if(dataBackEnd['status'] == "success")
                     {
                         
                     }

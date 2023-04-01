@@ -430,7 +430,7 @@
             let posImage = document.getElementById(idPos);
             var assetBaseUrl = "{{ asset('') }}";
             var stringAsset = "";
-            if (e.penposStatus.penpos.tipe = "Jasa")
+            if (e.penposStatus.penpos.tipe == "Jasa")
             {
                 stringAsset = "assets/images/" + e.penposStatus.penpos.tipe + "/" + e.penposStatus.penpos.tipe + e.penposStatus.penpos.status + ".png"
                 posImage.src = assetBaseUrl + stringAsset;
