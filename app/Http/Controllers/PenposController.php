@@ -11,6 +11,7 @@ use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
 use App\Events\penposStatus;
+use App\Models\Clue;
 
 class PenposController extends Controller
 {
@@ -41,6 +42,7 @@ class PenposController extends Controller
         })->get();
         return $teams;
     }
+
     public function insertHasilGame(Request $request)
     {
         // memasukan hasil game ke database
@@ -109,5 +111,80 @@ class PenposController extends Controller
             $query = DB::table('teams')->where('id', $request["team"][$i]);
             $query->increment('coin', $request["koin"][$i]);
         }
+    }
+
+
+    public function getTeamInventory(Request $request)
+    {
+        $status = "success";
+        $msg = "berhasil";
+        // Ambil id team yg login
+        $pemainId = $request["id"];
+        // Ambil team
+        $pemain = Team::find($pemainId);
+        if (!$pemain) {
+            $status = "error";
+            $msg = "error tidak menemukan pemain";
+            return response()->json(array(
+                'status' => $status,
+                'msg' => $msg,
+            ), 200);
+        }
+        // Ambil semua toko kartu milik team yg login
+        $inventoryKartus = $pemain->inventory_kartu->where('pivot.sold', "Belum")->all();
+        // Ke halaman view
+        return response()->json(array(
+            'status' => $status,
+            'msg' => $msg,
+            'inventoryKartus' => $inventoryKartus,
+        ), 200);
+    }
+
+    public function checkCombination(Request $request)
+    {
+        $status = "success";
+        $msg = "Ditemukan Clue";
+        $pemainId = $request["id"];
+        // Ambil team
+        $pemain = Team::find($pemainId);
+        // Ambil semua kombinasi
+        $allCombination = Clue::select('combinasi')->orderBy('id')->get();
+        $combinationUser = $request['kombinasi'];
+        if(!$combinationUser)
+        {
+            $status = "error";
+            $msg = "error tidak menemukan pemain";
+            return response()->json(array(
+                'status' => $status,
+                'msg' => $msg,
+            ), 200);
+        }
+        if(!in_array($combinationUser, $allCombination))
+        {
+            // Gagal
+            $status = "error";
+            $msg = "Kombinasi yang dimasukan masih salah silahkan coba lagi!";
+            return response()->json(array(
+                'status' => $status,
+                'msg' => $msg,
+            ), 200);
+        }
+        $clueData = Clue::where('combinasi', $combinationUser)->get();
+        // Dipisah
+        $arrayIdKartu =  explode(",", $combinationUser);
+        // PROSES MENJUALKAN KARTU
+        foreach ($arrayIdKartu as $value) {
+            // Ambil kartunya
+            $kartuJual = $pemain->inventory_kartu->where('pivot.id', $value)->first();
+            // Ubah data kartunya
+            $pemain->inventory_kartu()->wherePivot('id', $kartuJual->pivot->id)->updateExistingPivot($kartuJual->pivot->kartus_id, ['sold' => "Terjual"], false);
+        }
+        // PROSES MENAMBAHKAN CLUE KE INVENTORY
+        $pemain->inventory_kartu()->attach($clueData->id);
+        $msg = "Team berhasil menemukan Clue ". $clueData->id;
+        return response()->json(array(
+            'status' => $status,
+            'msg' => $msg,
+        ), 200);
     }
 }

@@ -132,30 +132,31 @@
 
             <!-- Pilih Tim -->
             <h2><b>Pilih Tim</b></h2>
-            <select class="form-select">
-                <option selected>-- Pilih Tim --</option>
-                <option value="1">Tim 1</option>
-                <option value="2">Tim 2</option>
-                <option value="3">Tim 3</option>
+            <select class="form-select" id="teamselector">
+                <option selected hidden>-- Pilih Pemain --</option>
+                {{-- semua team yang belum main di pos ini --}}
+                @foreach ($teams as $team)
+                    <option value="{{ $team->id }}">{{ $team->nama }}</option>
+                @endforeach
             </select>
             <!-- End Pilih Tim -->
             <br>
 
             <!-- Pilih Clue -->
             <h2><b>Pilih Clue</b></h2>
-            <select name="clue-part1">
+            <select name="clue-part1" id="clue_part1">
                 <option value="">-- Pilih Kartu 1 --</option>
                 <option value="1">Item 1</option>
                 <option value="2">Item 2</option>
                 <option value="3">Item 3</option>
             </select> +
-            <select name="clue-part2">
+            <select name="clue-part2" id="clue_part2">
                 <option value="">-- Pilih Kartu 2 --</option>
                 <option value="1">Item 1</option>
                 <option value="2">Item 2</option>
                 <option value="3">Item 3</option>
             </select> +
-            <select name="clue-part3">
+            <select name="clue-part3" id="clue_part3">
                 <option value="">-- Pilih Kartu 3 --</option>
                 <option value="1">Item 1</option>
                 <option value="2">Item 2</option>
@@ -174,6 +175,22 @@
     {{-- End Pos --}}
     {{-- Scripts --}}
     <script type="text/javascript">
-      
+        $(document).on("change", 'select[id="teamselector"]', function() {
+            var idTeam = $('teamselector').val()
+            $.ajax({
+                    type: "POST",
+                    url: "{{ route('penpos.getTeamKartu') }}", // Route 
+                    data: {
+                        '_token': "{{ csrf_token() }}",
+                        'id' : idTeam,
+                    }
+                })
+                .done(function(data) {
+                    if(data['status'] == "success")
+                    {
+                        
+                    }
+                });
+        });
     </script>
 @endsection

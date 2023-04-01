@@ -25,6 +25,13 @@ class Team extends Model
             ->withPivot('jam', 'sold', 'id');
     }
 
+    public function inventory_clue()
+    {
+        // many to many relationship
+        return $this->belongsToMany(Clue::class, 'inventory_clue', 'teams_id', 'clues_id')
+            ->withPivot('id');
+    }
+
     public function toko_kartu()
     {
         // many to many relationship
