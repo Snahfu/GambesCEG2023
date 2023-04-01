@@ -133,6 +133,7 @@
                     // $("#submitText").html(pesan)
                     // $("#NotifSubmit").modal('show')
                     alert(pesan);
+                    location.reload();
                 }
             });
 

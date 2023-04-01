@@ -12,6 +12,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
 use App\Events\penposStatus;
 use App\Models\Clue;
+use App\Models\Kartu;
 
 class PenposController extends Controller
 {
@@ -132,8 +133,8 @@ class PenposController extends Controller
         }
         // Ambil semua toko kartu milik team yg login
         $inventoryKartus = $pemain->inventory_kartu->where('pivot.sold', "Belum")->all();
-        dd($inventoryKartus);
         // Ke halaman view
+        // dd($inventoryKartus);
         return response()->json(array(
             'status' => $status,
             'msg' => $msg,
@@ -143,16 +144,25 @@ class PenposController extends Controller
 
     public function checkCombination(Request $request)
     {
+        // Deklarasi Variable kebutuhan
+        $validasi1 = "error";
         $status = "success";
         $msg = "Ditemukan Clue";
+        $duaDimensiArrayKombinasi = array();
+        // Ambil id dari blade
         $pemainId = $request["id"];
         // Ambil team
         $pemain = Team::find($pemainId);
         // Ambil semua kombinasi
         $allCombination = Clue::select('combinasi')->orderBy('id')->get();
+        // Masukan ke array dua dimensi untuk melakukan pengecekan
+        foreach ($allCombination as $combinasi) {
+            $duaDimensiArrayKombinasi[] = explode(",", $combinasi['combinasi']);
+        }
+        // Ambil kombinasi milik user
         $combinationUser = $request['kombinasi'];
-        if(!$combinationUser)
-        {
+        // Cek ada atau tidak
+        if (!$combinationUser) {
             $status = "error";
             $msg = "error tidak menemukan pemain";
             return response()->json(array(
@@ -160,8 +170,23 @@ class PenposController extends Controller
                 'msg' => $msg,
             ), 200);
         }
-        if(!in_array($combinationUser, $allCombination))
-        {
+        // Ubah ke array
+        $arrayCombinationUser = explode(",", $combinationUser);
+        // Cek apakah kombinasi user ada di database?
+        $counter = 0;
+        $kombinasiKe = 0;
+        // Sort Array dulu
+        sort($arrayCombinationUser);
+
+        foreach ($duaDimensiArrayKombinasi as $kombinasi) {
+            $counter += 1;
+            if ($arrayCombinationUser == $kombinasi) {
+                $validasi1 = "ok";
+                $kombinasiKe = $counter;
+            }
+        }
+        // Klo tidak ada kombinasi return error
+        if ($validasi1 == "error") {
             // Gagal
             $status = "error";
             $msg = "Kombinasi yang dimasukan masih salah silahkan coba lagi!";
@@ -170,9 +195,11 @@ class PenposController extends Controller
                 'msg' => $msg,
             ), 200);
         }
-        $clueData = Clue::where('combinasi', $combinationUser)->get();
+
+        $clueData = Clue::where('id', $kombinasiKe)->first();
         // Dipisah
-        $arrayIdKartu =  explode(",", $combinationUser);
+        $idKartuInputUser = $request['idkombinasi'];
+        $arrayIdKartu =  explode(",", $idKartuInputUser);
         // PROSES MENJUALKAN KARTU
         foreach ($arrayIdKartu as $value) {
             // Ambil kartunya
@@ -181,8 +208,8 @@ class PenposController extends Controller
             $pemain->inventory_kartu()->wherePivot('id', $kartuJual->pivot->id)->updateExistingPivot($kartuJual->pivot->kartus_id, ['sold' => "Terjual"], false);
         }
         // PROSES MENAMBAHKAN CLUE KE INVENTORY
-        $pemain->inventory_kartu()->attach($clueData->id);
-        $msg = "Team berhasil menemukan Clue ". $clueData->id;
+        $pemain->inventory_clue()->attach($clueData->id);
+        $msg = "Team berhasil menemukan Clue " . $clueData->id;
         return response()->json(array(
             'status' => $status,
             'msg' => $msg,

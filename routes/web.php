@@ -63,5 +63,7 @@ Route::group(
         Route::view('/clue', 'penpos.clue')->name("clue");
         // Function buat dapetin kartu dari pemain yang dipilih
         Route::post('/getTeamKartu', [PenposController::class, 'getTeamInventory'])->name('getTeamKartu');
+        // Function buat cek kombinasi
+        Route::post('/checkKombinasi', [PenposController::class, 'checkCombination'])->name('checkKombinasi');
     }
 );

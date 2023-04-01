@@ -165,9 +165,10 @@
             <!-- End Pilih Clue -->
             <br>
             <br>
-            <h5>Clue: Lorem ipsum dolor sit amet consectetur adipisicing elit. Porro quidem ratione, vitae accusantium
-                dolores, expedita dolorem excepturi tempora unde officiis quis. Est sapiente ullam neque similique quibusdam
-                facilis rem nobis?</h5>
+            <h5 id="hasilCheck">Hasil : </h5>
+            <div class="d-flex justify-content-center mb-4">
+                <button type="submit" id="btnCheck" class="btn btn-outline-primary">Check</button>
+            </div>
         </div>
 
     </div>
@@ -182,14 +183,54 @@
                     url: "{{ route('penpos.getTeamKartu') }}", // Route 
                     data: {
                         '_token': "{{ csrf_token() }}",
-                        'id' : idTeam.value,
+                        'id': idTeam.value,
                     }
                 })
                 .done(function(data) {
-                    var dataBackEnd = JSON.parse(data);
-                    if(dataBackEnd['status'] == "success")
-                    {
-                        
+                    if (data['status'] == "success") {
+                        var temporaryString = "";
+                        var arrayKartu = data['inventoryKartus'];
+                        if(!Array.isArray(arrayKartu))
+                        {
+                            arrayKartu = Object.values(arrayKartu);
+                        }
+                        if (arrayKartu.length == 0) {
+                            temporaryString += "<option value = nokartu> Tidak terdapat kartu </option>"
+                        }
+                        arrayKartu.forEach(kartu => {
+                            temporaryString += "<option value=" + kartu.id + " data-idprimary="+kartu.pivot.id+">" + kartu.nama +
+                                "</option>"
+                        });
+                        $('#clue_part1').html(temporaryString);
+                        $('#clue_part2').html(temporaryString);
+                        $('#clue_part3').html(temporaryString);
+                    }
+                });
+        });
+
+        $(document).on("click", "#btnCheck", function() {
+            var kombinasi1 = document.getElementById("clue_part1"); 
+            var kombinasi2 = document.getElementById("clue_part2");
+            var kombinasi3 = document.getElementById("clue_part3");
+            var idTeam = document.getElementById("teamselector");
+            var kombinasiIdKartu = $("#clue_part1").find('option:selected').data("idprimary") + "," + $("#clue_part2").find('option:selected').data("idprimary") + "," + $("#clue_part3").find('option:selected').data("idprimary")
+            var kombinasiKartu = kombinasi1.value + "," + kombinasi2.value + "," + kombinasi3.value
+            $.ajax({
+                    type: "POST",
+                    url: "{{ route('penpos.checkKombinasi') }}", // Route 
+                    data: {
+                        '_token': "{{ csrf_token() }}",
+                        'id': idTeam.value,
+                        'kombinasi' : kombinasiKartu,
+                        'idkombinasi' : kombinasiIdKartu,
+                    }
+                })
+                .done(function(data) {
+                    if (data['status'] == "success") {
+                        $('#hasilCheck').html("Hasil : " + data['msg']);
+                    }
+                    else {
+                        $('#hasilCheck').html("Error : " + data['msg']);
                     }
                 });
         });

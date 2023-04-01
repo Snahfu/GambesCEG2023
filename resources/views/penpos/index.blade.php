@@ -401,18 +401,18 @@
             cbChange("#team3", "#lawan1", "#team3", "#team2");
 
             // remove baris tim 3
-            $(document).on("click", "#disableRow", function() {
-                $(".card-body").children().children().eq(3).html("");
-                $("#addTeam").removeClass("disabled");
-                $("#lawan1").html("")
-                $("#lawan2").html("")
-                $("#lawan1").append(
-                    `<option value="${$("#team2"+" option:selected").val()}">${$("#team2"+" option:selected").text()}</option>`
-                );
-                $("#lawan2").append(
-                    `<option value="${$("#team1"+" option:selected").val()}">${$("#team1"+" option:selected").text()}</option>`
-                );
-            });
+            // $(document).on("click", "#disableRow", function() {
+            //     $(".card-body").children().children().eq(3).html("");
+            //     $("#addTeam").removeClass("disabled");
+            //     $("#lawan1").html("")
+            //     $("#lawan2").html("")
+            //     $("#lawan1").append(
+            //         `<option value="${$("#team2"+" option:selected").val()}">${$("#team2"+" option:selected").text()}</option>`
+            //     );
+            //     $("#lawan2").append(
+            //         `<option value="${$("#team1"+" option:selected").val()}">${$("#team1"+" option:selected").text()}</option>`
+            //     );
+            // });
             // Add baris team 3
             $(document).on("click", "#addTeam", function() {
                 var namaPos = $('#namaPosMain').html();
