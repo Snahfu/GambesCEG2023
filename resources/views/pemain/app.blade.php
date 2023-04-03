@@ -31,6 +31,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
         integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css" integrity="sha384-b6lVK+yci+bfDmaY1u0zE8YYJt0TZxLEAFyYSLHId4xoVvsrQu3INevFKo+Xir8e" crossorigin="anonymous">
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
@@ -38,6 +39,9 @@
     {{-- Pusher --}}
     <script src="https://js.pusher.com/7.2/pusher.min.js"></script>
     {{-- Pusher end --}}
+
+    <!-- Styles -->
+    <link href="{{ asset('css/dashboard.css') }}" rel="stylesheet">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
 
@@ -98,7 +102,7 @@
             width: 30px;
         }
 
-        #content {
+        /* #content {
             position: absolute;
             top: 0;
             top: 0;
@@ -107,7 +111,7 @@
             width: calc(100% - 250px);
             background-color: var(--body-color);
             transition: all ease-in-out 0.2s;
-        }
+        } */
 
         .sidebar.close~#content {
             left: 65px;
@@ -208,6 +212,36 @@
             color: #242526;
         }
 
+        .topbar{
+            position: fixed;
+            height: 64px;
+            width: 100vw;
+            background-color: #4B371C;
+            top: 3%;
+            z-index: 2;
+            color: white;
+            font-size: 16px;
+        }
+
+        .icon{
+            font-size: 20px;
+        }
+
+        .bi-coin{
+            margin-right:8px;
+        }
+        .mascot{
+            width: 64px;
+            height: 64px;
+        }
+        .topbar .col{
+            height: fit-content;
+        }
+        #content{
+            margin-top:calc(97%-80px);
+        }
+        
+
         @media screen and (max-width:900px) {
             header {
                 margin-top: 5%;
@@ -288,7 +322,7 @@
                 color: #ccc;
             }
 
-            #content {
+            /* #content {
                 position: absolute;
                 top: 0;
                 top: 0;
@@ -297,7 +331,7 @@
                 width: calc(100% - 250%);
                 background-color: var(--body-color);
                 transition: none;
-            }
+            } */
         }
     </style>
 </head>
@@ -305,7 +339,36 @@
 <body style="background: url('{{ asset('assets') }}/background/background.png') center / cover no-repeat fixed">
 
     <div class="wrapper">
-        <nav class="sidebar close">
+        <div class="topbar d-flex align-items-center justify-content-center">
+            <div class="row w-100">
+                <div class="col-3 d-flex align-items-center">
+                    <div class="coin-container">
+                        <i class="bi bi-coin icon"></i><span id="playerCoin">{{ $datapemain->coin }}</span>
+                    </div>
+                    
+                </div>
+                <div class="col-6 d-flex align-items-center justify-content-center">
+                    <div class="row d-flex align-items-center">
+                        <div class="col d-flex align-items-center p-0 mx-3">
+                            <i class="bi bi-cart icon"></i>
+                        </div>
+                        <div class="col p-0" style="text-align: center">
+                            
+                            <img src="{{ asset('assets/images/mascot.png') }}" alt="" srcset="" class="mascot">
+                            {{--     --}}
+
+                        </div>
+                        <div class="col d-flex align-items-center p-0 mx-3">
+                            <i class="bi bi-basket2 icon"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-3 d-flex align-items-center justify-content-end">
+                    <i class="bi bi-box-arrow-right icon"></i><span style="font-size: 12px;margin-left:3px;">Logout</span>
+                </div>
+            </div>
+        </div>
+        {{-- <nav class="sidebar close">
             <header>
                 <img src="{{ asset('assets/logo/Logo CEG.png') }}" class="img-fluid logo">
                 <i class="fa-solid fa-bars toggle"></i>
@@ -353,7 +416,7 @@
                 </li>
 
             </ul>
-        </nav>
+        </nav> --}}
 
         <div id="content" style="">
             <div class="container-fluid py-4">

@@ -108,7 +108,7 @@
 
     <!--Coin & Buy Sell Button-->
 
-    <div class="atas d-flex justify-content-center">
+    {{-- <div class="atas d-flex justify-content-center">
         <div class="row d-flex justify-content-between row-mobile-order">
             <div class="col d-flex align-items-center justify-content-center column-order1" id="colKiri">
                 <div class="d-flex align-items-center px-3 py-1"
@@ -132,7 +132,7 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> --}}
 
     <!--End-->
     <div class="spacing"></div>
@@ -149,7 +149,7 @@
                 <!--End Map Header-->
 
                 <!--Map-->
-                <div class="card-body p-5">
+                <div class="card-body ">
                     <div class="table-responsive">
                         <table class="table table-borderless" style="font-family: sans-serif; font-size: 12px">
                             <tr>

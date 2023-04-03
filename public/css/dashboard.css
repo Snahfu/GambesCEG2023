@@ -1,0 +1,9 @@
+.topbar{
+    position: fixed;
+    height: 64px;
+    width: 100vw;
+    background-color: #4B371C;
+    top: 2%;
+    z-index: 2;
+    color: white;
+}
