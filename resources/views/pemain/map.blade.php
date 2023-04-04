@@ -49,6 +49,26 @@
             margin-right: 20px;
         }
 
+        .table-responsive{
+            width: 80vw;
+            border: 2px solid #7d5b40;
+            border-radius: 5px;
+        }
+        table td img{
+            width: 72px;
+            height: 72px !important;
+        }
+        table td{
+            width: 96px !important;
+            height: 96px ;
+            text-align: center;
+        }
+        .card-map{
+            border: 0px solid black;
+            box-shadow: 5px 10px 20px rgba(0, 0, 0, 0.2);
+            background: #f7f5cd;
+        }
+
         @media screen and (max-width:900px) {
             .atas {
                 position: relative;
@@ -102,6 +122,19 @@
                 height: 25px;
             }
         }
+        @media screen and (max-width:578px){
+            table td img{
+                width: 32px !important;
+                height: 32px !important;
+            }
+            table td{
+                width: 48px !important;
+                height: 48px !important;
+            }
+            .table-responsive{
+                
+            }
+        }
     </style>
 
 
@@ -139,8 +172,8 @@
 
     <div class="row">
         <!--Map Section-->
-        <div class="col">
-            <div class="card text-center">
+        <div class="col d-flex justify-content-center">
+            {{-- <div class="card text-center">
 
                 <!--Map Header-->
                 <div class="card-header">
@@ -149,224 +182,229 @@
                 <!--End Map Header-->
 
                 <!--Map-->
-                <div class="card-body ">
-                    <div class="table-responsive">
-                        <table class="table table-borderless" style="font-family: sans-serif; font-size: 12px">
-                            <tr>
-                                <td colspan="7" class="bg-info" style="font-size: 20px;">MARKET</td>
-                            </tr>
-                            <tr>
-                                <td onclick="pos(1)" style="background:#98AF22;">
-                                    <img src="{{ asset("assets/images/".$allpenpos[0]["tipe"]."/".$allpenpos[0]["tipe"].$allpenpos[0]["status"].".png") }}" alt="gambar not found" width="60px" height="60px" id="pos-1">
-                                </td>
-                                <td style="background:#98AF22;"></td>
-                                <td style="background:#98AF22;"></td>
-                                <td style="background:#98AF22;"></td>
-                                <td onclick="pos(9)" style="background:#98AF22;">
-                                    <img src="{{ asset("assets/images/".$allpenpos[8]["tipe"]."/".$allpenpos[8]["tipe"].$allpenpos[8]["status"].".png") }}" alt="gambar not found" width="60px" height="60px" id="pos-9">
-                                </td>
-                                <td style="background:#98AF22;"></td>
-                                <td onclick="pos(30)" style="background:#98AF22;">
-                                    <img src="{{ asset("assets/images/".$allpenpos[29]["tipe"]."/".$allpenpos[29]["tipe"].$allpenpos[29]["id"].$allpenpos[29]["status"].".png") }}" alt="gambar not found" width="60px" height="60px" id="pos-30">
-                                </td>
-                            </tr>
-                            <tr>
-                                <td onclick="pos(2)" style="background:#98AF22;">
-                                    <img src="{{ asset("assets/images/".$allpenpos[1]["tipe"]."/".$allpenpos[1]["tipe"].$allpenpos[1]["status"].".png") }}" alt="gambar not found" width="60px" height="60px" id="pos-2">
-                                </td>
-                                <td style="background:#98AF22;"></td>
-                                <td style="background:#98AF22;"></td>
-                                <td style="background:#98AF22;"></td>
-                                <td onclick="pos(10)" style="background:#98AF22;">
-                                    <img src="{{ asset("assets/images/".$allpenpos[9]["tipe"]."/".$allpenpos[9]["tipe"].$allpenpos[9]["status"].".png") }}" alt="gambar not found" width="60px" height="60px" id="pos-10">
-                                </td>
-                                <td style="background:#98AF22;"></td>
-                                <td onclick="pos(29)" style="background:#98AF22;">
-                                    <img src="{{ asset("assets/images/".$allpenpos[28]["tipe"]."/".$allpenpos[28]["tipe"].$allpenpos[28]["id"].$allpenpos[28]["status"].".png") }}" alt="gambar not found" width="60px" height="60px" id="pos-29">
-                                </td>
-                            </tr>
-                            <tr>
-                                <td onclick="pos(3)" style="background:#98AF22;">
-                                    <img src="{{ asset("assets/images/".$allpenpos[2]["tipe"]."/".$allpenpos[2]["tipe"].$allpenpos[2]["status"].".png") }}" alt="gambar not found" width="60px" height="60px" id="pos-3">
-                                </td>
-                                <td style="background:#98AF22;"></td>
-                                <td style="background:#98AF22;"></td>
-                                <td style="background:#98AF22;"></td>
-                                <td onclick="pos(11)" style="background:#98AF22;">
-                                    <img src="{{ asset("assets/images/".$allpenpos[10]["tipe"]."/".$allpenpos[10]["tipe"].$allpenpos[10]["status"].".png") }}" alt="gambar not found" width="60px" height="60px" id="pos-11">
-                                </td>
-                                <td style="background:#98AF22;"></td>
-                                <td onclick="pos(28)" style="background:#98AF22;">
-                                    <img src="{{ asset("assets/images/".$allpenpos[27]["tipe"]."/".$allpenpos[27]["tipe"].$allpenpos[27]["id"].$allpenpos[27]["status"].".png") }}" alt="gambar not found" width="60px" height="60px" id="pos-28">
-                                </td>
-                            </tr>
-                            <tr>
-                                <td onclick="pos(4)" style="background:#AABC32;">
-                                    <img src="{{ asset("assets/images/".$allpenpos[3]["tipe"]."/".$allpenpos[3]["tipe"].$allpenpos[3]["status"].".png") }}" alt="gambar not found" width="60px" height="60px" id="pos-4">
-                                </td>
-                                <td style="background:#AABC32;"></td>
-                                <td style="background:#AABC32;"></td>
-                                <td style="background:#AABC32;"></td>
-                                <td onclick="pos(12)" style="background:#AABC32;">
-                                    <img src="{{ asset("assets/images/".$allpenpos[11]["tipe"]."/".$allpenpos[11]["tipe"].$allpenpos[11]["status"].".png") }}" alt="gambar not found" width="60px" height="60px" id="pos-12">
-                                </td>
-                                <td style="background:#AABC32;"></td>
-                                <td onclick="pos(27)" style="background:#AABC32;">
-                                    <img src="{{ asset("assets/images/".$allpenpos[26]["tipe"]."/".$allpenpos[26]["tipe"].$allpenpos[26]["id"].$allpenpos[26]["status"].".png") }}" alt="gambar not found" width="60px" height="60px" id="pos-27">
-                                </td>
-                            </tr>
-                            <tr>
-                                <td onclick="pos(5)" style="background:#AABC32;">
-                                    <img src="{{ asset("assets/images/".$allpenpos[4]["tipe"]."/".$allpenpos[4]["tipe"].$allpenpos[4]["status"].".png") }}" alt="gambar not found" width="60px" height="60px" id="pos-5">
-                                </td>
-                                <td style="background:#AABC32;"></td>
-                                <td style="background:#AABC32;"></td>
-                                <td style="background:#AABC32;"></td>
-                                <td onclick="pos(13)" style="background:#AABC32;">
-                                    <img src="{{ asset("assets/images/".$allpenpos[12]["tipe"]."/".$allpenpos[12]["tipe"].$allpenpos[12]["status"].".png") }}" alt="gambar not found" width="60px" height="60px" id="pos-13">
-                                </td>
-                                <td style="background:#AABC32;"></td>
-                                <td onclick="pos(26)" style="background:#AABC32;">
-                                    <img src="{{ asset("assets/images/".$allpenpos[25]["tipe"]."/".$allpenpos[25]["tipe"].$allpenpos[25]["id"].$allpenpos[25]["status"].".png") }}" alt="gambar not found" width="60px" height="60px" id="pos-26">
-                                </td>
-                            </tr>
-                            <tr>
-                                <td onclick="pos(6)" style="background:#BCC943;" >
-                                    <img src="{{ asset("assets/images/".$allpenpos[5]["tipe"]."/".$allpenpos[5]["tipe"].$allpenpos[5]["status"].".png") }}" alt="gambar not found" width="60px" height="60px" id="pos-6">
-                                </td>
-                                <td style="background:#BCC943;"></td>
-                                <td style="background:#BCC943;"></td>
-                                <td style="background:#BCC943;"></td>
-                                <td onclick="pos(14)" style="background:#BCC943;" >
-                                    <img src="{{ asset("assets/images/".$allpenpos[13]["tipe"]."/".$allpenpos[13]["tipe"].$allpenpos[13]["status"].".png") }}" alt="gambar not found" width="60px" height="60px" id="pos-14">
-                                </td>
-                                <td style="background:#BCC943;"></td>
-                                <td style="background:#BCC943;"></td>
-                            </tr>
-                            <tr>
-                                <td onclick="pos(7)" style="background:#BCC943;">
-                                    <img src="{{ asset("assets/images/".$allpenpos[6]["tipe"]."/".$allpenpos[6]["tipe"].$allpenpos[6]["status"].".png") }}" alt="gambar not found" width="60px" height="60px" id="pos-7">
-                                </td>
-                                <td style="background:#BCC943;"></td>
-                                <td style="background:#BCC943;"></td>
-                                <td style="background:#BCC943;"></td>
-                                <td onclick="pos(15)" style="background:#BCC943;">
-                                    <img src="{{ asset("assets/images/".$allpenpos[14]["tipe"]."/".$allpenpos[14]["tipe"].$allpenpos[14]["status"].".png") }}" alt="gambar not found" width="60px" height="60px" id="pos-15">
-                                </td>
-                                <td style="background:#BCC943;"></td>
-                                <td style="background:#BCC943;"></td>
-                            </tr>
-                            <tr>
-                                <td onclick="pos(8)" style="background:#c1931c;">
-                                    <img src="{{ asset("assets/images/".$allpenpos[7]["tipe"]."/".$allpenpos[7]["tipe"].$allpenpos[7]["status"].".png") }}" alt="gambar not found" width="60px" height="60px" id="pos-8">
-                                </td>
-                                <td style="background:#c1931c;"></td>
-                                <td style="background:#c1931c;"></td>
-                                <td style="background:#c1931c;"></td>
-                                <td style="background:#c1931c;"></td>
-                                <td style="background:#c1931c;"></td>
-                                <td style="background:#c1931c;"></td>
-                            </tr>
-                            <tr>
-                                <td colspan="7" style="background:#c1931c;"></td>
-                            </tr>
-                            <tr>
-                                {{-- Row1 --}}
-                                <td style="background:#4AB6F7;"></td>
-                                <td style="background:#4AB6F7;"></td>
-                                <td style="background:#FFE07B;"></td>
-                                <td onclick="pos(25)" style="background:#FFE07B;">
-                                    <img src="{{ asset("assets/images/".$allpenpos[24]["tipe"]."/".$allpenpos[24]["tipe"].$allpenpos[24]["id"].$allpenpos[24]["status"].".png") }}" alt="gambar not found" width="60px" height="60px" id="pos-25">
-                                </td>
-                                <td style="background:#FFE07B;"></td>
-                                <td style="background:#4AB6F7;"></td>
-                                <td style="background:#4AB6F7;"></td>
-                            </tr>
-                            <tr>
-                                {{-- Row2 --}}
-                                <td style="background:#4AB6F7;"></td>
-                                <td style="background:#FFE07B;"></td>
-                                <td onclick="pos(24)" style="background:#FFE063;">
-                                    <img src="{{ asset("assets/images/".$allpenpos[23]["tipe"]."/".$allpenpos[23]["tipe"].$allpenpos[23]["id"].$allpenpos[23]["status"].".png") }}" alt="gambar not found" width="60px" height="60px" id="pos-24">
-                                </td>
-                                <td style="background:#FFE063;"></td>
-                                <td style="background:#FFE063;"></td>
-                                <td style="background:#FFE07B;"></td>
-                                <td style="background:#4AB6F7;"></td>
-                            </tr>
-                            <tr>
-                                {{-- Row3 --}}
-                                <td style="background:#FFE07B;"></td>
-                                <td onclick="pos(23)" style="background:#FFE063;">
-                                    <img src="{{ asset("assets/images/".$allpenpos[22]["tipe"]."/".$allpenpos[22]["tipe"].$allpenpos[22]["id"].$allpenpos[22]["status"].".png") }}" alt="gambar not found" width="60px" height="60px" id="pos-23">
-                                </td>
-                                <td style="background:#BCC943;"></td>
-                                <td style="background:#BCC943;"></td>
-                                <td style="background:#BCC943;"></td>
-                                <td onclick="pos(16)" style="background:#FFE063;">
-                                    <img src="{{ asset("assets/images/".$allpenpos[15]["tipe"]."/".$allpenpos[15]["tipe"].$allpenpos[15]["id"].$allpenpos[15]["status"].".png") }}" alt="gambar not found" width="60px" height="60px" id="pos-16">
-                                </td>
-                                <td style="background:#FFE07B;"></td>
-                            </tr>
-                            <tr>
-                                {{-- Row4 --}}
-                                <td onclick="pos(22)" style="background:#FFE07B;">
-                                    <img src="{{ asset("assets/images/".$allpenpos[21]["tipe"]."/".$allpenpos[21]["tipe"].$allpenpos[21]["id"].$allpenpos[21]["status"].".png") }}" alt="gambar not found" width="60px" height="60px" id="pos-22">
-                                </td>
-                                <td style="background:#FFE063;"></td>
-                                <td style="background:#BCC943;"></td>
-                                <td style="background:#BCC943;"></td>
-                                <td style="background:#BCC943;"></td>
-                                <td style="background:#FFE063;"></td>
-                                <td onclick="pos(17)" style="background:#FFE07B;">
-                                    <img src="{{ asset("assets/images/".$allpenpos[16]["tipe"]."/".$allpenpos[16]["tipe"].$allpenpos[16]["id"].$allpenpos[16]["status"].".png") }}" alt="gambar not found" width="60px" height="60px" id="pos-17">
-                                </td>
-                            </tr>
-                            <tr>
-                                {{-- Row5 --}}
-                                <td style="background:#FFE07B;"></td>
-                                <td onclick="pos(21)" style="background:#FFE063;">
-                                    <img src="{{ asset("assets/images/".$allpenpos[20]["tipe"]."/".$allpenpos[20]["tipe"].$allpenpos[20]["id"].$allpenpos[20]["status"].".png") }}" alt="gambar not found" width="60px" height="60px" id="pos-21">
-                                </td>
-                                <td style="background:#BCC943;"></td>
-                                <td style="background:#BCC943;"></td>
-                                <td style="background:#BCC943;"></td>
-                                <td onclick="pos(18)" style="background:#FFE063;">
-                                    <img src="{{ asset("assets/images/".$allpenpos[17]["tipe"]."/".$allpenpos[17]["tipe"].$allpenpos[17]["id"].$allpenpos[17]["status"].".png") }}" alt="gambar not found" width="60px" height="60px" id="pos-18">
-                                </td>
-                                <td style="background:#FFE07B;"></td>
-                            </tr>
-                            <tr>
-                                {{-- Row6 --}}
-                                <td style="background:#4AB6F7;"></td>
-                                <td style="background:#FFE07B;"></td>
-                                <td style="background:#FFE063;"></td>
-                                <td style="background:#FFE063;"></td>
-                                <td onclick="pos(19)" style="background:#FFE063;">
-                                    <img src="{{ asset("assets/images/".$allpenpos[18]["tipe"]."/".$allpenpos[18]["tipe"].$allpenpos[18]["id"].$allpenpos[18]["status"].".png") }}" alt="gambar not found" width="60px" height="60px" id="pos-19">
-                                </td>
-                                <td style="background:#FFE07B;"></td>
-                                <td style="background:#4AB6F7;"></td>
-                            </tr>
-                            <tr>
-                                {{-- Row7 --}}
-                                <td style="background:#4AB6F7;"></td>
-                                <td style="background:#4AB6F7;"></td>
-                                <td style="background:#FFE07B;"></td>
-                                <td onclick="pos(20)" style="background:#FFE07B;">
-                                    <img src="{{ asset("assets/images/".$allpenpos[19]["tipe"]."/".$allpenpos[19]["tipe"].$allpenpos[19]["id"].$allpenpos[19]["status"].".png") }}" alt="gambar not found" width="60px" height="60px" id="pos-20">
-                                </td>
-                                <td style="background:#FFE07B;"></td>
-                                <td style="background:#4AB6F7;"></td>
-                                <td style="background:#4AB6F7;"></td>
-                            </tr>
-                        </table>
+                <div class="card-body "> --}}
+                    <div class="card card-map">
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                <table class="table table-borderless" style="font-family: sans-serif; font-size: 12px">
+                                    <tr>
+                                        <td colspan="7" class="bg-info" style="text-align:center;vertical-align:middle"><h1>MARKET</h1></td>
+                                    </tr>
+                                    <tr>
+                                        <td onclick="pos(1)" style="background:#98AF22;">
+                                            <img src="{{ asset("assets/images/".$allpenpos[0]["tipe"]."/".$allpenpos[0]["tipe"].$allpenpos[0]["status"].".png") }}" alt="gambar not found" width="60px" height="60px" id="pos-1">
+                                        </td>
+                                        <td style="background:#98AF22;"></td>
+                                        <td style="background:#98AF22;"></td>
+                                        <td style="background:#98AF22;"></td>
+                                        <td onclick="pos(9)" style="background:#98AF22;">
+                                            <img src="{{ asset("assets/images/".$allpenpos[8]["tipe"]."/".$allpenpos[8]["tipe"].$allpenpos[8]["status"].".png") }}" alt="gambar not found" width="60px" height="60px" id="pos-9">
+                                        </td>
+                                        <td style="background:#98AF22;"></td>
+                                        <td onclick="pos(30)" style="background:#98AF22;">
+                                            <img src="{{ asset("assets/images/".$allpenpos[29]["tipe"]."/".$allpenpos[29]["tipe"].$allpenpos[29]["id"].$allpenpos[29]["status"].".png") }}" alt="gambar not found" width="60px" height="60px" id="pos-30">
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td onclick="pos(2)" style="background:#98AF22;">
+                                            <img src="{{ asset("assets/images/".$allpenpos[1]["tipe"]."/".$allpenpos[1]["tipe"].$allpenpos[1]["status"].".png") }}" alt="gambar not found" width="60px" height="60px" id="pos-2">
+                                        </td>
+                                        <td style="background:#98AF22;"></td>
+                                        <td style="background:#98AF22;"></td>
+                                        <td style="background:#98AF22;"></td>
+                                        <td onclick="pos(10)" style="background:#98AF22;">
+                                            <img src="{{ asset("assets/images/".$allpenpos[9]["tipe"]."/".$allpenpos[9]["tipe"].$allpenpos[9]["status"].".png") }}" alt="gambar not found" width="60px" height="60px" id="pos-10">
+                                        </td>
+                                        <td style="background:#98AF22;"></td>
+                                        <td onclick="pos(29)" style="background:#98AF22;">
+                                            <img src="{{ asset("assets/images/".$allpenpos[28]["tipe"]."/".$allpenpos[28]["tipe"].$allpenpos[28]["id"].$allpenpos[28]["status"].".png") }}" alt="gambar not found" width="60px" height="60px" id="pos-29">
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td onclick="pos(3)" style="background-image: linear-gradient(180deg, #98AF22, #AABC32);">
+                                            <img src="{{ asset("assets/images/".$allpenpos[2]["tipe"]."/".$allpenpos[2]["tipe"].$allpenpos[2]["status"].".png") }}" alt="gambar not found" width="60px" height="60px" id="pos-3">
+                                        </td>
+                                        <td style="background-image: linear-gradient(180deg, #98AF22, #AABC32);"></td>
+                                        <td style="background-image: linear-gradient(180deg, #98AF22, #AABC32);"></td>
+                                        <td style="background-image: linear-gradient(180deg, #98AF22, #AABC32);"></td>
+                                        <td onclick="pos(11)" style="background-image: linear-gradient(180deg, #98AF22, #AABC32);">
+                                            <img src="{{ asset("assets/images/".$allpenpos[10]["tipe"]."/".$allpenpos[10]["tipe"].$allpenpos[10]["status"].".png") }}" alt="gambar not found" width="60px" height="60px" id="pos-11">
+                                        </td>
+                                        <td style="background-image: linear-gradient(180deg, #98AF22, #AABC32);"></td>
+                                        <td onclick="pos(28)" style="background-image: linear-gradient(180deg, #98AF22, #AABC32);">
+                                            <img src="{{ asset("assets/images/".$allpenpos[27]["tipe"]."/".$allpenpos[27]["tipe"].$allpenpos[27]["id"].$allpenpos[27]["status"].".png") }}" alt="gambar not found" width="60px" height="60px" id="pos-28">
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td onclick="pos(4)" style="background:#AABC32;">
+                                            <img src="{{ asset("assets/images/".$allpenpos[3]["tipe"]."/".$allpenpos[3]["tipe"].$allpenpos[3]["status"].".png") }}" alt="gambar not found" width="60px" height="60px" id="pos-4">
+                                        </td>
+                                        <td style="background:#AABC32;"></td>
+                                        <td style="background:#AABC32;"></td>
+                                        <td style="background:#AABC32;"></td>
+                                        <td onclick="pos(12)" style="background:#AABC32;">
+                                            <img src="{{ asset("assets/images/".$allpenpos[11]["tipe"]."/".$allpenpos[11]["tipe"].$allpenpos[11]["status"].".png") }}" alt="gambar not found" width="60px" height="60px" id="pos-12">
+                                        </td>
+                                        <td style="background:#AABC32;"></td>
+                                        <td onclick="pos(27)" style="background:#AABC32;">
+                                            <img src="{{ asset("assets/images/".$allpenpos[26]["tipe"]."/".$allpenpos[26]["tipe"].$allpenpos[26]["id"].$allpenpos[26]["status"].".png") }}" alt="gambar not found" width="60px" height="60px" id="pos-27">
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td onclick="pos(5)" style="background:#AABC32;">
+                                            <img src="{{ asset("assets/images/".$allpenpos[4]["tipe"]."/".$allpenpos[4]["tipe"].$allpenpos[4]["status"].".png") }}" alt="gambar not found" width="60px" height="60px" id="pos-5">
+                                        </td>
+                                        <td style="background:#AABC32;"></td>
+                                        <td style="background:#AABC32;"></td>
+                                        <td style="background:#AABC32;"></td>
+                                        <td onclick="pos(13)" style="background:#AABC32;">
+                                            <img src="{{ asset("assets/images/".$allpenpos[12]["tipe"]."/".$allpenpos[12]["tipe"].$allpenpos[12]["status"].".png") }}" alt="gambar not found" width="60px" height="60px" id="pos-13">
+                                        </td>
+                                        <td style="background:#AABC32;"></td>
+                                        <td onclick="pos(26)" style="background:#AABC32;">
+                                            <img src="{{ asset("assets/images/".$allpenpos[25]["tipe"]."/".$allpenpos[25]["tipe"].$allpenpos[25]["id"].$allpenpos[25]["status"].".png") }}" alt="gambar not found" width="60px" height="60px" id="pos-26">
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td onclick="pos(6)" style="background-image: linear-gradient(180deg, #AABC32, #BCC943);" >
+                                            <img src="{{ asset("assets/images/".$allpenpos[5]["tipe"]."/".$allpenpos[5]["tipe"].$allpenpos[5]["status"].".png") }}" alt="gambar not found" width="60px" height="60px" id="pos-6">
+                                        </td>
+                                        <td style="background-image: linear-gradient(180deg, #AABC32, #BCC943);"></td>
+                                        <td style="background-image: linear-gradient(180deg, #AABC32, #BCC943);"></td>
+                                        <td style="background-image: linear-gradient(180deg, #AABC32, #BCC943);"></td>
+                                        <td onclick="pos(14)" style="background-image: linear-gradient(180deg, #AABC32, #BCC943);" >
+                                            <img src="{{ asset("assets/images/".$allpenpos[13]["tipe"]."/".$allpenpos[13]["tipe"].$allpenpos[13]["status"].".png") }}" alt="gambar not found" width="60px" height="60px" id="pos-14">
+                                        </td>
+                                        <td style="background-image: linear-gradient(180deg, #AABC32, #BCC943);"></td>
+                                        <td style="background-image: linear-gradient(180deg, #AABC32, #BCC943);"></td>
+                                    </tr>
+                                    <tr>
+                                        <td onclick="pos(7)" style="background:#BCC943;">
+                                            <img src="{{ asset("assets/images/".$allpenpos[6]["tipe"]."/".$allpenpos[6]["tipe"].$allpenpos[6]["status"].".png") }}" alt="gambar not found" width="60px" height="60px" id="pos-7">
+                                        </td>
+                                        <td style="background:#BCC943;"></td>
+                                        <td style="background:#BCC943;"></td>
+                                        <td style="background:#BCC943;"></td>
+                                        <td onclick="pos(15)" style="background:#BCC943;">
+                                            <img src="{{ asset("assets/images/".$allpenpos[14]["tipe"]."/".$allpenpos[14]["tipe"].$allpenpos[14]["status"].".png") }}" alt="gambar not found" width="60px" height="60px" id="pos-15">
+                                        </td>
+                                        <td style="background:#BCC943;"></td>
+                                        <td style="background:#BCC943;"></td>
+                                    </tr>
+                                    <tr>
+                                        <td onclick="pos(8)" style="background:#c1931c;">
+                                            <img src="{{ asset("assets/images/".$allpenpos[7]["tipe"]."/".$allpenpos[7]["tipe"].$allpenpos[7]["status"].".png") }}" alt="gambar not found" width="60px" height="60px" id="pos-8">
+                                        </td>
+                                        <td style="background:#c1931c;"></td>
+                                        <td style="background:#c1931c;"></td>
+                                        <td style="background:#c1931c;"></td>
+                                        <td style="background:#c1931c;"></td>
+                                        <td style="background:#c1931c;"></td>
+                                        <td style="background:#c1931c;"></td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="7" style="background:#c1931c;"></td>
+                                    </tr>
+                                    <tr>
+                                        {{-- Row1 --}}
+                                        <td style="background:#4AB6F7;"></td>
+                                        <td style="background:#4AB6F7;"></td>
+                                        <td style="background:#FFE07B;"></td>
+                                        <td onclick="pos(25)" style="background:#FFE07B;">
+                                            <img src="{{ asset("assets/images/".$allpenpos[24]["tipe"]."/".$allpenpos[24]["tipe"].$allpenpos[24]["id"].$allpenpos[24]["status"].".png") }}" alt="gambar not found" width="60px" height="60px" id="pos-25">
+                                        </td>
+                                        <td style="background:#FFE07B;"></td>
+                                        <td style="background:#4AB6F7;"></td>
+                                        <td style="background:#4AB6F7;"></td>
+                                    </tr>
+                                    <tr>
+                                        {{-- Row2 --}}
+                                        <td style="background:#4AB6F7;"></td>
+                                        <td style="background:#FFE07B;"></td>
+                                        <td onclick="pos(24)" style="background:#FFE063;">
+                                            <img src="{{ asset("assets/images/".$allpenpos[23]["tipe"]."/".$allpenpos[23]["tipe"].$allpenpos[23]["id"].$allpenpos[23]["status"].".png") }}" alt="gambar not found" width="60px" height="60px" id="pos-24">
+                                        </td>
+                                        <td style="background:#FFE063;"></td>
+                                        <td style="background:#FFE063;"></td>
+                                        <td style="background:#FFE07B;"></td>
+                                        <td style="background:#4AB6F7;"></td>
+                                    </tr>
+                                    <tr>
+                                        {{-- Row3 --}}
+                                        <td style="background:#FFE07B;"></td>
+                                        <td onclick="pos(23)" style="background:#FFE063;">
+                                            <img src="{{ asset("assets/images/".$allpenpos[22]["tipe"]."/".$allpenpos[22]["tipe"].$allpenpos[22]["id"].$allpenpos[22]["status"].".png") }}" alt="gambar not found" width="60px" height="60px" id="pos-23">
+                                        </td>
+                                        <td style="background:#BCC943;"></td>
+                                        <td style="background:#BCC943;"></td>
+                                        <td style="background:#BCC943;"></td>
+                                        <td onclick="pos(16)" style="background:#FFE063;">
+                                            <img src="{{ asset("assets/images/".$allpenpos[15]["tipe"]."/".$allpenpos[15]["tipe"].$allpenpos[15]["id"].$allpenpos[15]["status"].".png") }}" alt="gambar not found" width="60px" height="60px" id="pos-16">
+                                        </td>
+                                        <td style="background:#FFE07B;"></td>
+                                    </tr>
+                                    <tr>
+                                        {{-- Row4 --}}
+                                        <td onclick="pos(22)" style="background:#FFE07B;">
+                                            <img src="{{ asset("assets/images/".$allpenpos[21]["tipe"]."/".$allpenpos[21]["tipe"].$allpenpos[21]["id"].$allpenpos[21]["status"].".png") }}" alt="gambar not found" width="60px" height="60px" id="pos-22">
+                                        </td>
+                                        <td style="background:#FFE063;"></td>
+                                        <td style="background:#BCC943;"></td>
+                                        <td style="background:#BCC943;"></td>
+                                        <td style="background:#BCC943;"></td>
+                                        <td style="background:#FFE063;"></td>
+                                        <td onclick="pos(17)" style="background:#FFE07B;">
+                                            <img src="{{ asset("assets/images/".$allpenpos[16]["tipe"]."/".$allpenpos[16]["tipe"].$allpenpos[16]["id"].$allpenpos[16]["status"].".png") }}" alt="gambar not found" width="60px" height="60px" id="pos-17">
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        {{-- Row5 --}}
+                                        <td style="background:#FFE07B;"></td>
+                                        <td onclick="pos(21)" style="background:#FFE063;">
+                                            <img src="{{ asset("assets/images/".$allpenpos[20]["tipe"]."/".$allpenpos[20]["tipe"].$allpenpos[20]["id"].$allpenpos[20]["status"].".png") }}" alt="gambar not found" width="60px" height="60px" id="pos-21">
+                                        </td>
+                                        <td style="background:#BCC943;"></td>
+                                        <td style="background:#BCC943;"></td>
+                                        <td style="background:#BCC943;"></td>
+                                        <td onclick="pos(18)" style="background:#FFE063;">
+                                            <img src="{{ asset("assets/images/".$allpenpos[17]["tipe"]."/".$allpenpos[17]["tipe"].$allpenpos[17]["id"].$allpenpos[17]["status"].".png") }}" alt="gambar not found" width="60px" height="60px" id="pos-18">
+                                        </td>
+                                        <td style="background:#FFE07B;"></td>
+                                    </tr>
+                                    <tr>
+                                        {{-- Row6 --}}
+                                        <td style="background:#4AB6F7;"></td>
+                                        <td style="background:#FFE07B;"></td>
+                                        <td style="background:#FFE063;"></td>
+                                        <td style="background:#FFE063;"></td>
+                                        <td onclick="pos(19)" style="background:#FFE063;">
+                                            <img src="{{ asset("assets/images/".$allpenpos[18]["tipe"]."/".$allpenpos[18]["tipe"].$allpenpos[18]["id"].$allpenpos[18]["status"].".png") }}" alt="gambar not found" width="60px" height="60px" id="pos-19">
+                                        </td>
+                                        <td style="background:#FFE07B;"></td>
+                                        <td style="background:#4AB6F7;"></td>
+                                    </tr>
+                                    <tr>
+                                        {{-- Row7 --}}
+                                        <td style="background:#4AB6F7;"></td>
+                                        <td style="background:#4AB6F7;"></td>
+                                        <td style="background:#FFE07B;"></td>
+                                        <td onclick="pos(20)" style="background:#FFE07B;">
+                                            <img src="{{ asset("assets/images/".$allpenpos[19]["tipe"]."/".$allpenpos[19]["tipe"].$allpenpos[19]["id"].$allpenpos[19]["status"].".png") }}" alt="gambar not found" width="60px" height="60px" id="pos-20">
+                                        </td>
+                                        <td style="background:#FFE07B;"></td>
+                                        <td style="background:#4AB6F7;"></td>
+                                        <td style="background:#4AB6F7;"></td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
                     </div>
-                </div>
+                    
+                {{-- </div>
                 <!--End Map-->
 
             </div>
-        </div>
+        </div> --}}
         <!--End Map Section-->
 
     </div>

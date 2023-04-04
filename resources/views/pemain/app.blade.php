@@ -238,7 +238,14 @@
             height: fit-content;
         }
         #content{
-            margin-top:calc(97%-80px);
+  
+        }
+        .topbar a{
+            color: white;
+            text-decoration: none;
+        }
+        .col-md-4{
+            justify-content: center !important;
         }
         
 
@@ -341,30 +348,39 @@
     <div class="wrapper">
         <div class="topbar d-flex align-items-center justify-content-center">
             <div class="row w-100">
-                <div class="col-3 d-flex align-items-center">
-                    <div class="coin-container">
+                <div class="col-3 col-md-4 d-flex align-items-center">
+                    <div class="coin-container px-2">
                         <i class="bi bi-coin icon"></i><span id="playerCoin">{{ $datapemain->coin }}</span>
                     </div>
                     
                 </div>
-                <div class="col-6 d-flex align-items-center justify-content-center">
+                <div class="col-6 col-md-4 d-flex align-items-center justify-content-center">
                     <div class="row d-flex align-items-center">
                         <div class="col d-flex align-items-center p-0 mx-3">
-                            <i class="bi bi-cart icon"></i>
+                            <a href="{{ route('pemain.buymenu') }}"><i class="bi bi-cart icon"></i></a>
+                            
                         </div>
-                        <div class="col p-0" style="text-align: center">
+                        <div class="col-5 p-0" style="text-align: center">
                             
                             <img src="{{ asset('assets/images/mascot.png') }}" alt="" srcset="" class="mascot">
                             {{--     --}}
 
                         </div>
                         <div class="col d-flex align-items-center p-0 mx-3">
-                            <i class="bi bi-basket2 icon"></i>
+                            <a href="{{ route('pemain.sellmenu') }}"><i class="bi bi-basket2 icon"></i></a>
                         </div>
                     </div>
                 </div>
-                <div class="col-3 d-flex align-items-center justify-content-end">
-                    <i class="bi bi-box-arrow-right icon"></i><span style="font-size: 12px;margin-left:3px;">Logout</span>
+                <div class="col-3 col-md-4 px-2 d-flex align-items-center justify-content-end">
+                    {{--Logout--}}
+                    <a aria-current="page" href="{{ route('logout') }}" 
+                        onclick="event.preventDefault();
+                        document.getElementById('logout-form').submit();" class="d-flex align-items-center">
+                        <i class="bi bi-box-arrow-right icon"></i><span style="font-size: 12px;margin-left:3px;">Logout</span>
+                    </a>
+                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                        @csrf
+                    </form>
                 </div>
             </div>
         </div>
@@ -419,6 +435,9 @@
         </nav> --}}
 
         <div id="content" style="">
+            <div class="spacing"></div>
+            <div class="spacing" style="height: 20px"></div>
+            <div class="spacing" style="height: 10px"></div>
             <div class="container-fluid py-4">
                 @yield('content')
             </div>
