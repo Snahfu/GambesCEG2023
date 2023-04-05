@@ -53,256 +53,54 @@
         .spacing {
             height: 50px;
         }
-
-        .sidebar {
-            position: fixed;
-            top: 0;
-            left: 0;
-            height: 100vh;
-            width: 250px;
-            padding: 10px 10px;
-            background: #242526;
-            transition: all 0.3s ease;
-            z-index: 100;
-        }
-
-        .sidebar.close {
-
-            width: 70px;
-
-        }
-
-        .menu {
-            padding-left: 0 !important;
-        }
-
-        header {
-            height: 100px;
-            margin-top: 5em;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-
-        header img {
-            width: 80px;
-            justify-content: center;
-            align-items: center;
-            transition: all 0.3s ease;
-        }
-
-        .sidebar.close img {
-            width: 30px;
-        }
-
-        #content {
-            position: absolute;
-            top: 0;
-            top: 0;
-            left: 250px;
-            height: 100vh;
-            width: calc(100% - 250px);
-            background-color: var(--body-color);
-            transition: all ease-in-out 0.2s;
-        }
-
-        .sidebar.close~#content {
-            left: 65px;
-            height: 100vh;
-            width: calc(100% - 65px);
-        }
-
-        .sidebar .toggle {
-            position: absolute;
-            top: 5%;
-            right: 25px;
-            height: 25px;
-            width: 25px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 26px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            color: #fff;
-        }
-
-        .menu li {
-            height: 50px;
-            list-style: none;
-            display: flex;
-            align-items: center;
-            margin-top: 10px;
-        }
-
-        .menu li i {
-            min-width: 50px;
-            height: 100%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 18px;
-            transition: all 0.3s ease;
-            color: #ccc;
-        }
-
-        li span {
+        .nav-link,
+        .nav-link:focus {
+            font-weight: bold;
             font-size: 16px;
-            font-weight: 500;
-            white-space: nowrap;
-            opacity: 1;
-            transition: .3s;
-            color: #ccc;
+            color: #515940 !important;
+            padding: 5px 0px;
+            border-radius: 5px;
+            margin-left: 15px;
+            padding-left: 5px;
         }
 
-        .sidebar.close .text {
-            opacity: 0;
+        .nav-link:hover {
+            color: #ffff !important;
+            background-color: #515940;
+            border-radius: 5px;
+            padding: 5px 0px;
+            padding-left: 5px;
         }
+        #content{
 
-        .sidebar .menu {
-            margin-top: 20px;
         }
-
-        li.search-box {
-            border-radius: 6px;
-            background-color: #3a3b3c;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        li.search-box input {
-            height: 100%;
-            width: 100%;
-            outline: none;
-            border: none;
-            background-color: #3a3b3c;
-            color: #ccc;
-            border-radius: 6px;
-            font-size: 17px;
-            font-weight: 500;
-            transition: all 0.3s ease;
-        }
-
-        li a {
-            list-style: none;
-            height: 100%;
-            background-color: transparent;
-            display: flex;
-            align-items: center;
-            height: 100%;
-            width: 100%;
-            border-radius: 6px;
-            text-decoration: none;
-            transition: all 0.3s ease;
-        }
-
-        li a:hover {
-            background-color: #fff;
-        }
-
-        li a:hover .icon,
-        li a:hover .text {
-            color: #242526;
-        }
-
+       
         @media screen and (max-width:900px) {
-            header {
-                margin-top: 5%;
-                height: 40px;
-            }
 
-            header img {
-                width: 40px;
-                justify-content: left;
-                align-items: center;
-                transition: all 0.3s ease;
-
-            }
-
-            .sidebar.close img {
-                width: 30px;
-                display: none;
-                transition: all 0.3s ease;
-            }
-
-            .sidebar {
-                position: fixed;
-                top: 0;
-                left: 0;
-                height: 100vh;
-                width: 250px;
-                padding: 10px 10px;
-                background: #242526;
-                transition: all 0.3s ease;
-                z-index: 100;
-                overflow-y: scroll;
-            }
         }
 
         @media screen and (max-width:576px) {
-
-            .sidebar {
-                position: fixed;
-                top: 0;
-                left: 0;
-                height: 100vh;
-                width: 100%;
-                padding: 10px 10px;
-                background: #242526;
-                transition: all 0.2s ease;
-                z-index: 100;
-                overflow-y: scroll;
-            }
-
-            .sidebar.close {
-                font-size: 16px;
-                width: 60px;
-            }
-
-            .sidebar.close~#content {
-                left: 60px;
-                height: 100vh;
-                width: calc(100% - 60px);
-            }
-
-            .sidebar .toggle {
-                font-size: 16px;
-                right: 15px;
-            }
-
-            .nav-link {
-                font-size: 16px;
-            }
-
-            .menu li i {
-                min-width: 50px;
-                height: 100%;
+            #content{
+                width: 100vw;
                 display: flex;
-                align-items: center;
                 justify-content: center;
-                font-size: 16px;
-                transition: all 0.3s ease;
-                color: #ccc;
             }
 
-            #content {
-                position: absolute;
-                top: 0;
-                top: 0;
-                left: 250px;
-                height: 100vh;
-                width: calc(100% - 250%);
-                background-color: var(--body-color);
-                transition: none;
+            .container-fluid{
+                width: 80%;
             }
+
+            
+
+
         }
     </style>
 </head>
 
 <body style="background: url('{{ asset('assets') }}/background/background.png') center / cover no-repeat fixed">
 
-    <div class="wrapper">
-        <nav class="sidebar close">
+    
+        {{-- <nav class="sidebar close">
             <header>
                 <img src="{{ asset('assets/logo/Logo CEG.png') }}" class="img-fluid logo">
                 <i class="fa-solid fa-bars toggle"></i>
@@ -336,14 +134,90 @@
                 </li>
 
             </ul>
+        </nav> --}}
+
+        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
+            <div class="container">
+                <a class="navbar-brand" href="{{ route('home') }}">
+                    <img src="{{ asset('assets/logo/Kelapa_navbar.png') }}" alt="" style="width: 32px;height:auto;">
+                    <img src="{{ asset('assets/logo/Logo_CEG.png') }}" alt="" style="width: 32px;height:auto;">
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <!-- Left Side Of Navbar -->
+                    <ul class="navbar-nav me-auto">
+                            <li class="nav-item">
+                                <a href="{{ route('penpos.HomePenpos') }}" class="nav-link">Home</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="{{ route('penpos.historybattle') }}" class="nav-link">History</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="" class="nav-link">List Harga</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="" class="nav-link">Hint</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="}" class="nav-link">Pengumpulan</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="" class="nav-link">History</a>
+                            </li>
+                    </ul>
+
+                    <!-- Right Side Of Navbar -->
+                    <ul class="navbar-nav ms-auto">
+                        <!-- Authentication Links -->
+                        @guest
+                            @if (Route::has('login'))
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+                                </li>
+                            @endif
+
+                            @if (Route::has('register'))
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+                                </li>
+                            @endif
+                        @else
+                            <li class="nav-item dropdown" style="border: none !important;">
+                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
+                                    data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                    {{ Auth::user()->name }}
+                                </a>
+
+                                <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                                    <a class="dropdown-item" href="{{ route('logout') }}"
+                                        onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                                        {{ __('Logout') }}
+                                    </a>
+
+                                    <form id="logout-form" action="{{ route('logout') }}" method="POST"
+                                        class="d-none">
+                                        @csrf
+                                    </form>
+                                </div>
+                            </li>
+                        @endguest
+                    </ul>
+                </div>
+            </div>
         </nav>
 
         <div id="content" style="">
-            <div class="container-fluid py-4">
+            <div class="container-fluid py-4 d-flex justify-content-center">
                 @yield('content')
             </div>
         </div>
-    </div>
+    
 
     {{-- <!--Main layout-->
     <main style="margin-top: 58px;">

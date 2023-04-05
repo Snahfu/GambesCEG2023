@@ -115,6 +115,14 @@
         .slider.round:before {
             border-radius: 50%;
         }
+        @media screen and (max-width:576px){
+            .form-select option{
+                font-size: 12px !important;
+            }
+            .col-6{
+                font-size: 12px !important;
+            }
+        }
     </style>
     <!--End Style-->
 
@@ -136,10 +144,10 @@
                     @csrf
                     <!-- Tim 1 -->
                     <div class="row d-flex justify-content-center mb-4 pt-4" style="text-align: center; font-weight: bold;">
-                        <div class="col-2" style="font-size: 18px;">
+                        <div class="col-6 col-md-2" style="font-size: 18px;">
                             Nama Tim 1:
                         </div>
-                        <div class="col-2">
+                        <div class="col-6 col-md-2">
                             <select name="team[]" id="team1" class="form-select" aria-label="Default select example"
                                 style="text-align: center;">
                                 <option selected hidden>--Pilih Pemain 1--</option>
@@ -149,7 +157,7 @@
                                 @endforeach
                             </select>
                         </div>
-                        <div class="col-2">
+                        <div class="col-2 col-md-2">
                             <select name="hasil[]" id="hasil1" class="form-select" aria-label="Default select example"
                                 style="text-align: center;">
                                 <option selected hidden>--Input Hasil--</option>
@@ -158,16 +166,16 @@
                                 <option value="kalah">Kalah</option>
                             </select>
                         </div>
-                        <div class="col-1" style="font-size: 18px;">
+                        <div class="col-1 col-md-1" style="font-size: 18px;">
                             Dari
                         </div>
-                        <div class="col-2">
+                        <div class="col-2 col-md-2">
                             <select name="lawan[]" id="lawan1" class="form-select" aria-label="Default select example"
                                 style="text-align: center;">
                                 <option selected hidden>--Pilih Pemain--</option>
                             </select>
                         </div>
-                        <div class="col-2">
+                        <div class="col-2 col-md-2">
                             <select name="koin[]" id="koin1" class="form-select" aria-label="Default select example"
                                 style="text-align: center;">
                                 @if ($penposData->nama == 'Flag of eternity')
@@ -190,10 +198,10 @@
 
                     <!-- Tim 2 -->
                     <div class="row d-flex justify-content-center mb-4" style="text-align: center; font-weight: bold;">
-                        <div class="col-2" style="font-size: 18px;">
+                        <div class="col-2 col-md-2" style="font-size: 18px;">
                             Nama Tim 2:
                         </div>
-                        <div class="col-2">
+                        <div class="col-2 col-md-2">
                             <select name="team[]" id="team2" class="form-select" aria-label="Default select example"
                                 style="text-align: center;">
                                 <option selected hidden>--Pilih Pemain 2--</option>
@@ -203,7 +211,7 @@
                                 @endforeach
                             </select>
                         </div>
-                        <div class="col-2">
+                        <div class="col-2 col-md-2">
                             <select name="hasil[]" id="hasil2" class="form-select" aria-label="Default select example"
                                 style="text-align: center;">
                                 <option selected hidden>--Input Hasil--</option>
@@ -212,16 +220,16 @@
                                 <option value="Kalah">Kalah</option>
                             </select>
                         </div>
-                        <div class="col-1" style="font-size: 18px;">
+                        <div class="col-1 col-md-1" style="font-size: 18px;">
                             Dari
                         </div>
-                        <div class="col-2">
+                        <div class="col-2 col-md-2">
                             <select name="lawan[]" id="lawan2" class="form-select" aria-label="Default select example"
                                 style="text-align: center;">
                                 <option selected hidden>--Pilih Pemain--</option>
                             </select>
                         </div>
-                        <div class="col-2">
+                        <div class="col-2 col-md-2">
                             <select name="koin[]" id="koin2" class="form-select" aria-label="Default select example"
                                 style="text-align: center;">
                                 @if ($penposData->nama == 'Flag of eternity')
