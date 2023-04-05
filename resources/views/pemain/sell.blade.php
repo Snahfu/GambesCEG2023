@@ -108,12 +108,14 @@
                             <div class="card col-2 p-0 cardItems">
                                 <img src="{{ asset('assets/images/'.$kartu->url_gambar) }}"
                                     class="card-img-top" alt="...">
-                                <div class="card-body text-center">
-                                    <h4 class="card-title">{{ $kartu->nama }}</h4>
-                                    <h5 class="card-subtitle mb-2 text-muted"><i class="fa-solid fa-coins"
+                                <div class="card-body text-center" style="padding: 8px;">
+                                    {{-- <h4 class="card-title">{{ $kartu->nama }}</h4> --}}
+                                    {{-- <h5 class="card-subtitle mb-2 text-muted"><i class="fa-solid fa-coins"
                                             id="icon-coin"></i><span>
-                                            50</span></h5>
-                                    <button class="btn btn-primary" onclick="sell({{ $kartu->pivot->id }})">Sell</button>
+                                            50</span></h5> --}}
+                                    <p style="margin: 0;"><span class="badge bg-danger my-1">100</span></p>
+                                    <button class="btn btn-success w-100" onclick="sell({{ $kartu->pivot->id }})" style="padding: 3px 6px">
+                                        <i class="fa-regular fa-money-bill-1 mx-1"></i>Sell</button>
                                 </div>
                             </div>
                         @endforeach
