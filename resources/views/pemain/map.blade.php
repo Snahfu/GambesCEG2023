@@ -124,12 +124,12 @@
         }
         @media screen and (max-width:578px){
             table td img{
-                width: 32px !important;
-                height: 32px !important;
+                width: 42px !important;
+                height: 42px !important;
             }
             table td{
-                width: 48px !important;
-                height: 48px !important;
+                width: 58px !important;
+                height: 58px !important;
             }
             .table-responsive{
                 
@@ -188,7 +188,7 @@
                             <div class="table-responsive">
                                 <table class="table table-borderless" style="font-family: sans-serif; font-size: 12px">
                                     <tr>
-                                        <td colspan="7" class="bg-info" style="text-align:center;vertical-align:middle"><h1>MARKET</h1></td>
+                                        <td colspan="7" class="bg-info" style="text-align:center;vertical-align:middle" focus><h1>MARKET</h1></td>
                                     </tr>
                                     <tr>
                                         <td onclick="pos(1)" style="background:#98AF22;">

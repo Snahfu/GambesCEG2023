@@ -40,6 +40,8 @@
     <script src="https://js.pusher.com/7.2/pusher.min.js"></script>
     {{-- Pusher end --}}
 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+
     <!-- Styles -->
     <link href="{{ asset('css/dashboard.css') }}" rel="stylesheet">
     <style>
@@ -59,115 +61,6 @@
 
         .spacing {
             height: 50px;
-        }
-
-        .sidebar {
-            position: fixed;
-            top: 0;
-            left: 0;
-            height: 100vh;
-            width: 250px;
-            padding: 10px 10px;
-            background: #242526;
-            transition: all 0.3s ease;
-            z-index: 100;
-        }
-
-        .sidebar.close {
-
-            width: 70px;
-
-        }
-
-        .menu {
-            padding-left: 0 !important;
-        }
-
-        header {
-            height: 100px;
-            margin-top: 5em;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-
-        header img {
-            width: 80px;
-            justify-content: center;
-            align-items: center;
-            transition: all 0.3s ease;
-        }
-
-        .sidebar.close img {
-            width: 30px;
-        }
-
-        /* #content {
-            position: absolute;
-            top: 0;
-            top: 0;
-            left: 250px;
-            height: 100vh;
-            width: calc(100% - 250px);
-            background-color: var(--body-color);
-            transition: all ease-in-out 0.2s;
-        } */
-
-        .sidebar.close~#content {
-            left: 65px;
-            height: 100vh;
-            width: calc(100% - 65px);
-        }
-
-        .sidebar .toggle {
-            position: absolute;
-            top: 5%;
-            right: 25px;
-            height: 25px;
-            width: 25px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 26px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            color: #fff;
-        }
-
-        .menu li {
-            height: 50px;
-            list-style: none;
-            display: flex;
-            align-items: center;
-            margin-top: 10px;
-        }
-
-        .menu li i {
-            min-width: 50px;
-            height: 100%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 18px;
-            transition: all 0.3s ease;
-            color: #ccc;
-        }
-
-        li span {
-            font-size: 16px;
-            font-weight: 500;
-            white-space: nowrap;
-            opacity: 1;
-            transition: .3s;
-            color: #ccc;
-        }
-
-        .sidebar.close .text {
-            opacity: 0;
-        }
-
-        .sidebar .menu {
-            margin-top: 20px;
         }
 
         li.search-box {
@@ -233,112 +126,72 @@
         .mascot{
             width: 64px;
             height: 64px;
+
+            --animate-duration: 0.75s;
+
         }
         .topbar .col{
             height: fit-content;
-        }
-        #content{
-  
         }
         .topbar a{
             color: white;
             text-decoration: none;
         }
-        .col-md-4{
-            justify-content: center !important;
+        #identity-wrapper{
+            justify-content: space-around !important;
+        }
+        #identity-wrapper .bi-person-circle{
+            font-size: 36px;   
+        }
+        .coin-container{
+            display: flex;
+            align-content: center;
+            border-radius: 10px;
+            color:#4B371C;
         }
         
+        .coin-container .icon, .coin-container #playerCoin{
+            font-size: 20px;
+            font-weight: 600;
+        }
+        #logout-wrapper{
+            justify-content: center !important;
+        }
 
-        @media screen and (max-width:900px) {
-            header {
-                margin-top: 5%;
-                height: 40px;
-            }
+        
 
-            header img {
-                width: 40px;
-                justify-content: left;
-                align-items: center;
-                transition: all 0.3s ease;
+        @media screen and (max-width:768px) {
+           #identity-wrapper .bi{
+            
+           }
 
-            }
-
-            .sidebar.close img {
-                width: 30px;
+        
+            .name-container{
                 display: none;
-                transition: all 0.3s ease;
             }
-
-            .sidebar {
-                position: fixed;
-                top: 0;
-                left: 0;
-                height: 100vh;
-                width: 250px;
-                padding: 10px 10px;
-                background: #242526;
-                transition: all 0.3s ease;
-                z-index: 100;
-                overflow-y: scroll;
+            .icon{
+                font-size: 20px;
             }
         }
 
         @media screen and (max-width:576px) {
-
-            .sidebar {
-                position: fixed;
-                top: 0;
-                left: 0;
-                height: 100vh;
-                width: 100%;
-                padding: 10px 10px;
-                background: #242526;
-                transition: all 0.2s ease;
-                z-index: 100;
-                overflow-y: scroll;
+            .icon{
+                font-size: 20px;
             }
-
-            .sidebar.close {
-                font-size: 16px;
-                width: 60px;
+            #identity-wrapper{
+                display: block;
+                flex-direction: column;
+                text-size-adjust: auto;
             }
-
-            .sidebar.close~#content {
-                left: 60px;
-                height: 100vh;
-                width: calc(100% - 60px);
+            #logout-wrapper{
+                justify-content: center !important;
             }
-
-            .sidebar .toggle {
-                font-size: 16px;
-                right: 15px;
+        
+            .name-container{
+                display: none;
             }
-
-            .nav-link {
-                font-size: 16px;
-            }
-
-            .menu li i {
-                min-width: 50px;
-                height: 100%;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                font-size: 16px;
-                transition: all 0.3s ease;
-                color: #ccc;
-            }
-
-            /* #content {
-                position: absolute;
-                top: 0;
-                top: 0;
-                left: 250px;
-                height: 100vh;
-                width: calc(100% - 250%);
-                background-color: var(--body-color);
-                transition: none;
-            } */
+            
+            
         }
     </style>
 </head>
@@ -348,35 +201,46 @@
     <div class="wrapper">
         <div class="topbar d-flex align-items-center justify-content-center">
             <div class="row w-100">
-                <div class="col-3 col-md-4 d-flex align-items-center">
-                    <div class="coin-container px-2">
+                <div class="col-3 col-sm col-md-4 d-flex align-items-center" id="identity-wrapper">
+                    <div class="name-container" style="">
+                        <div class="row">
+                            <div class="col-md-4 d-flex align-items-center justify-content-center">
+                                <i class="bi bi-person-circle" ></i>
+                            </div>
+                            <div class="col-md-6 d-flex align-items-center">
+                                Ini nama teamnnya
+                            </div>
+                        </div>
+                         
+                    </div>
+                    <div class="coin-container px-2 bg-warning">
                         <i class="bi bi-coin icon"></i><span id="playerCoin">{{ $datapemain->coin }}</span>
                     </div>
                     
                 </div>
-                <div class="col-6 col-md-4 d-flex align-items-center justify-content-center">
+                <div class="col-6 col-sm-5 col-md-4 d-flex align-items-center justify-content-center">
                     <div class="row d-flex align-items-center">
                         <div class="col d-flex align-items-center p-0 mx-3">
                             <a href="{{ route('pemain.buymenu') }}"><i class="bi bi-cart icon"></i></a>
                             
                         </div>
                         <div class="col-5 p-0" style="text-align: center">
-                            
-                            <img src="{{ asset('assets/images/mascot.png') }}" alt="" srcset="" class="mascot">
+                            <a href="{{ route('pemain.HomePage') }}" onclick="animateMascot()">
+                                <img src="{{ asset('assets/images/mascot.png') }}" alt="" srcset="" class="mascot none">
                             {{--     --}}
-
+                            </a>
                         </div>
                         <div class="col d-flex align-items-center p-0 mx-3">
                             <a href="{{ route('pemain.sellmenu') }}"><i class="bi bi-basket2 icon"></i></a>
                         </div>
                     </div>
                 </div>
-                <div class="col-3 col-md-4 px-2 d-flex align-items-center justify-content-end">
+                <div class="col-3 col-sm col-md-4 px-2 d-flex align-items-center" id="logout-wrapper">
                     {{--Logout--}}
                     <a aria-current="page" href="{{ route('logout') }}" 
                         onclick="event.preventDefault();
                         document.getElementById('logout-form').submit();" class="d-flex align-items-center">
-                        <i class="bi bi-box-arrow-right icon"></i><span style="font-size: 12px;margin-left:3px;">Logout</span>
+                        <i class="bi bi-box-arrow-right icon"></i><span style="font-size: 14px;margin-left:4px;">Logout</span>
                     </a>
                     <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                         @csrf
@@ -445,13 +309,36 @@
     </div>
 
     <script>
-        const body = document.querySelector('body'),
-            sidebar = body.querySelector('nav'),
-            toggle = body.querySelector(".toggle");
+        function animateMascot(){
+            const element = document.querySelector('.mascot');
+            element.classList.add('animate__animated', 'animate__bounce'); 
+        }
 
-        toggle.addEventListener("click", () => {
-            sidebar.classList.toggle("close");
-        })
+        const element = document.querySelector('.mascot');
+        // element.classList.add('animate__animated', 'animate__bounceIn');
+        const animation = 'bounce';
+        const prefix = 'animate__';
+        const animateCSS = (element, animation, prefix) =>
+            // We create a Promise and return it
+            new Promise((resolve, reject) => {
+                const animationName = `${prefix}${animation}`;
+                const node = document.querySelector(element);
+
+                node.classList.add(`${prefix}animated`, animationName);
+
+                // When the animation ends, we clean the classes and resolve the Promise
+                function handleAnimationEnd(event) {
+                    event.stopPropagation();
+                    node.classList.remove(`${prefix}animated`, animationName);
+                    resolve('Animation ended');
+                }
+
+                node.addEventListener('animationend', handleAnimationEnd, {once: true});
+            });
+
+        
+
+
     </script>
     {{--  --}}
     <script src="../js/app.js"></script>
