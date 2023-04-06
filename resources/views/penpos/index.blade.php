@@ -115,11 +115,13 @@
         .slider.round:before {
             border-radius: 50%;
         }
-        @media screen and (max-width:576px){
-            .form-select option{
+
+        @media screen and (max-width:576px) {
+            .form-select option {
                 font-size: 12px !important;
             }
-            .col-6{
+
+            .col-6 {
                 font-size: 12px !important;
             }
         }
@@ -344,7 +346,7 @@
                 // Pengecekan Hasil
                 if ($(idHasil).val() == "--Input Hasil--") {
                     // Perbaruhi pesan dan statusValidasi
-                    pesan = "Silahkan pilih hasil pada tim "+index+" terlebih dahulu!"
+                    pesan = "Silahkan pilih hasil pada tim " + index + " terlebih dahulu!"
                     statusValidasi = "error";
                     // Set pesan di modal
                     $("#submitModalBody").html(pesan)
@@ -354,7 +356,7 @@
                 // Pengecekan Koin
                 if ($(idKoin).val() == "--Input Koin--") {
                     // Perbaruhi pesan dan statusValidasi
-                    pesan = "Silahkan pilih koin yang diperoleh tim "+index+" terlebih dahulu!"
+                    pesan = "Silahkan pilih koin yang diperoleh tim " + index + " terlebih dahulu!"
                     statusValidasi = "error";
                     // Set pesan di modal
                     $("#submitModalBody").html(pesan)
@@ -568,47 +570,5 @@
                     // alert("Pesan: " + msg['result']);
                 });
         }
-
-        // checkbox.addEventListener("change", () => {
-        //     if (checkbox.checked) {
-        //         statusPos.innerHTML = "PENUH";
-        //         $("#statusCheckbox").val('PENUH');
-        //         posFooter.style.backgroundColor = '#e2626b';
-        //         // posFooter.css("background-color", "red");
-
-        //         console.log("Checkbox is checked");
-        //         $.ajax({
-        //                 type: "POST",
-        //                 url: "{{ route('penpos.PenposUpdate') }}", // Route 
-        //                 data: {
-        //                     '_token': "{{ csrf_token() }}",
-        //                     'status': 'PENUH'
-        //                 }
-        //             })
-        //             .done(function(msg) {
-        //                 alert("Pesan: " + msg['result']);
-        //             });
-
-        //     } else {
-        //         statusPos.innerHTML = "KOSONG";
-        //         $("#statusCheckbox").val('KOSONG');
-        //         posFooter.style.backgroundColor = '#008917';
-
-
-        //         console.log("Checkbox is not checked");
-
-        //         $.ajax({
-        //                 type: "POST",
-        //                 url: "{{ route('penpos.PenposUpdate') }}", // Route 
-        //                 data: {
-        //                     '_token': "{{ csrf_token() }}",
-        //                     'status': 'KOSONG'
-        //                 }
-        //             })
-        //             .done(function(msg) {
-        //                 alert("Pesan: " + msg['result']);
-        //             });
-        //     }
-        // });
     </script>
 @endsection
