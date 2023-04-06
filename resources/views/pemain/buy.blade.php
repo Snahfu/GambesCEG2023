@@ -114,7 +114,7 @@
                                     class="card-img-top gambar-kartu" alt="..." data-id="{{ $kartu->id }}"
                                     data-nama="{{ $kartu->nama }}">
                                 <div class="card-body text-center" style="padding: 8px;">
-                                    {{-- <h4 class="card-title"> {{ $kartu->nama }}</h4> --}}
+                                    {{-- <h5 class="card-title" style="font-size: 12px"> {{ $kartu->nama }}</h5> --}}
                                     <p style="margin: 0;"><span class="badge bg-warning my-1">100</span></p>
                                     <button class="btn btn-success w-100" onclick="buy({{ $kartu->id }})"
                                         style="padding: 3px 6px">

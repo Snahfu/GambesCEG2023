@@ -74,6 +74,7 @@ class TeamController extends Controller
         return view('pemain.buy', [
             "tokoKartus" => $tokoKartus,
             "semuaKartu" => $semuaKartu,
+            "datapemain" =>$pemain,
         ]);
     }
 
@@ -89,7 +90,8 @@ class TeamController extends Controller
         // Ke halaman view
         // dd($inventoryKartus);
         return view('pemain.sell', [
-            "inventoryKartus" => $inventoryKartus
+            "inventoryKartus" => $inventoryKartus,
+            "datapemain" =>$pemain,
         ]);
     }
 

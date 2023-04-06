@@ -220,7 +220,7 @@
                             </div>
                             <div class="col-md-6 d-flex align-items-center">
                                 {{--Nama Team--}}
-                                Ini nama teamnnya
+                                {{ $datapemain->nama }}
                             </div>
                         </div>
                          
