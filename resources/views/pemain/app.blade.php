@@ -157,15 +157,22 @@
         #logout-wrapper{
             justify-content: center !important;
         }
+        #top-middle{
+            width: 80%;
+        }
+        .top-middle-items{
+            justify-content: center;
+        }
 
         
 
-        @media screen and (max-width:768px) {
-           #identity-wrapper .bi{
-            
-           }
-
-        
+        @media screen and (max-width:768px) {  
+            #top-middle{
+                width: 100%;
+            }
+            .top-middle-items{
+                justify-content: center;
+            }
             .name-container{
                 display: none;
             }
@@ -190,9 +197,13 @@
             .name-container{
                 display: none;
             }
+            #top-middle{
+                width: auto;
+            }
             
             
         }
+        
     </style>
 </head>
 
@@ -208,29 +219,32 @@
                                 <i class="bi bi-person-circle" ></i>
                             </div>
                             <div class="col-md-6 d-flex align-items-center">
+                                {{--Nama Team--}}
                                 Ini nama teamnnya
                             </div>
                         </div>
                          
                     </div>
                     <div class="coin-container px-2 bg-warning">
-                        <i class="bi bi-coin icon"></i><span id="playerCoin">{{ $datapemain->coin }}</span>
+                        <i class="bi bi-coin icon"></i>
+                        {{--Coin Team--}}
+                        <span id="playerCoin">{{ $datapemain->coin }}</span>
                     </div>
                     
                 </div>
                 <div class="col-6 col-sm-5 col-md-4 d-flex align-items-center justify-content-center">
-                    <div class="row d-flex align-items-center">
-                        <div class="col d-flex align-items-center p-0 mx-3">
+                    <div class="row d-flex align-items-center" id="top-middle">
+                        <div class="col d-flex align-items-center p-0 mx-3 top-middle-items">
                             <a href="{{ route('pemain.buymenu') }}"><i class="bi bi-cart icon"></i></a>
                             
                         </div>
-                        <div class="col-5 p-0" style="text-align: center">
+                        <div class="col-5 p-0 top-middle-items" style="text-align: center">
                             <a href="{{ route('pemain.HomePage') }}" onclick="animateMascot()">
                                 <img src="{{ asset('assets/images/mascot.png') }}" alt="" srcset="" class="mascot none">
                             {{--     --}}
                             </a>
                         </div>
-                        <div class="col d-flex align-items-center p-0 mx-3">
+                        <div class="col d-flex align-items-center p-0 mx-3 top-middle-items">
                             <a href="{{ route('pemain.sellmenu') }}"><i class="bi bi-basket2 icon"></i></a>
                         </div>
                     </div>
