@@ -219,8 +219,10 @@
                                 <i class="bi bi-person-circle" ></i>
                             </div>
                             <div class="col-md-8 d-flex align-items-center">
-                                {{--Nama Team--}}
-                                {{ $datapemain->nama }}
+                                <span>
+                                    {{--Nama Team--}}
+                                    {{ $datapemain->nama }}
+                                </span>
                             </div>
                         </div>
                          
