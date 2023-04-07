@@ -218,7 +218,7 @@
                             <div class="col-md-4 d-flex align-items-center justify-content-center">
                                 <i class="bi bi-person-circle" ></i>
                             </div>
-                            <div class="col-md-6 d-flex align-items-center">
+                            <div class="col-md-8 d-flex align-items-center">
                                 {{--Nama Team--}}
                                 {{ $datapemain->nama }}
                             </div>
