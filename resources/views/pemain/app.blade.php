@@ -124,9 +124,9 @@
             margin-right:8px;
         }
         .mascot{
-            width: 64px;
-            height: 64px;
-
+            position: static;
+            width: 80px;
+            height: auto;
             --animate-duration: 0.75s;
 
         }
@@ -214,7 +214,7 @@
             <div class="row w-100">
                 <div class="col-3 col-sm col-md-4 d-flex align-items-center" id="identity-wrapper">
                     <div class="name-container" style="">
-                        <div class="row">
+                        <div class="row w-100">
                             <div class="col-md-4 d-flex align-items-center justify-content-center">
                                 <i class="bi bi-person-circle" ></i>
                             </div>
