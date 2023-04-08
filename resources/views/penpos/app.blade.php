@@ -157,18 +157,6 @@
                             <li class="nav-item">
                                 <a href="{{ route('penpos.historybattle') }}" class="nav-link">History</a>
                             </li>
-                            <li class="nav-item">
-                                <a href="" class="nav-link">List Harga</a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="" class="nav-link">Hint</a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="}" class="nav-link">Pengumpulan</a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="" class="nav-link">History</a>
-                            </li>
                     </ul>
 
                     <!-- Right Side Of Navbar -->
