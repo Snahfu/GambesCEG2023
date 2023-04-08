@@ -89,10 +89,6 @@
             .container-fluid{
                 width: 80%;
             }
-
-            
-
-
         }
     </style>
 </head>
