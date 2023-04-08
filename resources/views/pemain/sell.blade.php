@@ -122,6 +122,30 @@
                     </div>
                 </div>
             </div>
+
+            {{-- Tambah clue inventory --}}
+            <div class="card-body mt-2">
+                <div class="table-responsive">
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th scope="col">Daftar Clue</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @if ($inventoryClues)
+                                @foreach ($inventoryClues as $clue)
+                                    <tr>
+                                        <td>{{ $clue->nama }}</td>
+                                    </tr>
+                                @endforeach
+                            @else
+                                <p class="text-center fs-4">No Clue Found</p>
+                            @endif
+                        </tbody>
+                    </table>
+                </div>
+            </div>
         </div>
     </div>
 
@@ -138,8 +162,6 @@
                 },
                 success: function(data) {
                     var pesan = data.msg
-                    // $("#submitText").html(pesan)
-                    // $("#NotifSubmit").modal('show')
                     alert(pesan);
                     location.reload();
                 }
