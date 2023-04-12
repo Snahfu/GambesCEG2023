@@ -138,7 +138,12 @@
                                 @endfor
                             </select>
                         </div>
-                        {{-- Select Team 3 --}}
+
+                        <div id="addTeam" class="d-flex justify-content-center">
+                            <button type="button" class="btn btn-outline-secondary" id="addTeam">Add Team 3</button>    
+                        </div>
+
+                        {{-- Select Team 3
                         <div class="team-select">
                             <label for="team3" style="width: 68px;">Team 3 :</label>
                             <select name="team[]" id="team3" class="select2">
@@ -147,7 +152,9 @@
                                 <option value="">Team {{$i}}</option>
                                 @endfor
                             </select>
-                        </div>
+                        </div> --}}
+
+                        
                     </section>
                     <section id="kondisi-section" class="my-4">
 
@@ -180,7 +187,7 @@
                                 <option value="">100</option>
                             </select>
                         </div>
-                        {{-- Select Team 2 --}}
+                        {{-- Coin Team 2 --}}
                         <div class="team-select my-2 ">
                             <label for="team2Coin" style="max-width: 150px;">"Nama Team 2"</label>
                             <span class="mx-1">:</span>
@@ -189,7 +196,10 @@
                                 <option value="">100</option>
                             </select>
                         </div>
-                        {{-- Select Team 3 --}}
+
+                        
+
+                        {{-- Coin Team 3
                         <div class="team-select">
                             <label for="team3Coin" style="max-width: 150px;">"Nama Team 3"</label>
                             <span class="mx-1">:</span>
@@ -197,7 +207,7 @@
                                 <option value="" selected disabled>-Pilih Coin-</option>
                                 <option value="">100</option>
                             </select>
-                        </div>
+                        </div> --}}
                     </section>
                     <section id="submit-section" class="my-3">
                         <button type="button" class="btn btn-success">Submit</button>
