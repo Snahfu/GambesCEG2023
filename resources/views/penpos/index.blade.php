@@ -1,6 +1,9 @@
 @extends('penpos.app')
 
 @section('content')
+    {{-- Bootstrap Select --}}
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
     <!--Style-->
     <style>
         body {
@@ -111,12 +114,31 @@
         .slider.round {
             border-radius: 34px;
         }
-
+        
         .slider.round:before {
             border-radius: 50%;
         }
 
+        #team-selection{
+            display: grid;
+            grid-template-columns: auto auto auto;
+            justify-content: space-around;
+            grid-gap: 12px 6px;
+        }
+
         @media screen and (max-width:576px) {
+            #team-selection{
+                display: grid;
+                grid-template-columns: auto auto;
+                justify-content: center;
+            }
+            .col-team3{
+                grid-column: 1 / span 2;
+            }
+            .container-fluid{
+                width: 95vw;
+            }
+            
             .form-select option {
                 font-size: 12px !important;
             }
@@ -124,12 +146,12 @@
             .col-6 {
                 font-size: 12px !important;
             }
+            
         }
     </style>
     <!--End Style-->
 
-    {{-- Pos --}}
-    <div class="row">
+
         <div class="card p-0">
 
             {{-- Header --}}
@@ -146,7 +168,96 @@
                     @csrf
                     <!-- Tim 1 -->
                     <div class="row d-flex justify-content-center mb-4 pt-4" style="text-align: center; font-weight: bold;">
-                        <div class="col-6 col-md-2" style="font-size: 18px;">
+                        <div class="col" id="team-selection">
+
+                            <div class="col-team">
+                                <div class="pilih-team">
+                                    Nama Tim 1: <br>
+                                    <select name="team[]" id="team1" class="select2 bordered" aria-label="Team 1" style="text-align: center;">
+                                        <option selected hidden disabled>--Pilih Pemain 1--</option>
+                                        {{-- semua team yang belum main di pos ini --}}
+                                        @foreach ($teams as $team)
+                                            <option value="{{ $team->id }}">{{ $team->nama }}</option>
+                                        @endforeach
+                                    </select>
+                                </div>
+                                <div class="input-koin my-2">
+                                    <select name="koin[]" id="koin1" class="form-select" aria-label="Default select example"
+                                        style="text-align: center;">
+                                        @if ($penposData->nama == 'Flag of eternity')
+                                            <option selected hidden>--Input Koin--</option>
+                                            <option value="25">25</option>
+                                            <option value="50">50</option>
+                                            <option value="175">175</option>
+                                            <option value="300">300</option>
+                                        @else
+                                            <option selected hidden>--Input Koin--</option>
+                                            <option value="100">100</option>
+                                            <option value="150">150</option>
+                                            <option value="200">200</option>
+                                            <option value="300">300</option>
+                                        @endif
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="col-team">
+                                <div class="pilih-team">
+                                    Nama Tim 2: <br>
+                                    <select name="team[]" id="team2" class="select2 bordered" aria-label="Team 2" style="text-align: center;">
+                                        <option selected hidden disabled>--Pilih Pemain 2--</option>
+                                        {{-- semua team yang belum main di pos ini --}}
+                                        @foreach ($teams as $team)
+                                            <option value="{{ $team->id }}">{{ $team->nama }}</option>
+                                        @endforeach
+                                    </select>
+                                </div>
+                                <div class="input-koin my-2">
+                                    <select name="koin[]" id="koin2" class="form-select" aria-label="Default select example"
+                                        style="text-align: center;">
+                                        @if ($penposData->nama == 'Flag of eternity')
+                                            <option selected hidden>--Input Koin--</option>
+                                            <option value="25">25</option>
+                                            <option value="50">50</option>
+                                            <option value="175">175</option>
+                                            <option value="300">300</option>
+                                        @else
+                                            <option selected hidden>--Input Koin--</option>
+                                            <option value="100">100</option>
+                                            <option value="150">150</option>
+                                            <option value="200">200</option>
+                                            <option value="300">300</option>
+                                        @endif
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="col-team col-team3">
+                                <div class="pilih-team">
+                                    Nama Tim 3: <br>
+                                    <select name="team[]" id="team3" class="select2"
+                                        aria-label="Team" style="text-align: center;">
+                                        <option selected hidden disabled>--Pilih Pemain 3--</option>
+                                        {{-- semua team yang belum main di pos ini --}}
+                                        @foreach ($teams as $team)
+                                            <option value="{{ $team->id }}">{{ $team->nama }}</option>
+                                        @endforeach
+                                    </select>
+                                </div>
+                                <div class="input-koin my-2">
+                                    <select name="koin[]" id="koin3" class="form-select" aria-label="Default select example"
+                                        style="text-align: center;">
+                                        <option selected hidden>--Input Koin--</option>
+                                        <option value="25">25</option>
+                                        <option value="50">50</option>
+                                        <option value="175">175</option>
+                                        <option value="300">300</option>
+                                    </select>
+                                </div>
+                            </div>
+                                
+                        </div>
+                        {{-- <div class="col-6 col-md-2" style="font-size: 18px;">
                             Nama Tim 1:
                         </div>
                         <div class="col-6 col-md-2">
@@ -154,12 +265,12 @@
                                 style="text-align: center;">
                                 <option selected hidden>--Pilih Pemain 1--</option>
                                 {{-- semua team yang belum main di pos ini --}}
-                                @foreach ($teams as $team)
+                                {{-- @foreach ($teams as $team)
                                     <option value="{{ $team->id }}">{{ $team->nama }}</option>
-                                @endforeach
-                            </select>
-                        </div>
-                        <div class="col-2 col-md-2">
+                                @endforeach --}}
+                            {{-- </select>
+                        </div> --}}
+                        {{-- <div class="col-2 col-md-2">
                             <select name="hasil[]" id="hasil1" class="form-select" aria-label="Default select example"
                                 style="text-align: center;">
                                 <option selected hidden>--Input Hasil--</option>
@@ -176,8 +287,8 @@
                                 style="text-align: center;">
                                 <option selected hidden>--Pilih Pemain--</option>
                             </select>
-                        </div>
-                        <div class="col-2 col-md-2">
+                        </div> --}}
+                        {{-- <div class="col-2 col-md-2">
                             <select name="koin[]" id="koin1" class="form-select" aria-label="Default select example"
                                 style="text-align: center;">
                                 @if ($penposData->nama == 'Flag of eternity')
@@ -194,7 +305,7 @@
                                     <option value="300">300</option>
                                 @endif
                             </select>
-                        </div>
+                        </div> --}}
                     </div>
                     <!--End Tim 1-->
 
@@ -289,7 +400,7 @@
 
             <!--End Footer-->
         </div>
-    </div>
+    
     {{-- End Pos --}}
 
     {{-- Modal --}}
@@ -312,6 +423,9 @@
     {{-- End Modal --}}
     {{-- Scripts --}}
     <script type="text/javascript">
+        $(document).ready(function() {
+            $('.select2').select2();
+        });
         // pengecekan submit form
         $("#btnSubmit").on("click", (e) => {
             e.preventDefault()

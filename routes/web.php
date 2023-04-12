@@ -67,3 +67,5 @@ Route::group(
         Route::post('/checkKombinasi', [PenposController::class, 'checkCombination'])->name('checkKombinasi');
     }
 );
+
+Route::view('/posbattle2', 'penpos/index2');
