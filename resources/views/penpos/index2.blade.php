@@ -134,13 +134,10 @@
                         @csrf
                         <section id="teamSelectId">
                             {{-- Select Team 1 --}}
-                            <div class="team-select">
+                            <div class="team-select my-2">
                                 <label for="team1" style="width: 68px;">Team 1 :</label>
                                 <select name="team[]" id="team1" class="select2">
-                                    <option value="" selected disabled>- Pilih Team -</option>
-                                    {{-- @for ($i = 1; $i <= 65; $i++)
-                                    <option value="">Team {{ $i }}</option>
-                                @endfor --}}
+                                    <option value="-" selected disabled>- Pilih Team -</option>
                                     @foreach ($teams as $team)
                                         <option value="{{ $team->id }}">{{ $team->nama }}</option>
                                     @endforeach
@@ -150,18 +147,14 @@
                             <div class="team-select my-2 ">
                                 <label for="team2" style="width: 68px;">Team 2 :</label>
                                 <select name="team[]" id="team2" class="select2">
-                                    <option value="" selected disabled>- Pilih Team -</option>
-                                    {{-- @for ($i = 1; $i <= 65; $i++)
-                                    <option value="">Team {{ $i }}</option>
-                                @endfor --}}
+                                    <option value="-" selected disabled>- Pilih Team -</option>
                                     @foreach ($teams as $team)
                                         <option value="{{ $team->id }}">{{ $team->nama }}</option>
                                     @endforeach
                                 </select>
                             </div>
-
                             {{-- Select Team 3 --}}
-                            <div class="team-select my-3 " id="team3-container">
+                            <div class="team-select my-2 " id="team3-container">
                             </div>
 
                             @if ($penposData->jumlahTim == '3')
@@ -173,16 +166,12 @@
                             @endif
                         </section>
                         <section id="kondisi-section" class="my-4">
-
                             <label for="kondisi" class="">Kondisi :</label>
                             <select name="kondisi" id="kondisi" disabled class="select2 mx-2">
                                 <option value="" selected disabled>- Pilih Kondisi-</option>
                                 <option value="Menang">Menang</option>
                                 <option value="Seri">Seri</option>
                             </select>
-
-
-
                             {{-- klu ada menang ini muncul --}}
                             <div id="pemenang-container">
                             </div>
@@ -210,7 +199,7 @@
                                 </select>
                             </div>
                             {{-- Coin Team 2 --}}
-                            <div class="team-select my-2 ">
+                            <div class="team-select">
                                 <label for="team2Coin" style="max-width: 150px;" id="label2">"Nama Team 2"</label>
                                 <span class="mx-1">:</span>
                                 <select name="koin[]" id="team2Coin" class="select2">
@@ -229,11 +218,8 @@
                                     @endif
                                 </select>
                             </div>
-
-
-
                             {{-- Coin Team 3 --}}
-                            <div class="team-select my-3" id="team3-koin-container">
+                            <div class="team-select" id="team3-koin-container">
                             </div>
                         </section>
                         <section id="submit-section" class="my-3">
@@ -252,28 +238,42 @@
                                 <option value="PENUH">PENUH</option>
                             </select>
                         </div>
-                        {{-- <div class="d-flex justify-content-center mb-2  ">
-                            <button type="submit" id="btnSubmit" class="btn btn-outline-primary">Update</button>
-                        </div> --}}
                     </section>
 
                 </div>
 
-                {{-- <div class="card-footer pt-3 pb-3 text-center bg-opacity-75" id="posFooter"
-                    style="background-color: #008917; text-align: center; font-weight:bold; color:white;">
-                    Status Pos : <span id="statusPos">Kosong</span>
-                </div> --}}
-
                 {{-- Uncomment yg bawah (yg jalan) --}}
                 <div class="card-footer pt-3 pb-3 text-center bg-opacity-75" id="posFooter"
-                    style="{{ $penposData->status == 'KOSONG' ? 'background-color: #008917; ' : 'background-color:#e2626b;' }} text-align: center; font-weight:bold; color:white;">
-                    Status Pos : <span id="statusPos">{{ $penposData->status == 'KOSONG' ? 'KOSONG' : 'PENUH' }}</span>
+                    style="{{ $penposData->status == 'KOSONG' ? 'background-color: #008917; ' : ($penposData->status == 'PENUH' ? 'background-color:#e2626b;' : 'background-color:#f0ad4e;') }} text-align: center; font-weight:bold; color:white;">
+                    Status Pos : <span
+                        id="statusPos">{{ $penposData->status == 'KOSONG' ? 'KOSONG' : ($penposData->status == 'PENUH' ? 'PENUH' : 'MENUNGGU') }}</span>
                 </div>
 
             </div>
         </div>
+
+        {{-- Modal --}}
+        <div class="modal fade" id="submitModal" tabindex="-1" aria-labelledby="modalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Warning!</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body" id="submitModalBody">
+                        Silahkan pilih/hapus tim 3 terlebih dahulu!
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {{-- End Modal --}}
+
     </main>
     <script>
+        var globalTeamPlayer = 2;
         $(document).ready(function() {
             $('.select2').select2();
         });
@@ -283,7 +283,59 @@
 
         $("#btnSubmit").on("click", (e) => {
             e.preventDefault()
-            $("form").submit()
+            // Pengecekan Tim 3 Kosong
+            var pesan = "Berhasil menambahkan data!";
+            var statusValidasi = "success";
+            for (let index = 1; index <= globalTeamPlayer; index++) {
+                var idTeam = "#team" + index + "";
+                var idKoin = "#team" + index + "Coin";
+                // Pengecekan Pemain
+                if ($(idTeam).val() == null) {
+                    // Perbaruhi pesan dan statusValidasi
+                    pesan = "Silahkan pilih nama tim " + index + " terlebih dahulu!"
+                    statusValidasi = "error";
+                    // Set pesan di modal
+                    $("#submitModalBody").html(pesan)
+                    // Break
+                    break
+                }
+                // Pengecekan Koin
+                if ($(idKoin).val() == null) {
+                    // Perbaruhi pesan dan statusValidasi
+                    pesan = "Silahkan pilih koin yang diperoleh tim " + index + " terlebih dahulu!"
+                    statusValidasi = "error";
+                    // Set pesan di modal
+                    $("#submitModalBody").html(pesan)
+                    // Break
+                    break
+                }
+            }
+            // Pengecekan Kondisi
+            var idKondisi = "#kondisi";
+            if ($(idKondisi).val() == null) {
+                // Perbaruhi pesan dan statusValidasi
+                pesan = "Silahkan pilih kondisi terlebih dahulu!"
+                statusValidasi = "error";
+                // Set pesan di modal
+                $("#submitModalBody").html(pesan)
+            }
+            else if($(idKondisi).val() == "Menang"){
+                // Pengecekan Hasil
+                var idHasil = "#pemenang";
+                if ($(idHasil).val() == null) {
+                    // Perbaruhi pesan dan statusValidasi
+                    pesan = "Silahkan pilih hasil tim siapa yang menang terlebih dahulu!"
+                    statusValidasi = "error";
+                    // Set pesan di modal
+                    $("#submitModalBody").html(pesan)
+                }
+            }
+            if (statusValidasi == "error") {
+                // Tampilkan modal
+                $("#submitModal").modal('toggle')
+            } else {
+                $("form").submit()
+            }
         })
 
         // Disable combobox kondisi apabila terdapat combobox team yang belum terpilih
@@ -330,6 +382,7 @@
 
         // Menambahkan baris team 3 untuk pemilihan tim dan koin
         $(document).on("click", "#addTeamBtn", function() {
+            globalTeamPlayer = 3
             $("#team3-container").html(`<label for="team3" style="width: 68px;">Team 3 :</label>
                             <select name="team[]" id="team3" class="select2">
                                 <option value="" selected disabled>- Pilih Team -</option>
@@ -373,7 +426,7 @@
 
         // Menghapus tim 3
         $(document).on("click", "#removeTeamBtn", function() {
-
+            globalTeamPlayer = 2
             $(this).parent()
                 .html(
                     `<button type="button" class="btn btn-outline-secondary" id="addTeamBtn">Add
@@ -407,6 +460,7 @@
             } else {
                 posFooter.style.backgroundColor = '#008917';
             }
+            statusPos.innerHTML = statusSekarang;
 
             // Ubah data di database
             $.ajax({
@@ -418,7 +472,7 @@
                     }
                 })
                 .done(function(msg) {
-                    statusPos.innerHTML = statusSekarang;
+                    // statusPos.innerHTML = statusSekarang;
                 });
         }
     </script>
