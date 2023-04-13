@@ -5,11 +5,18 @@
     <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
     <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
     <style>
-        .select2{
+        .select2 {
             width: 200px;
             max-width: 200px;
         }
-        .battle{
+
+        .sembunyi {
+
+            display: none;
+            visibility: hidden;
+        }
+
+        .battle {
             width: 95vw;
             height: ;
         }
@@ -64,49 +71,54 @@
             -ms-transform: translateX(26px);
             transform: translateX(26px);
         }
-        #card-body-wrapper{
+
+        #card-body-wrapper {
             display: flex;
             flex-direction: column;
         }
-        
-        @media screen and (max-width:576px){
-            #card-body-wrapper{
+
+        @media screen and (max-width:576px) {
+            #card-body-wrapper {
                 display: flex;
                 flex-direction: column;
             }
-            #teamSelectId{
+
+            #teamSelectId {
                 display: flex;
                 flex-direction: column;
             }
-            
-            #kondisi-section{
+
+            #kondisi-section {
                 display: flex;
                 align-items: center;
                 justify-content: left;
                 flex-direction: column;
             }
-            #koin-section{
+
+            #koin-section {
                 display: flex;
                 flex-direction: column;
                 border: 2px solid black;
                 border-radius: 5px;
                 padding: 8px;
             }
-            #koin-section .select2{
+
+            #koin-section .select2 {
                 max-width: 200px;
                 width: fit-content;
             }
 
-            #koin-section .team-select{
+            #koin-section .team-select {
                 display: flex;
                 align-items: center;
             }
-            #submit-section{
+
+            #submit-section {
                 display: flex;
                 align-items: center;
                 justify-content: center;
             }
-            
+
         }
     </style>
 
@@ -114,105 +126,122 @@
         <div class="container battle my-3">
             <div class="card">
                 <div class="card-header">
-                    <h1 style="font-weight: bold;text-align:center;">Pos Battle 1</h1>
+                    <h1 style="font-weight: bold;text-align:center;">{{ $penposData->nama }}</h1>
+                    <p style="font-weight: bold;text-align:center;">{{ $penposData->deskripsi }}</p>
                 </div>
                 <div class="card-body" id="card-body-wrapper">
-                    <section id="teamSelectId">
-                        {{-- Select Team 1 --}}
-                        <div class="team-select">
-                            <label for="team1" style="width: 68px;">Team 1 :</label>
-                            <select name="team[]" id="team1" class="select2">
-                                <option value="" selected disabled>- Pilih Team-</option>
-                                @for ($i = 1; $i <= 65; $i++)
-                                <option value="">Team {{$i}}</option>
-                                @endfor
+                    <form action="{{ route('penpos.insertHasil') }}" method="post">
+                        @csrf
+                        <section id="teamSelectId">
+                            {{-- Select Team 1 --}}
+                            <div class="team-select">
+                                <label for="team1" style="width: 68px;">Team 1 :</label>
+                                <select name="team[]" id="team1" class="select2">
+                                    <option value="" selected disabled>- Pilih Team -</option>
+                                    {{-- @for ($i = 1; $i <= 65; $i++)
+                                    <option value="">Team {{ $i }}</option>
+                                @endfor --}}
+                                    @foreach ($teams as $team)
+                                        <option value="{{ $team->id }}">{{ $team->nama }}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+                            {{-- Select Team 2 --}}
+                            <div class="team-select my-2 ">
+                                <label for="team2" style="width: 68px;">Team 2 :</label>
+                                <select name="team[]" id="team2" class="select2">
+                                    <option value="" selected disabled>- Pilih Team -</option>
+                                    {{-- @for ($i = 1; $i <= 65; $i++)
+                                    <option value="">Team {{ $i }}</option>
+                                @endfor --}}
+                                    @foreach ($teams as $team)
+                                        <option value="{{ $team->id }}">{{ $team->nama }}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+
+                            {{-- Select Team 3 --}}
+                            <div class="team-select my-3 " id="team3-container">
+                            </div>
+
+                            @if ($penposData->jumlahTim == '3')
+                                <div id="addTeam" class="d-flex justify-content-center">
+                                    <button type="button" class="btn btn-outline-secondary" id="addTeamBtn">Add
+                                        Team
+                                        3</button>
+                                </div>
+                            @endif
+                        </section>
+                        <section id="kondisi-section" class="my-4">
+
+                            <label for="kondisi" class="">Kondisi :</label>
+                            <select name="kondisi" id="kondisi" disabled class="select2 mx-2">
+                                <option value="" selected disabled>- Pilih Kondisi-</option>
+                                <option value="Menang">Menang</option>
+                                <option value="Seri">Seri</option>
                             </select>
-                        </div>
-                        {{-- Select Team 2 --}}
-                        <div class="team-select my-2 ">
-                            <label for="team2" style="width: 68px;">Team 2 :</label>
-                            <select name="team[]" id="team2" class="select2">
-                                <option value="" selected disabled>- Pilih Team-</option>
-                                @for ($i = 1; $i <= 65; $i++)
-                                <option value="">Team {{$i}}</option>
-                                @endfor
-                            </select>
-                        </div>
 
-                        <div id="addTeam" class="d-flex justify-content-center">
-                            <button type="button" class="btn btn-outline-secondary" id="addTeam">Add Team 3</button>    
-                        </div>
 
-                        {{-- Select Team 3
-                        <div class="team-select">
-                            <label for="team3" style="width: 68px;">Team 3 :</label>
-                            <select name="team[]" id="team3" class="select2">
-                                <option value="" selected disabled>- Pilih Team-</option>
-                                @for ($i = 1; $i <= 65; $i++)
-                                <option value="">Team {{$i}}</option>
-                                @endfor
-                            </select>
-                        </div> --}}
 
-                        
-                    </section>
-                    <section id="kondisi-section" class="my-4">
+                            {{-- klu ada menang ini muncul --}}
+                            <div id="pemenang-container">
+                            </div>
+                        </section>
+                        <label for="koin-section">Input Koin :</label>
+                        <section id="koin-section">
+                            {{-- Coin Team 1 --}}
+                            <div class="team-select">
+                                <label for="team1Coin" style="max-width: 150px;" id="label1">"Nama Team 1"</label>
+                                <span class="mx-1">:</span>
+                                <select name="koin[]" id="team1Coin" class="select2">
+                                    @if ($penposData->nama == 'Flag of eternity')
+                                        <option value="" selected disabled>-Pilih Coin-</option>
+                                        <option value="25">25</option>
+                                        <option value="50">50</option>
+                                        <option value="175">175</option>
+                                        <option value="300">300</option>
+                                    @else
+                                        <option value="" selected disabled>-Pilih Coin-</option>
+                                        <option value="100">100</option>
+                                        <option value="150">150</option>
+                                        <option value="200">200</option>
+                                        <option value="300">300</option>
+                                    @endif
+                                </select>
+                            </div>
+                            {{-- Coin Team 2 --}}
+                            <div class="team-select my-2 ">
+                                <label for="team2Coin" style="max-width: 150px;" id="label2">"Nama Team 2"</label>
+                                <span class="mx-1">:</span>
+                                <select name="koin[]" id="team2Coin" class="select2">
+                                    @if ($penposData->nama == 'Flag of eternity')
+                                        <option value="" selected disabled>-Pilih Coin-</option>
+                                        <option value="25">25</option>
+                                        <option value="50">50</option>
+                                        <option value="175">175</option>
+                                        <option value="300">300</option>
+                                    @else
+                                        <option value="" selected disabled>-Pilih Coin-</option>
+                                        <option value="100">100</option>
+                                        <option value="150">150</option>
+                                        <option value="200">200</option>
+                                        <option value="300">300</option>
+                                    @endif
+                                </select>
+                            </div>
 
-                        <label for="kondisi" class="">Kondisi :</label>
-                        <select name="team[]" id="kondisi" class="select2 mx-2">
-                            <option value="" selected disabled>- Pilih Kondisi-</option>
-                            <option value="">Menang</option>
-                            <option value="">Seri</option>
-                        </select>
 
-                    
 
-                        {{-- klu ada menang ini muncul --}}
-                        <label for="pemenang" class="" style="margin: 4px 0 0 0;">Pemenang :</label>
-                        <select name="team[]" id="pemenang" class="select2">
-                            <option value="" selected disabled>- Pilih Pemenang-</option>
-                            <option value="">Team 1</option>
-                            <option value="">Team 2</option>
-                            <option value="">Team 3</option>
-                        </select>
-                    </section>
-                    <label for="koin-section">Input Koin :</label>
-                    <section id="koin-section">
-                        {{-- Coin Team 1 --}}
-                        <div class="team-select">
-                            <label for="team1Coin" style="max-width: 150px;">"Nama Team 1"</label>
-                            <span class="mx-1">:</span>
-                            <select name="team[]" id="team1Coin" class="select2">
-                                <option value="" selected disabled>-Pilih Coin-</option>
-                                <option value="">100</option>
-                            </select>
-                        </div>
-                        {{-- Coin Team 2 --}}
-                        <div class="team-select my-2 ">
-                            <label for="team2Coin" style="max-width: 150px;">"Nama Team 2"</label>
-                            <span class="mx-1">:</span>
-                            <select name="team[]" id="team2Coin" class="select2">
-                                <option value="" selected disabled>-Pilih Coin-</option>
-                                <option value="">100</option>
-                            </select>
-                        </div>
+                            {{-- Coin Team 3 --}}
+                            <div class="team-select my-3" id="team3-koin-container">
+                            </div>
+                        </section>
+                        <section id="submit-section" class="my-3">
+                            <button type="button" class="btn btn-success" id="btnSubmit">Submit</button>
+                        </section>
+                    </form>
 
-                        
-
-                        {{-- Coin Team 3
-                        <div class="team-select">
-                            <label for="team3Coin" style="max-width: 150px;">"Nama Team 3"</label>
-                            <span class="mx-1">:</span>
-                            <select name="team[]" id="team3Coin" class="select2">
-                                <option value="" selected disabled>-Pilih Coin-</option>
-                                <option value="">100</option>
-                            </select>
-                        </div> --}}
-                    </section>
-                    <section id="submit-section" class="my-3">
-                        <button type="button" class="btn btn-success">Submit</button>
-                    </section>
-                    <section id="statusPos">
+                    <section id="statusPosContainer">
                         <!--Button Submit-->
                         <div class="d-flex justify-content-center mb-2">
                             <select name="status[]" class="form-select" aria-label="Default select example"
@@ -223,22 +252,23 @@
                                 <option value="PENUH">PENUH</option>
                             </select>
                         </div>
-                        <div class="d-flex justify-content-center mb-2  ">
+                        {{-- <div class="d-flex justify-content-center mb-2  ">
                             <button type="submit" id="btnSubmit" class="btn btn-outline-primary">Update</button>
-                        </div>
+                        </div> --}}
                     </section>
+
                 </div>
 
-                <div class="card-footer pt-3 pb-3 text-center bg-opacity-75" id="posFooter"
+                {{-- <div class="card-footer pt-3 pb-3 text-center bg-opacity-75" id="posFooter"
                     style="background-color: #008917; text-align: center; font-weight:bold; color:white;">
                     Status Pos : <span id="statusPos">Kosong</span>
-                </div>
+                </div> --}}
 
                 {{-- Uncomment yg bawah (yg jalan) --}}
-                {{-- <div class="card-footer pt-3 pb-3 text-center bg-opacity-75" id="posFooter"
+                <div class="card-footer pt-3 pb-3 text-center bg-opacity-75" id="posFooter"
                     style="{{ $penposData->status == 'KOSONG' ? 'background-color: #008917; ' : 'background-color:#e2626b;' }} text-align: center; font-weight:bold; color:white;">
                     Status Pos : <span id="statusPos">{{ $penposData->status == 'KOSONG' ? 'KOSONG' : 'PENUH' }}</span>
-                </div> --}}
+                </div>
 
             </div>
         </div>
@@ -247,5 +277,149 @@
         $(document).ready(function() {
             $('.select2').select2();
         });
+
+        cbChange("#team1", "#team2");
+        cbChange("#team2", "#team1");
+
+        $("#btnSubmit").on("click", (e) => {
+            e.preventDefault()
+            $("form").submit()
+        })
+
+        // Disable combobox kondisi apabila terdapat combobox team yang belum terpilih
+        function cbChange(id1, id2, id3 = null) {
+            $(document).on("change", id1, function() {
+                if ($(id2 + " option:selected").text() == "- Pilih Team -" || $(id3 + " option:selected").text() ==
+                    "- Pilih Team -") {
+                    $("#kondisi").attr("disabled", true)
+
+                } else {
+                    $("#kondisi").attr("disabled", false)
+                    $("#pemenang").html("")
+                    $("#pemenang").html(
+                        `<option value="" selected disabled>- Pilih Pemenang -</option>
+                                <option value="${$("#team1 option:selected").val()}">${$("#team1 option:selected").text()}</option>
+                                <option value="${$("#team2 option:selected").val()}">${$("#team2 option:selected").text()}</option>
+                                ${($("#team3 option:selected").val()!=undefined?`<option value="${$("#team3 option:selected").val()}">${$("#team3 option:selected").text()}</option>`:``)}`
+                    )
+                }
+                if (id1 == "#team1") $("#label1").text($("#team1 option:selected").text());
+                if (id1 == "#team2") $("#label2").text($("#team2 option:selected").text());
+                if (id1 == "#team3") $("#label3").text($("#team3 option:selected").text());
+            });
+        }
+
+
+        // Menampilkan combobox pemenang berdasarkan kondisi
+        $("#kondisi").on("change", function() {
+            if ($(this).val() == "Menang") {
+                $("#pemenang-container")
+                    .html(
+                        `<label for="pemenang" class="" style="margin: 4px 0 0 0;">Pemenang :</label>
+                            <select name="pemenang" id="pemenang" class="select2">
+                                <option value="" selected disabled>- Pilih Pemenang -</option>
+                                <option value="${$("#team1 option:selected").val()}">${$("#team1 option:selected").text()}</option>
+                                <option value="${$("#team2 option:selected").val()}">${$("#team2 option:selected").text()}</option>
+                                ${($("#team3 option:selected").val()!=undefined?`<option value="${$("#team3 option:selected").val()}">${$("#team3 option:selected").text()}</option>`:``)}
+                            </select>`);
+                $("#pemenang").select2();
+                return
+            }
+            $("#pemenang-container").html("");
+        });
+
+        // Menambahkan baris team 3 untuk pemilihan tim dan koin
+        $(document).on("click", "#addTeamBtn", function() {
+            $("#team3-container").html(`<label for="team3" style="width: 68px;">Team 3 :</label>
+                            <select name="team[]" id="team3" class="select2">
+                                <option value="" selected disabled>- Pilih Team -</option>
+                                {{-- @for ($i = 1; $i <= 65; $i++)
+                                    <option value="">Team {{ $i }}</option>
+                                @endfor --}}
+                                @foreach ($teams as $team)
+                                    <option value="{{ $team->id }}">{{ $team->nama }}</option>
+                                @endforeach
+                            </select>`);
+            $("#team3").select2();
+
+            $("#team3-koin-container").html(`<label for="team3Coin" style="max-width: 150px;" id="label3">"Nama Team 3"</label>
+                            <span class="mx-1">:</span>
+                            <select name="koin[]" id="team3Coin" class="select2">
+                                @if ($penposData->nama == 'Flag of eternity')
+                                    <option value="" selected disabled>-Pilih Coin-</option>
+                                    <option value="25">25</option>
+                                    <option value="50">50</option>
+                                    <option value="175">175</option>
+                                    <option value="300">300</option>
+                                @else
+                                    <option value="" selected disabled>-Pilih Coin-</option>
+                                    <option value="100">100</option>
+                                    <option value="150">150</option>
+                                    <option value="200">200</option>
+                                    <option value="300">300</option>
+                                @endif
+                            </select>`)
+            $("#team3Coin").select2();
+            $("#kondisi").attr("disabled", true)
+            $("#addTeamBtn").addClass("sembunyi");
+            $(this).parent().html(`<button type="button" class="btn btn-outline-secondary" id="removeTeamBtn">Remove
+                                        Team
+                                        3</button>`)
+
+            cbChange("#team1", "#team2", "#team3");
+            cbChange("#team2", "#team3", "#team1");
+            cbChange("#team3", "#team2", "#team1");
+        });
+
+        // Menghapus tim 3
+        $(document).on("click", "#removeTeamBtn", function() {
+
+            $(this).parent()
+                .html(
+                    `<button type="button" class="btn btn-outline-secondary" id="addTeamBtn">Add
+                                        Team
+                                        3</button>`)
+
+            $("#team3-container").html("");
+            $("#team3-koin-container").html("");
+            $("#pemenang").html("")
+            $("#pemenang").html(
+                `<option value="" selected disabled>- Pilih Pemenang -</option>
+                                <option value="${$("#team1 option:selected").val()}">${$("#team1 option:selected").text()}</option>
+                                <option value="${$("#team2 option:selected").val()}">${$("#team2 option:selected").text()}</option>
+                                ${($("#team3 option:selected").val()!=undefined?`<option value="${$("#team3 option:selected").val()}">${$("#team3 option:selected").text()}</option>`:``)}`
+            )
+        });
+
+
+        // UPDATE STATUS
+        let statusPos = document.getElementById("statusPos"); //text tulisannya
+        let posFooter = document.getElementById("posFooter"); //backgroundnya danger, warning f0ad4e, success
+        function updateStatus() {
+            // Ambil status yang diubah
+            let statusSekarang = $('#pengubahstatus').val()
+
+            // Ubah tampilan Front End
+            if (statusSekarang == "PENUH") {
+                posFooter.style.backgroundColor = '#e2626b';
+            } else if (statusSekarang == "MENUNGGU") {
+                posFooter.style.backgroundColor = '#f0ad4e';
+            } else {
+                posFooter.style.backgroundColor = '#008917';
+            }
+
+            // Ubah data di database
+            $.ajax({
+                    type: "POST",
+                    url: "{{ route('penpos.PenposUpdate') }}", // Route 
+                    data: {
+                        '_token': "{{ csrf_token() }}",
+                        'status': statusSekarang
+                    }
+                })
+                .done(function(msg) {
+                    statusPos.innerHTML = statusSekarang;
+                });
+        }
     </script>
 @endsection
