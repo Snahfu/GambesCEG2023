@@ -221,17 +221,17 @@
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td onclick="pos(3)" style="background-image: linear-gradient(180deg, #98AF22, #AABC32);">
+                                        <td onclick="pos(3)" style="background: #AABC3);">
                                             <img src="{{ asset("assets/images/".$allpenpos[2]["tipe"]."/".$allpenpos[2]["tipe"].$allpenpos[2]["status"].".png") }}" alt="gambar not found" width="60px" height="60px" id="pos-3">
                                         </td>
-                                        <td style="background-image: linear-gradient(180deg, #98AF22, #AABC32);"></td>
-                                        <td style="background-image: linear-gradient(180deg, #98AF22, #AABC32);"></td>
-                                        <td style="background-image: linear-gradient(180deg, #98AF22, #AABC32);"></td>
-                                        <td onclick="pos(11)" style="background-image: linear-gradient(180deg, #98AF22, #AABC32);">
+                                        <td style="background:  #AABC32;"></td>
+                                        <td style="background: #AABC32;"></td>
+                                        <td style="background: #AABC32;"></td>
+                                        <td onclick="pos(11)" style="background: #AABC32;">
                                             <img src="{{ asset("assets/images/".$allpenpos[10]["tipe"]."/".$allpenpos[10]["tipe"].$allpenpos[10]["status"].".png") }}" alt="gambar not found" width="60px" height="60px" id="pos-11">
                                         </td>
-                                        <td style="background-image: linear-gradient(180deg, #98AF22, #AABC32);"></td>
-                                        <td onclick="pos(28)" style="background-image: linear-gradient(180deg, #98AF22, #AABC32);">
+                                        <td style="background: #AABC32;"></td>
+                                        <td onclick="pos(28)" style="background: #AABC32;">
                                             <img src="{{ asset("assets/images/".$allpenpos[27]["tipe"]."/".$allpenpos[27]["tipe"].$allpenpos[27]["id"].$allpenpos[27]["status"].".png") }}" alt="gambar not found" width="60px" height="60px" id="pos-28">
                                         </td>
                                     </tr>
@@ -266,17 +266,17 @@
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td onclick="pos(6)" style="background-image: linear-gradient(180deg, #AABC32, #BCC943);" >
+                                        <td onclick="pos(6)" style="background: #BCC943;" >
                                             <img src="{{ asset("assets/images/".$allpenpos[5]["tipe"]."/".$allpenpos[5]["tipe"].$allpenpos[5]["status"].".png") }}" alt="gambar not found" width="60px" height="60px" id="pos-6">
                                         </td>
-                                        <td style="background-image: linear-gradient(180deg, #AABC32, #BCC943);"></td>
-                                        <td style="background-image: linear-gradient(180deg, #AABC32, #BCC943);"></td>
-                                        <td style="background-image: linear-gradient(180deg, #AABC32, #BCC943);"></td>
-                                        <td onclick="pos(14)" style="background-image: linear-gradient(180deg, #AABC32, #BCC943);" >
+                                        <td style="background: #BCC943;"></td>
+                                        <td style="background: #BCC943;"></td>
+                                        <td style="background: #BCC943;"></td>
+                                        <td onclick="pos(14)" style="background: #BCC943;" >
                                             <img src="{{ asset("assets/images/".$allpenpos[13]["tipe"]."/".$allpenpos[13]["tipe"].$allpenpos[13]["status"].".png") }}" alt="gambar not found" width="60px" height="60px" id="pos-14">
                                         </td>
-                                        <td style="background-image: linear-gradient(180deg, #AABC32, #BCC943);"></td>
-                                        <td style="background-image: linear-gradient(180deg, #AABC32, #BCC943);"></td>
+                                        <td style="background: #BCC943;"></td>
+                                        <td style="background: #BCC943;"></td>
                                     </tr>
                                     <tr>
                                         <td onclick="pos(7)" style="background:#BCC943;">
