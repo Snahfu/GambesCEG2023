@@ -113,9 +113,9 @@
                                     {{-- <h5 class="card-subtitle mb-2 text-muted"><i class="fa-solid fa-coins"
                                             id="icon-coin"></i><span>
                                             50</span></h5> --}}
-                                    <p style="margin: 0;"><span class="badge bg-danger my-1">100</span></p>
-                                    <button class="btn btn-success w-100" onclick="sell({{ $kartu->pivot->id }})" style="padding: 3px 6px">
-                                        <i class="fa-regular fa-money-bill-1 mx-1"></i>Sell</button>
+                                    {{-- <p style="margin: 0;"><span class="badge bg-danger my-1">100</span></p> --}}
+                                    {{-- <button class="btn btn-success w-100" onclick="sell({{ $kartu->pivot->id }})" style="padding: 3px 6px">
+                                        <i class="fa-regular fa-money-bill-1 mx-1"></i>Sell</button> --}}
                                 </div>
                             </div>
                         @endforeach
@@ -157,7 +157,6 @@
                 url: "{{ route('pemain.sellcard') }}", // Route 
                 data: {
                     '_token': "{{ csrf_token() }}",
-                    // '_token': $('meta[name="csrf-token"]').attr('content'),
                     'id': id
                 },
                 success: function(data) {

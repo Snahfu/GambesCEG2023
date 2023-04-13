@@ -221,7 +221,7 @@
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td onclick="pos(3)" style="background: #AABC3);">
+                                        <td onclick="pos(3)" style="background: #AABC32;">
                                             <img src="{{ asset("assets/images/".$allpenpos[2]["tipe"]."/".$allpenpos[2]["tipe"].$allpenpos[2]["status"].".png") }}" alt="gambar not found" width="60px" height="60px" id="pos-3">
                                         </td>
                                         <td style="background:  #AABC32;"></td>
