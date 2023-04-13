@@ -27,7 +27,7 @@ class PenposController extends Controller
         $teams = $this->getTeams($penposId);
         $penposData = Penpos::find($penposId); // get penpos data
         if ($penposData->tipe == "Battle")
-            return view('penpos.index', compact('teams', 'penposData'));
+            return view('penpos.index2', compact('teams', 'penposData'));
         else if ($penposData->tipe == "Jasa")
             return view('penpos.posjasa', compact('teams', 'penposData'));
         else if ($penposData->tipe == "Penukar")
@@ -46,14 +46,46 @@ class PenposController extends Controller
 
     public function insertHasilGame(Request $request)
     {
+        // dd($request);
         // memasukan hasil game ke database
         $penposId = Auth::user()->penpos_id; //Sementara idnya 1, belum buat login+auth
         if (Penpos::find($penposId)->tipe == "Battle") {
+            // Memasukan data ke database   
             for ($i = 0; $i < count($request["team"]); $i++) {
+                $hasil = "";
+                if ($request["kondisi"] == "Menang" && $request["pemenang"] == $request["team"][$i]) {
+                    $pemenang = $request["pemenang"];
+
+                    // Mendapatkan id team yang bukan pemenang
+                    $filteredTeams = array_filter($request["team"], function ($team) use ($pemenang) {
+                        return $team != $pemenang;
+                    });
+
+                    // Merangkai hasil pemenang
+                    $hasil = "Team " . Team::find($pemenang)->nama . " menang melawan Team ";
+                    foreach ($filteredTeams as $team) {
+                        $hasil .= Team::find($team)->nama . " dan Team ";
+                    }
+                    $hasil = substr($hasil, 0, -10);
+                } else if ($request["kondisi"] == "Seri") {
+                    $tempTeam = $request["team"][$i];
+                    $filteredTeams = array_filter($request["team"], function ($team) use ($tempTeam) {
+                        return $team != $tempTeam;
+                    });
+                    // Merangkai hasil seri
+                    $hasil = "Team " . Team::find($tempTeam)->nama . " seri melawan Team ";
+                    foreach ($filteredTeams as $team) {
+                        $hasil .= Team::find($team)->nama . " dan Team ";
+                    }
+
+                    $hasil = substr($hasil, 0, -10);
+                } else {
+                    $hasil .= "Team " . Team::find($request["team"][$i])->nama . " kalah melawan Team " . Team::find($request["pemenang"])->nama;
+                }
                 $data = array(
                     "penpos_id" => $penposId,
                     "teams_id" => $request["team"][$i],
-                    "hasil" => "Team " . $request["team"][$i] . " " . $request["hasil"][$i] . " Melawan Team " . $request["lawan"][$i],
+                    "hasil" => $hasil,
                     "koin" => $request["koin"][$i]
                 );
                 DB::table("penpos_teams")->insert($data);
