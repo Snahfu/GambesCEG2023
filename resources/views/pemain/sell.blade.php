@@ -108,10 +108,7 @@
                         @foreach ($inventoryKartus as $kartu)
                             <div class="card col-2 p-0 cardItems">
                                 <img src="{{ asset('assets/images/' . $kartu->url_gambar) }}" class="card-img-top"
-                                    alt="..." onclick="detail({{ $kartu->id }})">
-                                <div class="card-body text-center" style="padding: 8px;">
-
-                                </div>
+                                    alt="..." onclick="detail({{ $kartu->url_gambar }})">
                             </div>
                         @endforeach
                     </div>
@@ -162,8 +159,8 @@
     </div>
 
     <script type="text/javascript">
-        function detail(id) {
-            var imgURL = `{{ asset('assets/images/Kartu_` + id + `.jpg') }}`
+        function detail(url) {
+            var imgURL = `{{ asset('assets/images/` + url + `') }}`
             document.getElementById("gambarModal").setAttribute('src', imgURL)
             $("#detailModal").modal('show');
         }
