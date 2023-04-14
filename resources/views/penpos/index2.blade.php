@@ -183,19 +183,13 @@
                                 <label for="team1Coin" style="max-width: 150px;" id="label1">"Nama Team 1"</label>
                                 <span class="mx-1">:</span>
                                 <select name="koin[]" id="team1Coin" class="select2">
-                                    @if ($penposData->nama == 'Flag of eternity')
-                                        <option value="" selected disabled>-Pilih Coin-</option>
-                                        <option value="25">25</option>
-                                        <option value="50">50</option>
-                                        <option value="175">175</option>
-                                        <option value="300">300</option>
-                                    @else
-                                        <option value="" selected disabled>-Pilih Coin-</option>
-                                        <option value="100">100</option>
-                                        <option value="150">150</option>
-                                        <option value="200">200</option>
-                                        <option value="300">300</option>
-                                    @endif
+                                    <option value="" selected disabled>-Pilih Coin-</option>
+                                    @php
+                                        $arrayKoin = explode("," , $penposData->koin);
+                                    @endphp
+                                    @foreach ($arrayKoin as $koin)
+                                        <option value="{{$koin}}">{{$koin}}</option>
+                                    @endforeach
                                 </select>
                             </div>
                             {{-- Coin Team 2 --}}
@@ -203,19 +197,13 @@
                                 <label for="team2Coin" style="max-width: 150px;" id="label2">"Nama Team 2"</label>
                                 <span class="mx-1">:</span>
                                 <select name="koin[]" id="team2Coin" class="select2">
-                                    @if ($penposData->nama == 'Flag of eternity')
-                                        <option value="" selected disabled>-Pilih Coin-</option>
-                                        <option value="25">25</option>
-                                        <option value="50">50</option>
-                                        <option value="175">175</option>
-                                        <option value="300">300</option>
-                                    @else
-                                        <option value="" selected disabled>-Pilih Coin-</option>
-                                        <option value="100">100</option>
-                                        <option value="150">150</option>
-                                        <option value="200">200</option>
-                                        <option value="300">300</option>
-                                    @endif
+                                    <option value="" selected disabled>-Pilih Coin-</option>
+                                    @php
+                                        $arrayKoin = explode("," , $penposData->koin);
+                                    @endphp
+                                    @foreach ($arrayKoin as $koin)
+                                        <option value="{{$koin}}">{{$koin}}</option>
+                                    @endforeach
                                 </select>
                             </div>
                             {{-- Coin Team 3 --}}
@@ -398,19 +386,13 @@
             $("#team3-koin-container").html(`<label for="team3Coin" style="max-width: 150px;" id="label3">"Nama Team 3"</label>
                             <span class="mx-1">:</span>
                             <select name="koin[]" id="team3Coin" class="select2">
-                                @if ($penposData->nama == 'Flag of eternity')
-                                    <option value="" selected disabled>-Pilih Coin-</option>
-                                    <option value="25">25</option>
-                                    <option value="50">50</option>
-                                    <option value="175">175</option>
-                                    <option value="300">300</option>
-                                @else
-                                    <option value="" selected disabled>-Pilih Coin-</option>
-                                    <option value="100">100</option>
-                                    <option value="150">150</option>
-                                    <option value="200">200</option>
-                                    <option value="300">300</option>
-                                @endif
+                                <option value="" selected disabled>-Pilih Coin-</option>
+                                @php
+                                    $arrayKoin = explode("," , $penposData->koin);
+                                @endphp
+                                @foreach ($arrayKoin as $koin)
+                                    <option value="{{$koin}}">{{$koin}}</option>
+                                @endforeach
                             </select>`)
             $("#team3Coin").select2();
             $("#kondisi").attr("disabled", true)

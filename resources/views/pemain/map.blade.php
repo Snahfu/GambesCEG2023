@@ -276,7 +276,9 @@
                                             <img src="{{ asset("assets/images/".$allpenpos[13]["tipe"]."/".$allpenpos[13]["tipe"].$allpenpos[13]["status"].".png") }}" alt="gambar not found" width="60px" height="60px" id="pos-14">
                                         </td>
                                         <td style="background: #BCC943;"></td>
-                                        <td style="background: #BCC943;"></td>
+                                        <td onclick="pos(31)" style="background:#BCC943;">
+                                            <img src="{{ asset("assets/images/".$allpenpos[30]["tipe"]."/".$allpenpos[30]["tipe"].$allpenpos[30]["id"].$allpenpos[30]["status"].".png") }}" alt="gambar not found" width="60px" height="60px" id="pos-31">
+                                        </td>
                                     </tr>
                                     <tr>
                                         <td onclick="pos(7)" style="background:#BCC943;">
@@ -289,7 +291,9 @@
                                             <img src="{{ asset("assets/images/".$allpenpos[14]["tipe"]."/".$allpenpos[14]["tipe"].$allpenpos[14]["status"].".png") }}" alt="gambar not found" width="60px" height="60px" id="pos-15">
                                         </td>
                                         <td style="background:#BCC943;"></td>
-                                        <td style="background:#BCC943;"></td>
+                                        <td onclick="pos(32)" style="background:#BCC943;">
+                                            <img src="{{ asset("assets/images/".$allpenpos[31]["tipe"]."/".$allpenpos[31]["tipe"].$allpenpos[31]["id"].$allpenpos[31]["status"].".png") }}" alt="gambar not found" width="60px" height="60px" id="pos-32">
+                                        </td>
                                     </tr>
                                     <tr>
                                         <td onclick="pos(8)" style="background:#c1931c;">
@@ -298,9 +302,13 @@
                                         <td style="background:#c1931c;"></td>
                                         <td style="background:#c1931c;"></td>
                                         <td style="background:#c1931c;"></td>
+                                        <td onclick="pos(33)" style="background:#c1931c;">
+                                            <img src="{{ asset("assets/images/".$allpenpos[32]["tipe"]."/".$allpenpos[32]["tipe"].$allpenpos[32]["id"].$allpenpos[32]["status"].".png") }}" alt="gambar not found" width="60px" height="60px" id="pos-33">
+                                        </td>
                                         <td style="background:#c1931c;"></td>
-                                        <td style="background:#c1931c;"></td>
-                                        <td style="background:#c1931c;"></td>
+                                        <td onclick="pos(34)" style="background:#c1931c;">
+                                            <img src="{{ asset("assets/images/".$allpenpos[33]["tipe"]."/".$allpenpos[33]["tipe"].$allpenpos[33]["id"].$allpenpos[33]["status"].".png") }}" alt="gambar not found" width="60px" height="60px" id="pos-34">
+                                        </td>
                                     </tr>
                                     <tr>
                                         <td colspan="7" style="background:#c1931c;"></td>
@@ -325,7 +333,9 @@
                                             <img src="{{ asset("assets/images/".$allpenpos[23]["tipe"]."/".$allpenpos[23]["tipe"].$allpenpos[23]["id"].$allpenpos[23]["status"].".png") }}" alt="gambar not found" width="60px" height="60px" id="pos-24">
                                         </td>
                                         <td style="background:#FFE063;"></td>
-                                        <td style="background:#FFE063;"></td>
+                                        <td onclick="pos(36)" style="background:#FFE063;">
+                                            <img src="{{ asset("assets/images/".$allpenpos[35]["tipe"]."/".$allpenpos[35]["tipe"].$allpenpos[35]["id"].$allpenpos[35]["status"].".png") }}" alt="gambar not found" width="60px" height="60px" id="pos-36">
+                                        </td>
                                         <td style="background:#FFE07B;"></td>
                                         <td style="background:#4AB6F7;"></td>
                                     </tr>
@@ -375,7 +385,9 @@
                                         {{-- Row6 --}}
                                         <td style="background:#4AB6F7;"></td>
                                         <td style="background:#FFE07B;"></td>
-                                        <td style="background:#FFE063;"></td>
+                                        <td onclick="pos(35)" style="background:#FFE063;">
+                                            <img src="{{ asset("assets/images/".$allpenpos[34]["tipe"]."/".$allpenpos[34]["tipe"].$allpenpos[34]["id"].$allpenpos[34]["status"].".png") }}" alt="gambar not found" width="60px" height="60px" id="pos-35">
+                                        </td>
                                         <td style="background:#FFE063;"></td>
                                         <td onclick="pos(19)" style="background:#FFE063;">
                                             <img src="{{ asset("assets/images/".$allpenpos[18]["tipe"]."/".$allpenpos[18]["tipe"].$allpenpos[18]["id"].$allpenpos[18]["status"].".png") }}" alt="gambar not found" width="60px" height="60px" id="pos-19">

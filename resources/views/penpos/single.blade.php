@@ -182,10 +182,12 @@
                             <select name="koin[]" id="koin1" class="form-select" aria-label="Default select example"
                                 style="text-align: center;">
                                 <option selected hidden>--Input Koin--</option>
-                                <option value="25">25</option>
-                                <option value="50">50</option>
-                                <option value="75">75</option>
-                                <option value="100">100</option>
+                                @php
+                                    $arrayKoin = explode("," , $penposData->koin);
+                                @endphp
+                                @foreach ($arrayKoin as $koin)
+                                    <option value="{{$koin}}">{{$koin}}</option>
+                                @endforeach
                             </select>
                         </div>
                     </div>
