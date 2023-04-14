@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 14, 2023 at 11:47 AM
+-- Generation Time: Apr 14, 2023 at 11:48 AM
 -- Server version: 10.4.22-MariaDB
 -- PHP Version: 8.1.2
 
@@ -452,28 +452,6 @@ CREATE TABLE `penpos_teams` (
   `hasil` varchar(99) NOT NULL,
   `koin` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
--- Dumping data for table `penpos_teams`
---
-
-INSERT INTO `penpos_teams` (`penpos_id`, `teams_id`, `jam`, `hasil`, `koin`) VALUES
-(20, 1, '2023-04-13 10:18:12', 'Team Sudu Yu Jiqing 9 kalah melawan Team IdexH_1', 25),
-(20, 2, '2023-04-13 10:18:12', 'Team Tenang kalah melawan Team IdexH_1', 50),
-(20, 3, '2023-04-13 10:18:12', 'Team IdexH_1 menang melawan Team Sudu Yu Jiqing 9 dan Team Tenang', 300),
-(20, 4, '2023-04-13 10:18:49', 'Team Chemistry seri melawan Team StCar Team', 50),
-(20, 5, '2023-04-13 10:18:49', 'Team StCar Team seri melawan Team Chemistry', 50),
-(20, 6, '2023-04-13 10:19:13', 'Team Camelia seri melawan Team Faraday dan Team ClNO2 Sukses', 50),
-(20, 7, '2023-04-13 10:19:13', 'Team Faraday seri melawan Team Camelia dan Team ClNO2 Sukses', 50),
-(20, 8, '2023-04-13 10:19:13', 'Team ClNO2 Sukses seri melawan Team Faraday dan Team Camelia', 50),
-(20, 9, '2023-04-13 12:55:19', 'Team Antrasena menang melawan Team Peter Echoe', 300),
-(20, 10, '2023-04-13 12:55:19', 'Team Peter Echoe kalah melawan Team Antrasena', 50),
-(20, 11, '2023-04-13 13:05:05', 'Team Golden kalah melawan Team MHBGGWP', 50),
-(20, 12, '2023-04-13 13:05:05', 'Team MHBGGWP menang melawan Team Golden dan Team anak anak pilus', 300),
-(20, 13, '2023-04-13 13:05:05', 'Team anak anak pilus kalah melawan Team MHBGGWP', 50),
-(20, 14, '2023-04-13 13:07:07', 'Team Sukses kalah melawan Team Titanium', 25),
-(20, 15, '2023-04-13 13:07:07', 'Team TAURUS kalah melawan Team Titanium', 25),
-(20, 16, '2023-04-13 13:07:07', 'Team Titanium menang melawan Team TAURUS dan Team Sukses', 300);
 
 -- --------------------------------------------------------
 
