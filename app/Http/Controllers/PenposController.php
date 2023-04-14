@@ -44,6 +44,12 @@ class PenposController extends Controller
         return $teams;
     }
 
+    public function leaderboard()
+    {
+        $leaderboard = Team::orderBy('coin')->get();
+        return view('penpos.leaderboard', compact('leaderboard'));
+    }
+
     public function insertHasilGame(Request $request)
     {
         // dd($request);

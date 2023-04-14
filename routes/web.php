@@ -51,6 +51,7 @@ Route::group(
     function () {
         // Halaman default penpos
         Route::get('/HomePenpos', [PenposController::class, 'index'])->name("HomePenpos");
+        Route::get('/leaderboard', [PenposController::class, 'leaderboard'])->name("leaderboard");
         // Function insert hasil game
         Route::post('/insertHasilGame', [PenposController::class, 'insertHasilGame'])->name("insertHasil");
         // Function untuk ubah status pos permainan

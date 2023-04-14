@@ -108,7 +108,7 @@
                         @foreach ($inventoryKartus as $kartu)
                             <div class="card col-2 p-0 cardItems">
                                 <img src="{{ asset('assets/images/' . $kartu->url_gambar) }}" class="card-img-top"
-                                    alt="..." onclick="detail({{ $kartu->url_gambar }})">
+                                    alt="..." onclick="detail('{{ $kartu->url_gambar }}')">
                             </div>
                         @endforeach
                     </div>
