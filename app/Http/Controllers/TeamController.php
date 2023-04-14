@@ -88,7 +88,6 @@ class TeamController extends Controller
         // Ambil semua toko kartu milik team yg login
         $inventoryKartus = $pemain->inventory_kartu->where('pivot.sold', "Belum")->all();
         $inventoryClues = $pemain->inventory_clue->all();
-
         // Ke halaman view
         // dd($inventoryKartus);
         return view('pemain.sell', [

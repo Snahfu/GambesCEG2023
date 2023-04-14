@@ -13,10 +13,11 @@
         .btn-primary:hover {
             background-color: green;
         }
-        #cardSell{
+
+        #cardSell {
             box-shadow: 5px 10px 20px rgba(0, 0, 0, 0.2);
             border: 0px solid black;
-            border-radius: 20px; 
+            border-radius: 20px;
         }
 
         /* Responsive Grid Start */
@@ -106,16 +107,10 @@
                     <div class="card-container">
                         @foreach ($inventoryKartus as $kartu)
                             <div class="card col-2 p-0 cardItems">
-                                <img src="{{ asset('assets/images/'.$kartu->url_gambar) }}"
-                                    class="card-img-top" alt="...">
+                                <img src="{{ asset('assets/images/' . $kartu->url_gambar) }}" class="card-img-top"
+                                    alt="..." onclick="detail({{ $kartu->id }})">
                                 <div class="card-body text-center" style="padding: 8px;">
-                                    {{-- <h4 class="card-title">{{ $kartu->nama }}</h4> --}}
-                                    {{-- <h5 class="card-subtitle mb-2 text-muted"><i class="fa-solid fa-coins"
-                                            id="icon-coin"></i><span>
-                                            50</span></h5> --}}
-                                    {{-- <p style="margin: 0;"><span class="badge bg-danger my-1">100</span></p> --}}
-                                    {{-- <button class="btn btn-success w-100" onclick="sell({{ $kartu->pivot->id }})" style="padding: 3px 6px">
-                                        <i class="fa-regular fa-money-bill-1 mx-1"></i>Sell</button> --}}
+
                                 </div>
                             </div>
                         @endforeach
@@ -140,7 +135,9 @@
                                     </tr>
                                 @endforeach
                             @else
-                                <p class="text-center fs-4">No Clue Found</p>
+                                <tr>
+                                    <p class="text-center fs-4">No Clue Found</p>
+                                </tr>
                             @endif
                         </tbody>
                     </table>
@@ -149,7 +146,28 @@
         </div>
     </div>
 
+    <div class="modal fade" id="detailModal" data-bs-keyboard="false" tabindex="-1" aria-labelledby="detailPosKonten"
+        aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="detailTitle">Detail Kartu</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body flex" id="detailKartu">
+                    <img src="{{ asset('assets/images/Kartu_1.jpg') }}" class="card-img-top" alt="..." id="gambarModal">
+                </div>
+            </div>
+        </div>
+    </div>
+
     <script type="text/javascript">
+        function detail(id) {
+            var imgURL = `{{ asset('assets/images/Kartu_` + id + `.jpg') }}`
+            document.getElementById("gambarModal").setAttribute('src', imgURL)
+            $("#detailModal").modal('show');
+        }
+
         function sell(id) {
             // Ubah data di database
             $.ajax({
