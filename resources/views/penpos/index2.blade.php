@@ -331,7 +331,7 @@
             $(document).on("change", id1, function() {
                 if ($(id2 + " option:selected").text() == "- Pilih Team -" || $(id3 + " option:selected").text() ==
                     "- Pilih Team -") {
-                    $("#kondisi").attr("disabled", true)
+                    $("#kondisi").attr("disabled", false)
 
                 } else {
                     $("#kondisi").attr("disabled", false)
@@ -395,7 +395,7 @@
                                 @endforeach
                             </select>`)
             $("#team3Coin").select2();
-            $("#kondisi").attr("disabled", true)
+            $("#kondisi").attr("disabled", false)
             $("#addTeamBtn").addClass("sembunyi");
             $(this).parent().html(`<button type="button" class="btn btn-outline-secondary" id="removeTeamBtn">Remove
                                         Team
