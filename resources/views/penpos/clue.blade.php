@@ -5,12 +5,13 @@
     <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
     <!--Style-->
     <style>
-        body {
-            background-color: #f1f5fd;
-        }
 
         * {
             font-family: 'Poppins', sans-serif;
+        }
+
+        .container-fluid{
+            height: 95vh;
         }
 
         .card {
@@ -117,12 +118,24 @@
         .slider.round:before {
             border-radius: 50%;
         }
+
+        @media screen and (max-width:576px){
+            .clue-page{
+                
+            }
+
+            .container-fluid{
+                height: 95vh;
+                width: 95vw;
+            }
+        }
     </style>
     <!--End Style-->
-
-    {{-- Start Pos --}}
+    <main>
+        <div class="container clue-page" my-3>
+                {{-- Start Pos --}}
     <!-- Card Container -->
-    <div class="card mx-5 my-5">
+    <div class="card w-100">
 
         <!-- Header -->
         <div class="card-header" style="text-align: center;">
@@ -145,14 +158,14 @@
             <br>
 
             <!-- Pilih Clue -->
-            <h2><b>Pilih Clue</b></h2>
+            <h2 class="my-2"><b>Pilih Clue</b></h2>
             <select name="clue-part1" id="clue_part1">
                 <option value="">-- Pilih Kartu 1 --</option>
                 <option value="1">Item 1</option>
                 <option value="2">Item 2</option>
                 <option value="3">Item 3</option>
             </select> +
-            <select name="clue-part2" id="clue_part2">
+            <select name="clue-part2" id="clue_part2" class="my-3">
                 <option value="">-- Pilih Kartu 2 --</option>
                 <option value="1">Item 1</option>
                 <option value="2">Item 2</option>
@@ -176,6 +189,9 @@
     </div>
     <!-- End Card Container -->
     {{-- End Pos --}}
+        </div>
+    </main>
+
     {{-- Scripts --}}
     <script type="text/javascript">
         $(document).ready(function() {
