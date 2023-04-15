@@ -437,36 +437,31 @@
                     <br>
                     <br>
                     <b>Tipe Penpos : </b><b id="detailPosTipe"></b>
-                    <br>
-                    <br>
-                    <b>Team in Waiting : </b>
-                    <br>
-                    <p>Masih dalam perbaikan</p>
                 </div>
             </div>
         </div>
     </div>
 
     <script>
-        // function pos(id) {
-        //     $.ajax({
-        //         type: "POST",
-        //         url: "{{ route('pemain.penposDetail') }}", // Route 
-        //         data: {
-        //             '_token': "{{ csrf_token() }}",
-        //             'pos_id': id
-        //         },
-        //         success: function(data) {
-        //             if (data.status == "success") {
-        //                 $("#detailPosTitle").html(data.penposData['nama']);
-        //                 $("#detailPosNama").html(data.penposData['nama']);
-        //                 $("#detailPosStatus").html(data.penposData['status']);
-        //                 $("#detailPosTipe").html(data.penposData['tipe']);
-        //                 $("#detailPos").modal('show');
-        //             }
-        //         }
-        //     });
-        // }
+        function pos(id) {
+            $.ajax({
+                type: "POST",
+                url: "{{ route('pemain.penposDetail') }}", // Route 
+                data: {
+                    '_token': "{{ csrf_token() }}",
+                    'pos_id': id
+                },
+                success: function(data) {
+                    if (data.status == "success") {
+                        $("#detailPosTitle").html(data.penposData['nama']);
+                        $("#detailPosNama").html(data.penposData['nama']);
+                        $("#detailPosStatus").html(data.penposData['status']);
+                        $("#detailPosTipe").html(data.penposData['deskripsi']);
+                        $("#detailPos").modal('show');
+                    }
+                }
+            });
+        }
 
         Pusher.logToConsole = true;
 

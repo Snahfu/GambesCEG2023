@@ -127,7 +127,6 @@
             <div class="card">
                 <div class="card-header">
                     <h1 style="font-weight: bold;text-align:center;">{{ $penposData->nama }}</h1>
-                    <p style="font-weight: bold;text-align:center;">{{ $penposData->deskripsi }}</p>
                 </div>
                 <div class="card-body" id="card-body-wrapper">
                     <form action="{{ route('penpos.insertHasil') }}" method="post">
