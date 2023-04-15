@@ -46,7 +46,18 @@ class PenposController extends Controller
 
     public function leaderboard()
     {
-        $leaderboard = Team::orderBy('coin')->get();
+        $arrayLeaderboard = Team::orderBy('coin')->get();
+        $leaderboard = [];
+        foreach($arrayLeaderboard as $pemain){
+            $tokoKartus = $pemain->toko_kartu->where('pivot.stock', 0)->all();
+            $temporaryArray = array();
+            $panjang = count($tokoKartus);
+            $temporaryArray = [ "nama" => $pemain->nama, "coin" => $pemain->coin + $panjang*100];
+            array_push($leaderboard, $temporaryArray);
+        }
+        $coinValues = array_column($leaderboard, "coin");
+        array_multisort($coinValues, SORT_DESC, $leaderboard);
+        dd($leaderboard);
         return view('penpos.leaderboard', compact('leaderboard'));
     }
 

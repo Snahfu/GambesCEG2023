@@ -50,8 +50,8 @@
                             @foreach ($leaderboard as $team)
                                 <tr>
                                     <td>{{ $counter }}</td>
-                                    <td>{{ $team->nama }}</td>
-                                    <td>{{ $team->coin }}</td>
+                                    <td>{{ $team['nama'] }}</td>
+                                    <td>{{ $team['coin'] }}</td>
                                     @php
                                         $counter += 1;
                                     @endphp
