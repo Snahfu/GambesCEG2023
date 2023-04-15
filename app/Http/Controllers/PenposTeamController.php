@@ -25,7 +25,7 @@ class PenposTeamController extends Controller
             "namapos" => $selectedPos->nama,
             "penposteams" => PenposTeam::latest('jam')->where(
                 'penpos_id',
-                Auth::user()->id
+                Auth::user()->penpos_id,
             )->paginate(10),
             "namateams" => Team::all()
         ]);
