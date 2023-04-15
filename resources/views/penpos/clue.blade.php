@@ -1,6 +1,8 @@
 @extends('penpos.app')
 
 @section('content')
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
     <!--Style-->
     <style>
         body {
@@ -132,8 +134,8 @@
 
             <!-- Pilih Tim -->
             <h2><b>Pilih Tim</b></h2>
-            <select class="form-select" id="teamselector">
-                <option selected hidden>-- Pilih Pemain --</option>
+            <select id="teamselector" class="select2">
+                <option selected disabled>-- Pilih Pemain --</option>
                 {{-- semua team yang belum main di pos ini --}}
                 @foreach ($teams as $team)
                     <option value="{{ $team->id }}">{{ $team->nama }}</option>
@@ -176,6 +178,9 @@
     {{-- End Pos --}}
     {{-- Scripts --}}
     <script type="text/javascript">
+        $(document).ready(function() {
+            $('.select2').select2();
+        });
         $(document).on("change", 'select[id="teamselector"]', function() {
             var idTeam = document.getElementById("teamselector");
             $.ajax({
