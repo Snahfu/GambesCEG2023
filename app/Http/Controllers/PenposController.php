@@ -57,7 +57,6 @@ class PenposController extends Controller
         }
         $coinValues = array_column($leaderboard, "coin");
         array_multisort($coinValues, SORT_DESC, $leaderboard);
-        dd($leaderboard);
         return view('penpos.leaderboard', compact('leaderboard'));
     }
 
