@@ -249,6 +249,7 @@
                 .done(function(data) {
                     if (data['status'] == "success") {
                         $('#hasilCheck').html("Hasil : " + data['msg']);
+                        alert(data['msg']);
                         location.reload();
                     }
                     else {
